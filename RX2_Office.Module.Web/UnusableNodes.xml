@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="CustomerClassifications_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="CustomerClassifications" RelativeSize="5.0666666666666664">
+              <LayoutItem Id="Classification" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" Caption="Oid" Direction="Horizontal" RelativeSize="94.933333333333337">
+              <LayoutItem Id="Oid" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="CustomerContact_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors" RelativeSize="5.025125628140704" Caption="Notes" Direction="Horizontal">
+            <LayoutItem Id="Notes" RelativeSize="100" Removed="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" RelativeSize="10.344827586206897">
+              <LayoutItem Id="Oid" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="CustomerContact">
+              <LayoutGroup Id="CustomerContact_col1">
+                <LayoutItem Id="MiddleName" Index="1" RelativeSize="10.344827586206897" Removed="True" />
+                <LayoutItem Id="Address" RelativeSize="10.344827586206897" Index="3" Removed="True" />
+                <LayoutItem Id="Address2" RelativeSize="10" Index="4" Removed="True" />
+                <LayoutItem Id="City" RelativeSize="9.375" Index="4" Removed="True" />
+                <LayoutItem Id="State" RelativeSize="9.375" Index="4" Removed="True" />
+                <LayoutItem Id="ZipCode" RelativeSize="12.5" Index="4" Removed="True" />
+                <LayoutItem Id="FirstName" RelativeSize="13.793103448275861" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="CustomerContact_col2">
+                <LayoutItem Id="Email" RelativeSize="13.793103448275861" Index="0" Removed="True" />
+                <LayoutItem Id="FaceBook" RelativeSize="13.793103448275861" Index="0" Removed="True" />
+                <LayoutItem Id="Fax" RelativeSize="13.793103448275861" Index="0" Removed="True" />
+                <LayoutItem Id="Mobile" RelativeSize="13.793103448275861" Index="0" Removed="True" />
+                <LayoutItem Id="Photo" RelativeSize="100" Index="0" CaptionLocation="Top" />
+                <LayoutItem Id="BirthDate" RelativeSize="10.344827586206897" Removed="True" />
+                <LayoutItem Id="Customers" RelativeSize="13.793103448275861" Removed="True" />
+                <LayoutItem Id="Phone" RelativeSize="13.793103448275861" Removed="True" />
+                <LayoutItem Id="SendMarketing" RelativeSize="24.137931034482758" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Customer_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" RelativeSize="11.111111111111111" Caption="Oid" Direction="Horizontal" Removed="True">
+              <LayoutItem Id="Oid" RelativeSize="100" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Customer">
+              <LayoutGroup Id="Customer_col2" RelativeSize="25.296442687747035">
+                <LayoutItem Id="CreditLimit" RelativeSize="10.958904109589041" Index="0" />
+                <LayoutItem Id="SalesRep" RelativeSize="10.958904109589041" Index="0" Removed="True" />
+                <LayoutItem Id="StateLicExpDate" RelativeSize="9.75609756097561" Index="0" Removed="True" />
+                <LayoutItem Id="FederalTaxId" RelativeSize="7.3170731707317076" Index="1" Removed="True" />
+                <LayoutItem Id="UnitCount" ViewItem="UnitCount" Index="1" RelativeSize="89.041095890410958" />
+                <LayoutItem Id="CreatedBy" RelativeSize="6" Index="2" Removed="True" />
+                <LayoutItem Id="OldPmasid" RelativeSize="6.3829787234042552" Index="2" Removed="True" />
+                <LayoutItem Id="ShippingNotes" RelativeSize="65.517241379310349" Index="3" Removed="True" />
+                <LayoutItem Id="Longitude" RelativeSize="6" Index="5" Removed="True" />
+                <LayoutItem Id="InvoiceFax" RelativeSize="6" Index="8" Removed="True" />
+                <LayoutItem Id="CustomerInvoiceType" RelativeSize="6" Index="10" Removed="True" />
+                <LayoutItem Id="InvoiceEmail" RelativeSize="6" Index="11" Removed="True" />
+                <LayoutItem Id="Classification" RelativeSize="14" Index="14" Removed="True" />
+                <LayoutItem Id="CreatedDate" RelativeSize="6" Removed="True" />
+                <LayoutItem Id="CustomerGPO" RelativeSize="5.3571428571428568" Removed="True" />
+                <LayoutItem Id="CustomerParentSystem" RelativeSize="5.6603773584905657" Removed="True" />
+                <LayoutItem Id="Latitude" RelativeSize="6" Removed="True" />
+                <LayoutItem Id="ShippingType" RelativeSize="5.0847457627118642" Removed="True" />
+                <LayoutItem Id="StateLicense" RelativeSize="9.75609756097561" Removed="True" />
+                <LayoutItem Id="Wholesaler" RelativeSize="6" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Customer_col1">
+                <LayoutItem Id="DeaExpDate" RelativeSize="6.8181818181818183" Index="2" Removed="True" />
+                <LayoutItem Id="Phone" RelativeSize="7.8947368421052628" Index="2" Removed="True" />
+                <LayoutItem Id="Fax" Index="4" RelativeSize="7.8947368421052628" Removed="True" />
+                <LayoutItem Id="UnitCount" Index="4" RelativeSize="11.428571428571429" Removed="True" />
+                <LayoutItem Id="ShipAddress" Index="6" RelativeSize="4.4117647058823533" Removed="True" />
+                <LayoutItem Id="ShipAddress2" Index="6" RelativeSize="4.615384615384615" Removed="True" />
+                <LayoutItem Id="ShipAddress3" Index="6" RelativeSize="4.838709677419355" Removed="True" />
+                <LayoutItem Id="ShipCity" Index="6" RelativeSize="5.0847457627118642" Removed="True" />
+                <LayoutItem Id="ShipState" Index="6" RelativeSize="5.0847457627118642" Removed="True" />
+                <LayoutItem Id="ShipZip" Index="6" RelativeSize="5.0847457627118642" Removed="True" />
+                <LayoutItem Id="Website" Index="6" RelativeSize="9.75609756097561" Removed="True" />
+                <LayoutItem Id="BillingAddress" Removed="True" />
+                <LayoutItem Id="BillingAddress2" Removed="True" />
+                <LayoutItem Id="BillingAddress3" Removed="True" />
+                <LayoutItem Id="BillingCity" Removed="True" />
+                <LayoutItem Id="BillingState" Removed="True" />
+                <LayoutItem Id="BillingZip" Removed="True" />
+                <LayoutItem Id="CustomerName" RelativeSize="9.375" Removed="True" />
+                <LayoutItem Id="CustomerNo" RelativeSize="12.5" Removed="True" />
+                <LayoutItem Id="DeaNo" RelativeSize="6.3829787234042552" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

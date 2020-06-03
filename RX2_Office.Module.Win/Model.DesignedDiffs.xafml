@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="CommissionSerialNo" Index="1" />
+      <Action Id="AggEvent" Index="2" />
+      <Action Id="repackShipEvent" Index="3" />
+      <Action Id="InventoryItemBatchItemScan" TargetObjectsCriteria="[Status] = ##Enum#RX2_Office.Module.BusinessObjects.eItemInventoryBatchStatus,Scanning#" SelectionDependencyType="RequireSingleObject" ShowItemsOnClick="True">
+        <DisableReasons Index="">
+          <Reason Id="@13938975-885a-4cd5-b35e-e06c2c5d0b1f" Caption="Disabled status is not scanning" IsNewNode="True" />
+        </DisableReasons>
+      </Action>
+    </Actions>
+    <Controllers>
+      <ViewController Name="RX2_Office.Module.Controllers.WO.RepackLabelPrint" Index="1">
+        <Actions>
+          <ActionLink ActionId="CommissionSerialNo" Index="1" />
+          <ActionLink ActionId="AggEvent" Index="2" />
+          <ActionLink ActionId="repackShipEvent" Index="3" />
+          <ActionLink ActionId="d6652ec5-7b8d-4d69-a50b-bbdcec692350" Index="99" />
+        </Actions>
+      </ViewController>
+    </Controllers>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="RX2_Office.Module.BusinessObjects.CustomerNote" DefaultLookupEditorMode="Search" />
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="InventoryCardView" ViewId="InventoryCardView" QuickAccessItem="True" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options UIType="TabbedMDI" />
+  <SchemaModules>
+    <SchemaModule Name="SchedulerModuleBase" Version="19.2.1.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerWindowsFormsModule" Version="19.2.1.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="19.2.1.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="19.2.1.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="CustomerInvoiceHistory_InvoicenumberDetails_ListView" AllowDelete="False" AllowLink="False" AllowNew="False" />
+    <DetailView Id="CustomerInvoiceHistoryDetails_DetailView" AllowDelete="False" AllowEdit="False" AllowNew="False" CustomizationEnabled="False" />
+    <ListView Id="CustomerInvoiceHistoryDetails_ListView" AllowDelete="False" AllowLink="False" AllowNew="False" />
+    <DetailView Id="CustomerLicenseVerifications_DetailView" AllowDelete="False" AllowEdit="False" AllowNew="False" />
+    <DetailView Id="CustomerLicenseVerifications_DetailViewEntry" DefaultFocusedItem="LicenseNumber" />
+    <DashboardView Id="InventoryCardView" AllowDelete="False" AllowNew="False" CustomizationEnabled="False" IsNewNode="True">
+      <Items IsNewNode="True">
+        <ControlDetailItem Id="InventoryCardView" ControlTypeName="Inventorycardview" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" ShowCaption="False" TextAlignMode="AlignWithChildren" Index="0" RelativeSize="100" IsNewNode="True">
+          <LayoutItem Id="InventoryCardView" ViewItem="InventoryCardView" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True" />
+        </LayoutGroup>
+      </Layout>
+    </DashboardView>
+    <DashboardView Id="ItemInventoryScanUC" IsNewNode="True">
+      <Items IsNewNode="True">
+        <ControlDetailItem Id="itemscan" ControlTypeName="ItemInventoryScanUserControl" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" IsNewNode="True">
+          <LayoutItem Id="itemscan" ViewItem="itemscan" Index="0" IsNewNode="True" />
+        </LayoutGroup>
+      </Layout>
+    </DashboardView>
+    <ListView Id="Items_ListView_F12" TopReturnedObjects="0" ShowFindPanel="True" FreezeColumnIndices="False" />
+    <DetailView Id="npRepackLabelParm_DetailView">
+      <Items>
+        <PropertyEditor Id="LabelFile" PropertyEditorType="RX2_Office.Module.Win.Editors.FileBrowseEditor" />
+        <PropertyEditor Id="PrinterName" PropertyEditorType="RX2_Office.Module.Win.Editors.PrinterBrowseEditor" />
+      </Items>
+    </DetailView>
+    <DetailView Id="RepackItems_DetailView">
+      <Items>
+        <PropertyEditor Id="BTDefualtTemplate" PropertyEditorType="RX2_Office.Module.Win.Editors.FileBrowseEditor" />
+        <PropertyEditor Id="BTPalletLabelTemplate" PropertyEditorType="RX2_Office.Module.Win.Editors.FileBrowseEditor" />
+        <PropertyEditor Id="BTShippingLabelTemplate" PropertyEditorType="RX2_Office.Module.Win.Editors.FileBrowseEditor" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="68.484848484848484">
+            <TabbedGroup Id="Item2">
+              <LayoutGroup Id="RepackItems">
+                <LayoutGroup Id="RepackItems_col1" RelativeSize="72.9064039408867">
+                  <LayoutGroup Id="Auto7124150f-775f-48b2-b071-469fa6dcfdec">
+                    <LayoutItem Id="NDC" RelativeSize="45.270270270270274" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto08232a74-daa5-4d7d-bd02-5bdf6860f445" RelativeSize="45.073891625615765">
+                    <LayoutItem Id="Gtin" RelativeSize="14.754098360655737" />
+                    <LayoutItem Id="ShipperGtin" RelativeSize="13.114754098360656" />
+                    <LayoutItem Id="PalletSSCC" ViewItem="PalletSSCC" Index="2" RelativeSize="13.114754098360656" IsNewNode="True" />
+                    <LayoutItem Id="PartialPalletSSCC" ViewItem="PartialPalletSSCC" Index="3" RelativeSize="13.114754098360656" IsNewNode="True" />
+                    <LayoutItem Id="DefaultSGLN" Index="4" RelativeSize="13.114754098360656" />
+                    <LayoutItem Id="ItemDescription" Index="5" RelativeSize="13.114754098360656" />
+                    <LayoutGroup Id="Auto4ac4581a-512d-49a1-83f6-2fd4fc4e51f8" Index="6" RelativeSize="19.672131147540984">
+                      <LayoutItem Id="ItemQtyOnHand" RelativeSize="45.270270270270274" />
+                      <LayoutItem Id="ItemQtyWo" RelativeSize="54.729729729729726" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto3bebe8cd-4cdd-4d11-a1a7-0c8a55668343">
+                    <LayoutItem Id="DefaultRepackager" RelativeSize="45.270270270270274" />
+                    <LayoutItem Id="Manufacturer" RelativeSize="54.729729729729726" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="RepackItems_col2" RelativeSize="27.0935960591133" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item6">
+                <LayoutGroup Id="Autoc789793a-46e7-4bcf-a79e-518d42ec33e3">
+                  <LayoutItem Id="OriginalNDC" RelativeSize="48.440065681444992" />
+                  <LayoutItem Id="OriginalItemNumber" RelativeSize="51.559934318555008" />
+                </LayoutGroup>
+                <LayoutGroup Id="Autoccf067c9-20ee-42d3-a60d-e41ecd1b9f8f">
+                  <LayoutGroup Id="Auto59c355bd-464d-4154-a3fe-1c83d1caa834">
+                    <LayoutItem Id="OriginalQtyOnHand" RelativeSize="55.665024630541872" />
+                    <LayoutItem Id="OriginalQtyOnPO" RelativeSize="44.334975369458128" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item5">
+                <LayoutItem Id="LastMonthSales" RelativeSize="37.110016420361248" />
+                <LayoutItem Id="CurrentMonth" RelativeSize="62.889983579638752" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item3">
+                <LayoutGroup Id="Auto240555ab-5d5a-4326-83c9-eb3d0050e23e" RelativeSize="65.1888341543514">
+                  <LayoutGroup Id="Auto0848c378-0575-4ede-82a6-33ec592f3930">
+                    <LayoutGroup Id="Auto6108b0c1-1ddb-45f5-8f27-5cf24578b234">
+                      <LayoutItem Id="DEACLASS" RelativeSize="50.629722921914357" />
+                      <LayoutItem Id="SerialType" RelativeSize="49.370277078085643" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Auto846ec7eb-684b-46cd-a435-fc6daa19ecf2" RelativeSize="34.8111658456486" />
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="0.15151515151515152" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="69738711-11f1-446a-9c58-a012538114bc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://unitdose-dev.track-n-trace.net/rfxcelwss/services/IMessagingServiceSoapHttpPort?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IMessagingServiceSoapHttpPort.xsd" MetadataType="Schema" ID="e193b998-01ae-4d31-8d50-795630c94c59" SourceId="1" SourceUrl="https://unitdose-dev.track-n-trace.net/rfxcelwss/services/IMessagingServiceSoapHttpPort?xsd=xmlmime.xsd" />
+    <MetadataFile FileName="IMessagingServiceSoapHttpPort1.xsd" MetadataType="Schema" ID="4f0358bd-e587-43e7-9dd5-ef00ad6f71c3" SourceId="1" SourceUrl="https://unitdose-dev.track-n-trace.net/rfxcelwss/services/IMessagingServiceSoapHttpPort?xsd=ApiCore.xsd" />
+    <MetadataFile FileName="MessagingService.wsdl" MetadataType="Wsdl" ID="ac2b595d-890a-43ba-acbb-1179d2337506" SourceId="1" SourceUrl="https://unitdose-dev.track-n-trace.net/rfxcelwss/services/IMessagingServiceSoapHttpPort?wsdl" />
+    <MetadataFile FileName="IMessagingServiceSoapHttpPort2.xsd" MetadataType="Schema" ID="4e8dacc5-b3d3-4343-9591-56983b6b187d" SourceId="1" SourceUrl="https://unitdose-dev.track-n-trace.net/rfxcelwss/services/IMessagingServiceSoapHttpPort?xsd=MessagingService.xsd" />
+    <MetadataFile FileName="IMessagingServiceSoapHttpPort3.xsd" MetadataType="Schema" ID="f444f958-d26d-49c6-bf63-46f5bc98cb50" SourceId="1" SourceUrl="https://unitdose-dev.track-n-trace.net/rfxcelwss/services/IMessagingServiceSoapHttpPort?xsd=Core.xsd" />
+    <MetadataFile FileName="IMessagingServiceSoapHttpPort4.xsd" MetadataType="Schema" ID="f06d6a96-4981-406f-b96c-1bf63f013bed" SourceId="1" SourceUrl="https://unitdose-dev.track-n-trace.net/rfxcelwss/services/IMessagingServiceSoapHttpPort?xsd=xml.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

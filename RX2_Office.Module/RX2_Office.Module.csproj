@@ -1,0 +1,975 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RX2_Office.Module</RootNamespace>
+    <AssemblyName>RX2_Office.Module</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'EasyTest|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\EasyTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;EASYTEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\OfficeRX.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.BonusSkins.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Controls.Data.v6.3">
+      <HintPath>..\RX2_Office.Module.Win\bin\Debug\DevExpress.DXCore.Controls.Data.v6.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Images.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Notifications.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Validation.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Web.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.TreeMap.v19.2.Core, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeMap.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v19.2.Core, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.Resources.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v19.2.Web.WebForms, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v19.2.Web, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.EF.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.BaseImpl.EF.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v19.2.Win, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v19.2.UI, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.AuditTrail.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Chart.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ConditionalAppearance.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Kpi.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Notifications.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Objects.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotChart.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotGrid.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Reports.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.Web.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Scheduler.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.Xpo.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Validation.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Xpo.v19.2">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v19.2.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v19.2.Export">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v19.2.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v19.2">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.v19.2">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.Base.v19.2">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.BaseImpl.v19.2">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.ExpressionEditor.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.DataAccess.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v19.2">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v19.2.Wizard, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraDiagram.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v19.2.Drawing, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v19.2.Core, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v19.2.Service, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v19.2.Reporting.Extensions, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v19.2.Core, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v19.2.Extensions, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FDBAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\yoda\ITDEV\Source\FDBAPI\4.5.2\FDBAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Conversion.v4.0" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Seagull.BarTender.Print, Version=11.0.8.1, Culture=neutral, PublicKeyToken=109ff779a1b4cbc7, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Seagull\BarTender Suite\SDK\Assemblies\Seagull.BarTender.Print.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Design">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessObjects\ApplicationOptions.cs" />
+    <Compile Include="BusinessObjects\AuthenticationActiveDirectoryUser.cs" />
+    <Compile Include="BusinessObjects\BusinessLogic\Commission.cs" />
+    <Compile Include="BusinessObjects\BOCustomers\CustomerInvoiceController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessObjects\BOCustomers\CustomerInvoiceController.Designer.cs">
+      <DependentUpon>CustomerInvoiceController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\BOCustomers\Customertemp.cs" />
+    <Compile Include="BusinessObjects\BusinessLogic\BarcodeUtil.cs" />
+    <Compile Include="BusinessObjects\BusinessLogic\GS1DataConvert.cs" />
+    <Compile Include="BusinessObjects\BusinessLogic\GS1DataConvert2cs.cs" />
+    <Compile Include="BusinessObjects\BusinessLogic\SMSCOMMS.cs" />
+    <Compile Include="BusinessObjects\Customer222Forms.cs" />
+    <Compile Include="BusinessObjects\CustomerBillingTerms.cs" />
+    <Compile Include="BusinessObjects\CustomerCart.cs" />
+    <Compile Include="BusinessObjects\CustomerContactType.cs" />
+    <Compile Include="BusinessObjects\CustomerEvent.cs" />
+    <Compile Include="BusinessObjects\DomainObject1.cs" />
+    <Compile Include="BusinessObjects\IDGenerator.cs" />
+    <Compile Include="BusinessObjects\BusinessLogic\SequenceGenerator.cs" />
+    <Compile Include="BusinessObjects\BusinessLogic\CustomerBL.cs" />
+    <Compile Include="BusinessObjects\InventoryItemBatchItems.cs" />
+    <Compile Include="BusinessObjects\InventoryScan.cs" />
+    <Compile Include="BusinessObjects\ItemInventoryBatch.cs" />
+    <Compile Include="BusinessObjects\ItemProductLineComm.cs" />
+    <Compile Include="BusinessObjects\ItemReceiverSerialNo.cs" />
+    <Compile Include="BusinessObjects\ItemInventoryBatchSerialNo.cs" />
+    <Compile Include="BusinessObjects\PersistentClasses1.cs" />
+    <Compile Include="BusinessObjects\PersistentClasses3.cs" />
+    <Compile Include="BusinessObjects\PersistentClasses4.cs" />
+    <Compile Include="BusinessObjects\ReceiverPackageItems.cs" />
+    <Compile Include="BusinessObjects\ReceiverPackageItemSerialNo.cs" />
+    <Compile Include="BusinessObjects\SalesRepGrouping.cs" />
+    <Compile Include="BusinessObjects\CustomerCustomUDRequest.cs" />
+    <Compile Include="BusinessObjects\BusinessLogic\Email.cs" />
+    <Compile Include="BusinessObjects\BusinessLogic\RandomPassword.cs" />
+    <Compile Include="BusinessObjects\CustomerCDR.cs" />
+    <Compile Include="BusinessObjects\CustomerInvoicePayments.cs" />
+    <Compile Include="BusinessObjects\CustomerInvoiceTerms.cs" />
+    <Compile Include="BusinessObjects\CustomerItemPricing.cs" />
+    <Compile Include="BusinessObjects\CustomerRelease.cs" />
+    <Compile Include="BusinessObjects\CustomerWebUsers.cs" />
+    <Compile Include="BusinessObjects\CustomerGPOItemPricing.cs" />
+    <Compile Include="BusinessObjects\Employee.cs" />
+    <Compile Include="BusinessObjects\EmployeeNotifications.cs" />
+    <Compile Include="BusinessObjects\EmployeeRole.cs" />
+    <Compile Include="BusinessObjects\EmployeeTask.cs" />
+    <Compile Include="BusinessObjects\ItemInventorySerialNo.cs" />
+    <Compile Include="BusinessObjects\ItemMinChangeHistory.cs" />
+    <Compile Include="BusinessObjects\ItemPTB.cs" />
+    <Compile Include="BusinessObjects\ItemWarehouse.cs" />
+    <Compile Include="BusinessObjects\npRepackLabelParm.cs" />
+    <Compile Include="BusinessObjects\RepackDistributor.cs" />
+    <Compile Include="BusinessObjects\RepackItems.cs" />
+    <Compile Include="BusinessObjects\RepackLotGenerate.cs" />
+    <Compile Include="BusinessObjects\RepackLotSerialNo.cs" />
+    <Compile Include="BusinessObjects\SalesRep.cs" />
+    <Compile Include="BusinessObjects\SalesRepGoals.cs" />
+    <Compile Include="BusinessObjects\Shippers.cs" />
+    <Compile Include="BusinessObjects\SOHeader.cs" />
+    <Compile Include="BusinessObjects\UserFriendlyIdPersistentObject.cs" />
+    <Compile Include="BusinessObjects\UserTask.cs" />
+    <Compile Include="BusinessObjects\VendorGroups.cs" />
+    <Compile Include="BusinessObjects\VendorInvoice.cs" />
+    <Compile Include="BusinessObjects\VendorItemPricing.cs" />
+    <Compile Include="BusinessObjects\WebUsers.cs" />
+    <Compile Include="BusinessObjects\ItemPricingGroupList.cs" />
+    <Compile Include="BusinessObjects\ItemPricingGroup.cs" />
+    <Compile Include="BusinessObjects\ItemRequest.cs" />
+    <Compile Include="BusinessObjects\SalesTeams.cs" />
+    <Compile Include="BusinessObjects\SODetails.cs" />
+    <Compile Include="BusinessObjects\SOItemDistibution.cs" />
+    <Compile Include="Controllers\IM\FirstDataUpdate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\IM\FirstDataUpdate.Designer.cs">
+      <DependentUpon>FirstDataUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\IM\ItemInventorycs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\IM\ItemInventorycs.Designer.cs">
+      <DependentUpon>ItemInventorycs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PO\NewPurchaseOrderWC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\PO\NewPurchaseOrderWC.Designer.cs">
+      <DependentUpon>NewPurchaseOrderWC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PO\PurchasingController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\PO\PurchasingController.Designer.cs">
+      <DependentUpon>PurchasingController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Shipping\EditInventoryItemBatch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Shipping\EditInventoryItemBatch.Designer.cs">
+      <DependentUpon>EditInventoryItemBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Shipping\SHippingInventoryController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Shipping\SHippingInventoryController.Designer.cs">
+      <DependentUpon>SHippingInventoryController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Shipping\SOPackageItemsViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Shipping\SOPackageItemsViewController.Designer.cs">
+      <DependentUpon>SOPackageItemsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\SO\SalesInvoiceController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SO\SalesInvoiceController.Designer.cs">
+      <DependentUpon>SalesInvoiceController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Shipping\ShippingController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Shipping\ShippingController.Designer.cs">
+      <DependentUpon>ShippingController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ReceiverPackage.cs" />
+    <Compile Include="Reports\IM\InvItemLabelRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IM\InvItemLabelRpt.Designer.cs">
+      <DependentUpon>InvItemLabelRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PO\poPrintRPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PO\poPrintRPT.Designer.cs">
+      <DependentUpon>poPrintRPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RXClasses\RXMail.cs" />
+    <Compile Include="Controllers\Cust\ChangeRecMgrController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Cust\ChangeRecMgrController.Designer.cs">
+      <DependentUpon>ChangeRecMgrController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Cust\CustomerCustomRequestController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Cust\CustomerCustomRequestController.Designer.cs">
+      <DependentUpon>CustomerCustomRequestController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Cust\CustomerReleaseController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Cust\CustomerReleaseController.Designer.cs">
+      <DependentUpon>CustomerReleaseController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Cust\CustomerVerificationController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Cust\CustomerVerificationController.Designer.cs">
+      <DependentUpon>CustomerVerificationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Cust\CustomerWebUserController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Cust\CustomerWebUserController.Designer.cs">
+      <DependentUpon>CustomerWebUserController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\IM\ItemsController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\IM\ItemsController.Designer.cs">
+      <DependentUpon>ItemsController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PO\PurchaseOrderLineController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\PO\PurchaseOrderLineController.Designer.cs">
+      <DependentUpon>PurchaseOrderLineController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\SO\SalesOrderDetailController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SO\SalesOrderDetailController.Designer.cs">
+      <DependentUpon>SalesOrderDetailController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Shipping\ShippingItemReceiverController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Shipping\ShippingItemReceiverController.Designer.cs">
+      <DependentUpon>ShippingItemReceiverController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\SwitchAction.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SwitchAction.Designer.cs">
+      <DependentUpon>SwitchAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\VCCustomerPayments.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\VCCustomerPayments.Designer.cs">
+      <DependentUpon>VCCustomerPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentUserNameOperator.cs" />
+    <Compile Include="BusinessObjects\BusinessLogic\ComplianceBL.cs" />
+    <Compile Include="CustomFunctionOperator.cs" />
+    <Compile Include="BusinessObjects\CommissionFormulas.cs" />
+    <Compile Include="BusinessObjects\BOCustomers\Customer.cs" />
+    <Compile Include="BusinessObjects\CustomerClassification.cs" />
+    <Compile Include="BusinessObjects\CustomerContact.cs" />
+    <Compile Include="BusinessObjects\CustomerGPO.cs" />
+    <Compile Include="BusinessObjects\CustomerIDN.cs" />
+    <Compile Include="BusinessObjects\CustomerInvoiceHistory.cs" />
+    <Compile Include="BusinessObjects\CustomerInvoiceHistoryDetails.cs" />
+    <Compile Include="BusinessObjects\CustomerLicenseVerifications.cs" />
+    <Compile Include="BusinessObjects\ItemT3HeaderTemplate.cs" />
+    <Compile Include="BusinessObjects\MarketingGroupCustomers.cs" />
+    <Compile Include="BusinessObjects\CustomerNote.cs" />
+    <Compile Include="BusinessObjects\CustomerParentSystem.cs" />
+    <Compile Include="BusinessObjects\CustomerTerritory.cs" />
+    <Compile Include="BusinessObjects\DistributionCenter.cs" />
+    <Compile Include="BusinessObjects\DistributionCenterLicense.cs" />
+    <Compile Include="BusinessObjects\DistributionCenterWhse.cs" />
+    <Compile Include="BusinessObjects\DistributionCenterWhseBins.cs" />
+    <Compile Include="BusinessObjects\Enums.cs" />
+    <Compile Include="BusinessObjects\ItemInventory.cs" />
+    <Compile Include="BusinessObjects\ItemProductLine.cs" />
+    <Compile Include="BusinessObjects\ItemPurchaseOrder.cs" />
+    <Compile Include="BusinessObjects\ItemPurchaseOrderLine.cs" />
+    <Compile Include="BusinessObjects\ItemReceiver.cs" />
+    <Compile Include="BusinessObjects\Items.cs" />
+    <Compile Include="BusinessObjects\ItemTransaction.cs" />
+    <Compile Include="BusinessObjects\ItemUnitOfMeasure.cs" />
+    <Compile Include="BusinessObjects\LicenseType.cs" />
+    <Compile Include="BusinessObjects\ManufacturerNote.cs" />
+    <Compile Include="BusinessObjects\Manufactures.cs" />
+    <Compile Include="BusinessObjects\PaymentTermsCode.cs" />
+    <Compile Include="BusinessObjects\RepackCustomerFormulary.cs" />
+    <Compile Include="BusinessObjects\RepackLotOperations.cs" />
+    <Compile Include="BusinessObjects\RepackLots.cs" />
+    <Compile Include="BusinessObjects\RepackLotStatus.cs" />
+    <Compile Include="BusinessObjects\RepackMachines.cs" />
+    <Compile Include="BusinessObjects\RepackMachineTypes.cs" />
+    <Compile Include="BusinessObjects\RepackOperations.cs" />
+    <Compile Include="BusinessObjects\RepackOperationTypes.cs" />
+    <Compile Include="BusinessObjects\RepackPackager.cs" />
+    <Compile Include="BusinessObjects\RepackStatus.cs" />
+    <Compile Include="BusinessObjects\ShippingType.cs" />
+    <Compile Include="BusinessObjects\State.cs" />
+    <Compile Include="BusinessObjects\UserWithRoles.cs" />
+    <Compile Include="BusinessObjects\Vendor.cs" />
+    <Compile Include="BusinessObjects\VendorContact.cs" />
+    <Compile Include="BusinessObjects\VendorNote.cs" />
+    <Compile Include="BusinessObjects\VendorType.cs" />
+    <Compile Include="BusinessObjects\Wholesaler.cs" />
+    <Compile Include="BusinessObjects\WorkOrders.cs" />
+    <Compile Include="BusinessObjects\ZipCode.cs" />
+    <Compile Include="Controllers\Cust\CustomerNotesController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Cust\CustomerNotesController.Designer.cs">
+      <DependentUpon>CustomerNotesController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\IM\ItemLookup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\IM\ItemLookup.Designer.cs">
+      <DependentUpon>ItemLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\MarketingGroup.cs" />
+    <Compile Include="DatabaseUpdate\Updater.cs" />
+    <Compile Include="BusinessObjects\MarketingGroupItems.cs" />
+    <Compile Include="Module.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Module.Designer.cs">
+      <DependentUpon>Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORXSecurityFilter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CurrentShipperDCOperator.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SO\rptSalesInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SO\rptSalesInvoice.Designer.cs">
+      <DependentUpon>rptSalesInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SO\RptShippingPickSheet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SO\RptShippingPickSheet.Designer.cs">
+      <DependentUpon>RptShippingPickSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SO\rptShippingPickSht.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SO\rptShippingPickSht.Designer.cs">
+      <DependentUpon>rptShippingPickSht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaleRepProductLineComPct.cs" />
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BusinessObjects\BOCustomers\CustomerInvoiceController.resx">
+      <DependentUpon>CustomerInvoiceController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Cust\ChangeRecMgrController.resx">
+      <DependentUpon>ChangeRecMgrController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Cust\CustomerCustomRequestController.resx">
+      <DependentUpon>CustomerCustomRequestController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Cust\CustomerNotesController.resx">
+      <DependentUpon>CustomerNotesController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Cust\CustomerReleaseController.resx">
+      <DependentUpon>CustomerReleaseController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Cust\CustomerVerificationController.resx">
+      <DependentUpon>CustomerVerificationController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Cust\CustomerWebUserController.resx">
+      <DependentUpon>CustomerWebUserController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\IM\FirstDataUpdate.resx">
+      <DependentUpon>FirstDataUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\IM\ItemInventorycs.resx">
+      <DependentUpon>ItemInventorycs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\IM\ItemLookup.resx">
+      <DependentUpon>ItemLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\IM\ItemsController.resx">
+      <DependentUpon>ItemsController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\PO\NewPurchaseOrderWC.resx">
+      <DependentUpon>NewPurchaseOrderWC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\PO\PurchasingController.resx">
+      <DependentUpon>PurchasingController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\PO\PurchaseOrderLineController.resx">
+      <DependentUpon>PurchaseOrderLineController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Shipping\EditInventoryItemBatch.resx">
+      <DependentUpon>EditInventoryItemBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Shipping\SHippingInventoryController.resx">
+      <DependentUpon>SHippingInventoryController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Shipping\SOPackageItemsViewController.resx">
+      <DependentUpon>SOPackageItemsViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SO\SalesInvoiceController.resx">
+      <DependentUpon>SalesInvoiceController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SO\SalesOrderDetailController.resx">
+      <DependentUpon>SalesOrderDetailController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Shipping\ShippingItemReceiverController.resx">
+      <DependentUpon>ShippingItemReceiverController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Shipping\ShippingController.resx">
+      <DependentUpon>ShippingController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SwitchAction.resx">
+      <DependentUpon>SwitchAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\VCCustomerPayments.resx">
+      <DependentUpon>VCCustomerPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\IM\InvItemLabelRpt.resx">
+      <DependentUpon>InvItemLabelRpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PO\poPrintRPT.resx">
+      <DependentUpon>poPrintRPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SO\rptSalesInvoice.resx">
+      <DependentUpon>rptSalesInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SO\RptShippingPickSheet.resx">
+      <DependentUpon>RptShippingPickSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SO\rptShippingPickSht.resx">
+      <DependentUpon>rptShippingPickSht.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DatabaseUpdate\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BusinessObjects\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controllers\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FunctionalTests\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FunctionalTests\sample.ets" />
+    <EmbeddedResource Include="Images\ReadMe.txt" />
+    <EmbeddedResource Include="Images\sample.ets" />
+    <None Include="FunctionalTests\WinSample.ets" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FunctionalTests\config.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\classification.ico" />
+    <EmbeddedResource Include="Images\customer.ico" />
+    <EmbeddedResource Include="Images\CustomerLicenseVarification.ico" />
+    <EmbeddedResource Include="Images\CustomerParent.ico" />
+    <EmbeddedResource Include="Images\customerPricing.ico" />
+    <EmbeddedResource Include="Images\customersGPO.ico" />
+    <EmbeddedResource Include="Images\DCLicense.ico" />
+    <EmbeddedResource Include="Images\DistributionCenter.ico" />
+    <EmbeddedResource Include="Images\GroupPricing.ico" />
+    <EmbeddedResource Include="Images\Inventory.ico" />
+    <EmbeddedResource Include="Images\Invoice.ico" />
+    <EmbeddedResource Include="Images\License.ico" />
+    <EmbeddedResource Include="Images\LicenseType1.ico" />
+    <EmbeddedResource Include="Images\Logo_1inch.png" />
+    <EmbeddedResource Include="Images\Logo_2inch.png" />
+    <EmbeddedResource Include="Images\manufacturer.ico" />
+    <EmbeddedResource Include="Images\Ndc.ico" />
+    <EmbeddedResource Include="Images\note-Customer.ico" />
+    <EmbeddedResource Include="Images\note-vendor.ico" />
+    <EmbeddedResource Include="Images\OfficeRX.ico" />
+    <EmbeddedResource Include="Images\order-add.ico" />
+    <EmbeddedResource Include="Images\order-cloud.ico" />
+    <EmbeddedResource Include="Images\order.ico" />
+    <EmbeddedResource Include="Images\packinglist.ico" />
+    <EmbeddedResource Include="Images\pm1.ICO" />
+    <EmbeddedResource Include="Images\ProductInventory.ico" />
+    <EmbeddedResource Include="Images\protect_red.ico" />
+    <EmbeddedResource Include="Images\PurchaseOrder.ico" />
+    <EmbeddedResource Include="Images\Purchasing.ico" />
+    <EmbeddedResource Include="Images\rating-man.ico" />
+    <EmbeddedResource Include="Images\Receiver.ico" />
+    <EmbeddedResource Include="Images\reorder.ico" />
+    <EmbeddedResource Include="Images\repack.ico" />
+    <EmbeddedResource Include="Images\RX0 %282%29.bmp" />
+    <EmbeddedResource Include="Images\RX3.bmp" />
+    <EmbeddedResource Include="Images\RXCategory.ico" />
+    <EmbeddedResource Include="Images\RXwhse.ico" />
+    <EmbeddedResource Include="Images\SalesReps.ico" />
+    <EmbeddedResource Include="Images\sap.ico" />
+    <EmbeddedResource Include="Images\setup1.ico" />
+    <EmbeddedResource Include="Images\shipment.ico" />
+    <EmbeddedResource Include="Images\solidtsilogo.png" />
+    <EmbeddedResource Include="Images\States.ico" />
+    <EmbeddedResource Include="Images\TermsCode.ico" />
+    <EmbeddedResource Include="Images\Transactions.ico" />
+    <EmbeddedResource Include="Images\UnitOfMeasure.ico" />
+    <EmbeddedResource Include="Images\Wholesaler.ico" />
+    <EmbeddedResource Include="Images\WorkOrder.ico" />
+    <EmbeddedResource Include="Images\InventoryLookup.ico" />
+    <EmbeddedResource Include="Images\Marketing.ico" />
+    <EmbeddedResource Include="Images\Request.ico" />
+    <EmbeddedResource Include="Images\F12.ico" />
+    <EmbeddedResource Include="Images\burn.ico" />
+    <EmbeddedResource Include="Images\snatch-customer.ico" />
+    <EmbeddedResource Include="Images\LicenseVerification.ico" />
+    <EmbeddedResource Include="Images\InvoiceDetail.ico" />
+    <EmbeddedResource Include="Images\CustomerCDR.ico" />
+    <EmbeddedResource Include="Images\PricingGroup.ico" />
+    <EmbeddedResource Include="Images\SalesRepTeam.ico" />
+    <EmbeddedResource Include="Images\SalesOrderDetails.ico" />
+    <EmbeddedResource Include="Images\ChangeRecordMgr.ico" />
+    <EmbeddedResource Include="Images\WebUser.ico" />
+    <EmbeddedResource Include="Images\CustomerItemPricing.ico" />
+    <EmbeddedResource Include="Images\CustomerRequest.ico" />
+    <EmbeddedResource Include="Images\Shipper.ico" />
+    <EmbeddedResource Include="Images\repackList.ico" />
+    <EmbeddedResource Include="Images\Salesrepgoal.ico" />
+    <EmbeddedResource Include="Images\list-add.ico" />
+    <EmbeddedResource Include="Images\EmployeeShippers.ico" />
+    <EmbeddedResource Include="Images\C-I.ico" />
+    <EmbeddedResource Include="Images\cII.ico" />
+    <EmbeddedResource Include="Images\ciii.ico" />
+    <EmbeddedResource Include="Images\ciV.ico" />
+    <EmbeddedResource Include="Images\cV.ico" />
+    <EmbeddedResource Include="Images\OTC.ico" />
+    <EmbeddedResource Include="Images\RX.ico" />
+    <EmbeddedResource Include="Images\UD.ico" />
+    <EmbeddedResource Include="Images\email.ico" />
+    <EmbeddedResource Include="Images\mail.ico" />
+    <EmbeddedResource Include="Images\fax.ico" />
+    <EmbeddedResource Include="Images\commissioning.ico" />
+    <EmbeddedResource Include="CallPhone.ico" />
+    <EmbeddedResource Include="Images\CallPhone.ico" />
+    <Content Include="Images\CompanyLogo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Images\Shippacking.ico" />
+    <EmbeddedResource Include="Images\Salesrepgroup.ico" />
+    <EmbeddedResource Include="Images\CustomersPayment.ico" />
+    <EmbeddedResource Include="Images\CustomerItemPricingHistory.ico" />
+    <EmbeddedResource Include="Images\Payment Terms.ico" />
+    <EmbeddedResource Include="Images\putaway.ico" />
+    <EmbeddedResource Include="Images\Pricetobeat.ico" />
+    <EmbeddedResource Include="Images\MinPrice.ico" />
+    <EmbeddedResource Include="Images\invoice-to-mail.ico" />
+    <EmbeddedResource Include="Images\invoicePrint.ico" />
+    <EmbeddedResource Include="Images\Distribution.ico" />
+    <EmbeddedResource Include="Images\MarkingGroupItems.ico" />
+    <EmbeddedResource Include="Images\dea 222 form.ico" />
+    <EmbeddedResource Include="Images\fdbpCheck.ico" />
+    <Content Include="Images\ItemHistory.ico" />
+    <EmbeddedResource Include="Images\PrintBarcode.ico" />
+    <EmbeddedResource Include="Images\labelupdate2.ico" />
+    <EmbeddedResource Include="Images\itemscan.ico" />
+    <EmbeddedResource Include="Images\lock.ico" />
+    <EmbeddedResource Include="Images\lock_off.ico" />
+    <Content Include="Images\product-icon.png" />
+    <EmbeddedResource Include="Images\WO-ADD.ico" />
+    <EmbeddedResource Include="Images\window_arrange_horizontal.ico" />
+    <EmbeddedResource Include="Images\window_panel_bottom.ico" />
+    <EmbeddedResource Include="Images\Quarantine.ico" />
+    <EmbeddedResource Include="Images\RepackItems.ico" />
+    <EmbeddedResource Include="Images\SerialNumberGen.ico" />
+    <EmbeddedResource Include="Images\repacklotadd.ico" />
+    <EmbeddedResource Include="Images\repackComm.ico" />
+    <EmbeddedResource Include="Images\Shipping\picksht.ico" />
+    <EmbeddedResource Include="Images\Shipping\Pack.ico" />
+    <EmbeddedResource Include="Images\Shipping\pakship.ico" />
+    <EmbeddedResource Include="Images\SO\complianceCheck.ico" />
+    <EmbeddedResource Include="Images\Shipping\ReceiptPACKAGE.ico" />
+    <EmbeddedResource Include="Images\unboxing.ico" />
+    <EmbeddedResource Include="Images\Propertycheck1.ico" />
+    <Content Include="Images\user group.ico" />
+    <EmbeddedResource Include="Images\whseinv.ico" />
+    <EmbeddedResource Include="Images\vendorGroup.ico" />
+    <EmbeddedResource Include="Images\WO\PalletComm.ico" />
+    <None Include="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes1.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes2.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes3.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes4.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes5.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes6.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes7.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes8.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes9.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes10.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes11.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes12.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes13.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Welcome.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessObjects\EmailTemplate\" />
+    <Folder Include="Controllers\WO\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

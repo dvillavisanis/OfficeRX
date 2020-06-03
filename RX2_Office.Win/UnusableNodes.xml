@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign Id="ActionDesign">
+    <ActionToContainerMapping Id="ActionToContainerMapping">
+      <ActionContainer Id="Menu">
+        <ActionLink ActionId="InventoryLookup" Removed="True" />
+      </ActionContainer>
+    </ActionToContainerMapping>
+  </ActionDesign>
+</Application>

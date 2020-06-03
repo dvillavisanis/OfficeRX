@@ -1,0 +1,26 @@
+﻿<Options xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" TestRunTimeLimit="3">
+  <Applications>
+    <!-- Win -->
+    <Application Name="RX2_Office.Win" FileName="[WinAppBin]\RX2_Office.Win.exe" AdapterAssemblyName="[WinAdapterAssemblyName]" CommunicationPort="4100" />
+    <!-- Web -->
+    <Application Name="RX2_Office.Web" Url="http://localhost:4030" PhysicalPath="[WebAppBin]" AdapterAssemblyName="[WebAdapterAssemblyName]" />
+    <!-- For IIS -->
+    <!--Application
+			Name="RX2_Office.Web"
+			Url="http://localhost/RX2_Office.Web/Default.aspx"
+			AdapterAssemblyName="[WebAdapterAssemblyName]"/-->
+  </Applications>
+  <TestDatabases>
+    <Database xsi:type="TestMSSQLDatabase" Server="(localdb)\mssqllocaldb" DBName="RX2_OfficeEasyTest" />
+  </TestDatabases>
+  <Aliases>
+    <Alias Name="DomainUserName" Value="%USERDOMAIN%\%USERNAME%" />
+    <Alias Name="WinAdapterAssemblyName" Value="DevExpress.ExpressApp.EasyTest.WinAdapter.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Alias Name="WebAdapterAssemblyName" Value="DevExpress.ExpressApp.EasyTest.WebAdapter.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Alias Name="WinAppBin" Value="[ConfigPath]\..\..\RX2_Office.Win\Bin\EasyTest" />
+    <Alias Name="WebAppBin" Value="[ConfigPath]\..\..\RX2_Office.Web" />
+  </Aliases>
+  <plugin name="cordova-plugin-ios-longpress-fix" version="1.1.0" source="npm" xmlns="http://www.w3.org/ns/widgets" />
+  <preference name="FadeSplashScreen" value="false" xmlns="http://www.w3.org/ns/widgets" />
+  <preference name="ShowSplashScreenSpinner" value="false" xmlns="http://www.w3.org/ns/widgets" />
+</Options>

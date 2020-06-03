@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Items_ListView_RepackPivot">
+      <Columns Id="Columns">
+        <ColumnInfo Id="QtyOnPurchaseOrder" PropertyName="QtyOnPurchaseOrder" Width="50" Index="7" />
+      </Columns>
+    </ListView>
+    <ListView Id="CustomerInvoiceHistoryDetails_ListView_Pivot">
+      <Columns Id="Columns">
+        <ColumnInfo Id="QtyShippped" PropertyName="QtyShippped" Width="50" Index="7" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

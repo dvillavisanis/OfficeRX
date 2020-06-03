@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Customer_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Customer">
+              <LayoutGroup Id="Customer_col1">
+                <TabbedGroup Id="Item2">
+                  <LayoutGroup Id="Item4">
+                    <LayoutGroup Id="Auto6f917307-4e14-4a1b-9fcd-d42bc95556b2">
+                      <LayoutItem Id="Oid" ViewItem="Oid" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </TabbedGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="SalesOrders" RelativeSize="100">
+              <LayoutItem Id="SalesOrders" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="RepackLots_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="RepackLots" RelativeSize="93.023255813953483">
+              <LayoutGroup Id="RepackLots_col1" RelativeSize="55.946601941747574">
+                <LayoutGroup Id="Auto8f37cb60-055d-49ce-affe-382b62aa1b71" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="7.1428571428571432">
+                  <LayoutItem Id="Lotid" ViewItem="Lotid" Index="0" RelativeSize="60.303687635574839" />
+                  <LayoutItem Id="RepackLotStatus" ViewItem="RepackLotStatus" Index="1" RelativeSize="39.696312364425161" />
+                </LayoutGroup>
+                <LayoutGroup Id="Auto35f83f12-9944-4759-8403-e1a412e1ba1c" ShowCaption="False" Caption="" Index="1" RelativeSize="10.714285714285714">
+                  <LayoutItem Id="LotDescription" ViewItem="LotDescription" Index="0" RelativeSize="50" />
+                  <LayoutGroup Id="Auto4d98a710-68e1-459c-b8ae-2ff3b1e7d1bb" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="50">
+                    <LayoutItem Id="CustomerId" ViewItem="CustomerId" Index="0" RelativeSize="60.303687635574839" />
+                    <LayoutItem Id="CustomerPO" ViewItem="CustomerPO" Index="1" RelativeSize="39.696312364425161" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutItem Id="LotDescription" Index="1" RelativeSize="5.3571428571428568" Removed="True" />
+                <LayoutItem Id="CustomerId" RelativeSize="5.3571428571428568" Index="2" Removed="True" />
+                <LayoutItem Id="unitQty" Index="2" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="CustomerPO" Index="3" RelativeSize="5.3571428571428568" Removed="True" />
+                <LayoutItem Id="UnitSize" Index="3" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="Packagetype" Index="4" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="PackageQty" Index="5" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="NDC" Index="6" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="UPC" Index="7" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="Barcode" Index="8" RelativeSize="5.3571428571428568" />
+                <TabbedGroup Id="Item2" CaptionLocation="Top" Index="9" RelativeSize="44.642857142857146">
+                  <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Original NDC Info ">
+                    <LayoutItem Id="MgfNDC" ViewItem="MgfNDC" Index="0" RelativeSize="20" />
+                    <LayoutItem Id="MGFLot" ViewItem="MGFLot" Index="1" RelativeSize="15" />
+                    <LayoutItem Id="MGFLotExpirationDt" ViewItem="MGFLotExpirationDt" Index="2" RelativeSize="15" />
+                    <LayoutItem Id="TradeName" ViewItem="TradeName" Index="3" RelativeSize="15" />
+                    <LayoutItem Id="GenericName" ViewItem="GenericName" Index="4" RelativeSize="15" />
+                    <LayoutItem Id="Strength" ViewItem="Strength" Index="5" RelativeSize="20" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Horizontal" Index="1" />
+                  <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Direction="Horizontal" Index="2" />
+                </TabbedGroup>
+                <LayoutItem Id="MgfNDC" Index="9" RelativeSize="5.3571428571428568" Removed="True" />
+                <LayoutItem Id="MGFLot" Index="10" RelativeSize="5.3571428571428568" Removed="True" />
+                <LayoutItem Id="MGFLotExpirationDt" Index="11" RelativeSize="5.3571428571428568" Removed="True" />
+                <LayoutItem Id="TradeName" Index="12" RelativeSize="5.3571428571428568" Removed="True" />
+                <LayoutItem Id="GenericName" Index="13" RelativeSize="5.3571428571428568" Removed="True" />
+                <LayoutItem Id="Strength" Index="14" RelativeSize="17.857142857142858" Removed="True" />
+                <LayoutItem Id="Lotid" Removed="True" />
+                <LayoutItem Id="RepackLotStatus" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="RepackLots_col2" RelativeSize="44.053398058252426">
+                <LayoutItem Id="ReceivedDt" RelativeSize="7.1428571428571432" />
+                <LayoutItem Id="LotExpirationDt" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="BeyondUseDt" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="DateInDoor" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="QCCount" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="RetentionQty" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="QCIncompleteQty" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="QCLostQty" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="QcStartDate" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="QcEndDate" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="PharmChkDt" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="isRefrigerated" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="RefrigerateAfterOpen" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="InTakeDt" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="ExpectedCompletionDt" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="BulkReturnQty" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="BulkRtnComment" RelativeSize="5.3571428571428568" />
+                <LayoutItem Id="OldId" RelativeSize="7.1428571428571432" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" RelativeSize="6.9767441860465116">
+              <LayoutItem Id="Oid" RelativeSize="100" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

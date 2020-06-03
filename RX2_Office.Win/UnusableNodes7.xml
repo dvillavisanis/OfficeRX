@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="RepackItems_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="RepackLots_Group" RelativeSize="27.795031055900623" />
+          <LayoutGroup Id="SimpleEditors">
+            <SeparatorItem Id="Item1" RelativeSize="1.2931034482758621" />
+            <TabbedGroup Id="Item2">
+              <LayoutGroup Id="RepackItems">
+                <LayoutGroup Id="RepackItems_col1">
+                  <LayoutItem Id="DefaultCustomer" RelativeSize="5.741626794258373" />
+                  <LayoutItem Id="RepackDistributor" RelativeSize="44.976076555023923" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

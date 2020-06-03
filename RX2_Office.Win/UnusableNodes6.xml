@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="RepackItems_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <TabbedGroup Id="Item2">
+              <LayoutGroup Id="RepackItems">
+                <LayoutGroup Id="RepackItems_col1">
+                  <LayoutGroup Id="Auto7124150f-775f-48b2-b071-469fa6dcfdec">
+                    <LayoutItem Id="ItemNumber" RelativeSize="52.412280701754383" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item3">
+                <LayoutItem Id="NDCLabelName" Index="0" RelativeSize="7.6555023923444976" />
+                <LayoutItem Id="NDCLabelDescription" Index="1" RelativeSize="12.918660287081339" />
+                <LayoutItem Id="NDCLabelSize" Index="2" RelativeSize="5.741626794258373" />
+                <LayoutItem Id="LabelSizeStrength" Index="3" RelativeSize="5.741626794258373" />
+                <LayoutItem Id="NDCLabelStorage" RelativeSize="12.918660287081339" />
+                <LayoutGroup Id="Auto0848c378-0575-4ede-82a6-33ec592f3930" Index="6" RelativeSize="21.5311004784689">
+                  <LayoutGroup Id="Auto6108b0c1-1ddb-45f5-8f27-5cf24578b234" Caption="Auto6108b0c1-1ddb-45f5-8f27-5cf24578b234(43)" RelativeSize="100" Direction="Vertical">
+                    <LayoutGroup Id="Autof6a4a89f-c05d-40f7-9790-2b361fba40a6" ShowCaption="False" Caption="Autof6a4a89f-c05d-40f7-9790-2b361fba40a6(45)" Direction="Horizontal" Index="0" RelativeSize="40">
+                      <LayoutItem Id="DEACLASS" ViewItem="DEACLASS" Index="0" RelativeSize="49.658703071672356" />
+                      <LayoutItem Id="SerialType" ViewItem="SerialType" Index="1" RelativeSize="50.341296928327644" />
+                    </LayoutGroup>
+                    <LayoutItem Id="BTDefualtTemplate" ViewItem="BTDefualtTemplate" Index="1" RelativeSize="26.666666666666668" />
+                    <LayoutItem Id="BTShippingLabelTemplate" ViewItem="BTShippingLabelTemplate" Index="2" RelativeSize="33.333333333333336" />
+                    <LayoutItem Id="DEACLASS" RelativeSize="49.797570850202426" Removed="True" />
+                    <LayoutItem Id="SerialType" RelativeSize="50.202429149797574" Removed="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutItem Id="BTDefualtTemplate" Index="6" Removed="True" />
+                <LayoutItem Id="LabelCaseQty" RelativeSize="5.741626794258373" />
+                <LayoutItem Id="NDCLabelContains" RelativeSize="14.832535885167465" />
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
