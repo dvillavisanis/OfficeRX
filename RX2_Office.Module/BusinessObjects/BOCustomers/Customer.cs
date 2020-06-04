@@ -1,22 +1,15 @@
-﻿using System;
-using System.Linq;
-using DevExpress.Xpo;
+﻿using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
-
-using DevExpress.Persistent.Base;
-using System.Collections.Generic;
-using DevExpress.ExpressApp.Model;
-using DevExpress.Persistent.BaseImpl;
-using DevExpress.ExpressApp.SystemModule;
-using DevExpress.ExpressApp.Actions;
-using DevExpress.ExpressApp.Model.Core;
 using DevExpress.ExpressApp.ConditionalAppearance;
-using System.Drawing;
-using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp.Security;
-using DevExpress.ExpressApp.Security.Strategy;
-using DevExpress.ExpressApp.Xpo;
+using DevExpress.ExpressApp.Model;
+using DevExpress.ExpressApp.Model.Core;
+using DevExpress.ExpressApp.SystemModule;
+using DevExpress.Persistent.Base;
+using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
+using DevExpress.Xpo;
+using System;
+using System.Drawing;
 
 namespace RX2_Office.Module.BusinessObjects
 
