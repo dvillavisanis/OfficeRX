@@ -303,7 +303,7 @@ namespace RX2_Office.Module.DatabaseUpdate
             {
                 CustomContactLock = ObjectSpace.CreateObject<EmployeeRole>();
                 CustomContactLock.Name = "CustomContactLock";
-                
+
                 ObjectSpace.CommitChanges();
             }
             //#region Security roles
@@ -430,6 +430,7 @@ namespace RX2_Office.Module.DatabaseUpdate
                 //AllCustomerInvoices.SetTypePermission(typeof(CustomerLicenseVerifications), "Navigate;Write;Read", SecurityPermissionState.Allow);
                 userAdmin.EmployeeRoles.Add(AllCustomerInvoices);
                 userAdmin2.EmployeeRoles.Add(AllCustomerInvoices);
+
             }
 
 
@@ -522,6 +523,7 @@ namespace RX2_Office.Module.DatabaseUpdate
                 ItemMaintenanceRole.SetTypePermission(typeof(ItemInventory), "Read;Navigate", SecurityPermissionState.Allow);
                 userInvMgr.EmployeeRoles.Add(ItemMaintenanceRole);
                 userAdmin.EmployeeRoles.Add(ItemMaintenanceRole);
+                userAdmin2.EmployeeRoles.Add(ItemMaintenanceRole);
                 // userAdmin2.EmployeeRoles.Add(SalesMgrRole);
                 ObjectSpace.CommitChanges();
 
@@ -1303,10 +1305,12 @@ namespace RX2_Office.Module.DatabaseUpdate
             #region defaultadmin
             // main admin
             userAdmin.EmployeeRoles.Add(CustomContactLockRole);
+            userAdmin.EmployeeRoles.Add(CustomerCheckData);
 
-            // alt admin
+
 
             userAdmin2.EmployeeRoles.Add(CustomContactLockRole);
+            userAdmin2.EmployeeRoles.Add(CustomerCheckData);
 
 
             ObjectSpace.CommitChanges();

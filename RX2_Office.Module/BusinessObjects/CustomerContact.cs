@@ -39,7 +39,7 @@ namespace RX2_Office.Module.BusinessObjects
             FirstName = "NONE";
           
         }
-        [Action(Caption = "Lock", ConfirmationMessage = "Are you sureYou want to lock?", ImageName = "lock", AutoCommit = true ,TargetObjectsCriteria = "IsCurrentUserInRole('CustomContactLock') && locked = 0" ) ]
+        [Action(Caption = "Lock", ConfirmationMessage = "Are you sureYou want to lock?", ImageName = "lock", AutoCommit = true ,TargetObjectsCriteria = "IsCurrentUserInRole('CustomContactLock') && locked = 0") ]
         public void ContactLock() {
             // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
             this.locked = true;

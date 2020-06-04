@@ -51,7 +51,8 @@ namespace RX2_Office.Module.BusinessObjects
             : base(session)
         {
 
-           
+           // test
+
         }
         public override void AfterConstruction()
         {
