@@ -5,6 +5,7 @@ using DevExpress.Persistent.Base;
 using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Validation;
+using DevExpress.Persistent.BaseImpl;
 
 namespace RX2_Office.Module.BusinessObjects
 {
@@ -291,7 +292,18 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("SendMarketing", ref _SendMarketing, value);
             }
         }
-
+        private XPCollection<AuditDataItemPersistent> changeHistory;
+        public XPCollection<AuditDataItemPersistent> ChangeHistory
+        {
+            get
+            {
+                if (changeHistory == null)
+                {
+                    changeHistory = AuditedObjectWeakReference.GetAuditTrail(Session, this);
+                }
+                return changeHistory;
+            }
+        }
         [Association("Vendor-VendorContacts")]
         public Vendor Vendors
         {

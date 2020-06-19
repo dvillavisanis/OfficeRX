@@ -18,6 +18,7 @@ namespace RX2_Office.Module.BusinessObjects
     [NavigationItem("Purchasing")]
     [DefaultClassOptions]
     [ImageName("note-vendor")]
+    [Indices("Vendors;NoteDate")]
     public class VendorNote : XPObject
     {
 
@@ -43,6 +44,8 @@ namespace RX2_Office.Module.BusinessObjects
       private string _Author;
         private DateTime _NoteDate;
         private string _Text;
+
+        
         public DateTime NoteDate
         {
             get
@@ -67,6 +70,8 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("Author", ref _Author, value);
             }
         }
+
+        [VisibleInListView(true)]
         [Size(SizeAttribute.Unlimited)]
         public string Text
         {

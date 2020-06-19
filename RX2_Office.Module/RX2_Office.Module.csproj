@@ -412,6 +412,7 @@
     <Compile Include="BusinessObjects\SalesTeams.cs" />
     <Compile Include="BusinessObjects\SODetails.cs" />
     <Compile Include="BusinessObjects\SOItemDistibution.cs" />
+    <Compile Include="Common\StringExtension.cs" />
     <Compile Include="Controllers\IM\FirstDataUpdate.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -435,6 +436,12 @@
     </Compile>
     <Compile Include="Controllers\PO\PurchasingController.Designer.cs">
       <DependentUpon>PurchasingController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PO\VendorNotesController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\PO\VendorNotesController.Designer.cs">
+      <DependentUpon>VendorNotesController.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Shipping\EditInventoryItemBatch.cs">
       <SubType>Component</SubType>
@@ -692,6 +699,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\PO\PurchaseOrderLineController.resx">
       <DependentUpon>PurchaseOrderLineController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\PO\VendorNotesController.resx">
+      <DependentUpon>VendorNotesController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\Shipping\EditInventoryItemBatch.resx">
       <DependentUpon>EditInventoryItemBatch.cs</DependentUpon>
@@ -952,6 +962,14 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="UnusableNodes13.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes14.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes15.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>

@@ -537,6 +537,7 @@ namespace RX2_Office.Module.BusinessObjects
         [VisibleInListView(false)]
         [VisibleInLookupListView(false)]
         [Association("PaymentTermsCode-PurchaseOrder")]
+        [RuleRequiredField]
         public PaymentTermsCode TermCode
         {
             get

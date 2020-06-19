@@ -32,6 +32,9 @@ namespace RX2_Office.Module.BusinessObjects.BOCustomers
         /// <returns></returns>
         public decimal GetPTB(DateTime PtbDate, string NDC)
         {
+            //ItemPTB IPTB = repacklot.RepackLot;
+            //CriteriaOperator op = CriteriaOperator.Parse("RepackLot.LotId = ? AND IsCommission = ? AND LabelType = ? AND CommissionBatchId is Null", repacklotid, true, eLabelType.InnerCarton);
+            //IList Innnercomlist = objectSpace.GetObjects(typeof(RepackLotSerialNo), op);
 
 
 
@@ -39,7 +42,7 @@ namespace RX2_Office.Module.BusinessObjects.BOCustomers
 
         }
 
-        public void GetRepCommissionStructure(string Rep, int ProductLineOID)
+        public void GetRepCommissionStructure(string Rep, Items ItemsNDC)
         {
 
 

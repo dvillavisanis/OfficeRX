@@ -181,6 +181,8 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
 
+        string propertyName;
+      
         bool checkData;
         string linkedIn;
         static decimal customerSalesGoal;
@@ -309,6 +311,8 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("BillingAddress", ref _BillingAddress, value);
             }
         }
+
+        [Appearance("BillingAddressisempty", Criteria = "IsNullOrEmpty(BillingAddress)", Enabled = false, Context = "DetailView")]
         [VisibleInListView(false)]
         public string BillingAddress2
         {
@@ -321,6 +325,8 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("BillingAddress2", ref _BillingAddress2, value);
             }
         }
+
+        [Appearance("BillingAddress2isempty", Criteria = "IsNullOrEmpty(BillingAddress2)", Enabled = false, Context = "DetailView")]
         [VisibleInListView(false)]
         public string BillingAddress3
         {
@@ -397,6 +403,8 @@ namespace RX2_Office.Module.BusinessObjects
 
             }
         }
+        [Appearance("ShipAddressisempty", Criteria = "IsNullOrEmpty(ShipAddress)", Enabled = false, Context = "DetailView")]
+
         [VisibleInListView(false)]
         public string ShipAddress2
         {
@@ -409,6 +417,9 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("ShipAddress2", ref _ShipAddress2, value);
             }
         }
+
+        [Appearance("ShipAddress2isempty", Criteria = "IsNullOrEmpty(ShipAddress2)", Enabled = false, Context = "DetailView")]
+
         [VisibleInListView(false)]
         public string ShipAddress3
         {
@@ -543,6 +554,8 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+        [Appearance("DeaNoisempty", Criteria = "IsNullOrEmpty(DeaNo)", Enabled = false, Context = "DetailView")]
+
         [Index(3)]
         public DateTime DeaExpDate
         {
@@ -555,6 +568,8 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("DeaExpDate", ref _DeaExpDate, value);
             }
         }
+
+        [Appearance("DeaNoisempty1", Criteria = "IsNullOrEmpty(DeaNo)", Enabled = false, Context = "DetailView")]
 
         [VisibleInListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
@@ -570,7 +585,8 @@ namespace RX2_Office.Module.BusinessObjects
             get => cI;
             set => SetPropertyValue(nameof(CI), ref cI, value);
         }
-
+        
+      
         [VisibleInListView(false)]
         public bool CII
         {
@@ -918,6 +934,7 @@ namespace RX2_Office.Module.BusinessObjects
         {
             get
             {
+                                
                 return _FederalTaxId;
             }
             set

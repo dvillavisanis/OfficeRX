@@ -9,20 +9,21 @@ using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
 using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
-using DevExpress.Persistent.BaseImpl; 
+using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.ExpressApp.SystemModule;
+using DevExpress.ExpressApp.ConditionalAppearance;
 
 namespace RX2_Office.Module.BusinessObjects
 {
     [DefaultClassOptions]
     [ListViewAutoFilterRowAttribute(true)]
-     [ImageName("BO_Contact")]
+    [ImageName("BO_Contact")]
     [NavigationItem("Sales")]
-    [ListViewFilter("Primary Sales", "ContactType = 'PRIMARY CONTACT'", "Primary Sales ", "Primary sales Contacts", false)]
+    [ListViewFilter("Primary Contact", "ContactType = 'PRIMA'", "Primary Contact", "Primary sales Contacts", false)]
     [ListViewFilter("Account Payable", "ContactType = 'AP'", "AP Sales ", "ACcount Payable Contacts", false)]
     //[ListViewFilter("My Customers (fake)", "[SalesRep] = 'Dvillavisanis'", "My Customers (fake)", "Customers that are mine", true)]
-    [ListViewFilter(" All", "",true)]
+    [ListViewFilter(" All", "", true)]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
@@ -33,25 +34,30 @@ namespace RX2_Office.Module.BusinessObjects
             : base(session)
         {
         }
+
+
         public override void AfterConstruction()
         {
             base.AfterConstruction();
             FirstName = "NONE";
-          
+            
+
         }
-        [Action(Caption = "Lock", ConfirmationMessage = "Are you sureYou want to lock?", ImageName = "lock", AutoCommit = true ,TargetObjectsCriteria = "IsCurrentUserInRole('CustomContactLock') && locked = 0") ]
-        public void ContactLock() {
+        [Action(Caption = "Lock", ConfirmationMessage = "Are you sureYou want to lock?", ImageName = "lock", AutoCommit = true, TargetObjectsCriteria = "IsCurrentUserInRole('CustomContactLock') && locked = 0")]
+        public void ContactLock()
+        {
             // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
-            this.locked = true;
-           
+            Locked = true;
+            this.Save();
         }
 
 
-        [Action(Caption = "UnLock", ConfirmationMessage = "Are you sureYou want to Unlock?", ImageName = "lock_off", AutoCommit = true ,TargetObjectsCriteria = "IsCurrentUserInRole('CustomContactLock') && locked = 1") ]
+        [Action(Caption = "UnLock", ConfirmationMessage = "Are you sureYou want to Unlock?", ImageName = "lock_off", AutoCommit = true, TargetObjectsCriteria = "IsCurrentUserInRole('CustomContactLock') && locked = 1")]
         public void ContactUnLock()
         {
             // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
-            this.locked = false;
+            Locked = false;
+            this.Save();
         }
 
 
@@ -83,14 +89,17 @@ namespace RX2_Office.Module.BusinessObjects
         private string _LastName;
         private string _FirstName;
 
-        
+
         [Association("CustomerContactType-CustomerContact")]
+        [Appearance("DisablePropertyContactType", Criteria = "Locked", Enabled = false, Context = "DetailView")]
+
         public CustomerContactType ContactType
         {
             get => contactType;
             set => SetPropertyValue(nameof(ContactType), ref contactType, value);
         }
 
+        [Appearance("DisablePropertyFirstName", Criteria = "Locked", Enabled = false, Context = "DetailView")]
 
         [VisibleInListView(false)]
         public string FirstName
@@ -101,9 +110,12 @@ namespace RX2_Office.Module.BusinessObjects
             }
             set
             {
+              
                 SetPropertyValue("FirstName", ref _FirstName, value);
             }
         }
+
+        [Appearance("DisablePropertyLastName", Criteria = "Locked", Enabled = false, Context = "DetailView")]
         [VisibleInListView(false)]
         public string LastName
         {
@@ -116,6 +128,8 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("LastName", ref _LastName, value);
             }
         }
+
+        [Appearance("DisablePropertyMiddleName", Criteria = "Locked = true", Enabled = false, Context = "DetailView")]
         [VisibleInListView(false)]
         public string MiddleName
         {
@@ -128,13 +142,14 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("MiddleName", ref _MiddleName, value);
             }
         }
+
         [PersistentAlias("[FirstName] + ' ' + [MiddleName] + ' ' + [LastName]")]
         public string FullName
         {
             get { return String.Format("{0} {1} {2}", FirstName ?? "", MiddleName ?? "", LastName ?? ""); }
         }
 
-
+        [Appearance("DisablePropertyAddress", Criteria = "Locked", Enabled = false, Context = "DetailView")]
         [VisibleInListView(false)]
         public string Address
         {
@@ -149,7 +164,7 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
 
-       
+        [Appearance("DisablePropertyAddress2", Criteria = "Locked = true", Enabled = false, Context = "DetailView")]
         [VisibleInListView(false)]
         public string Address2
         {
@@ -162,6 +177,9 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("address2", ref _Address2, value);
             }
         }
+
+
+        [Appearance("DisablePropertyCity", Criteria = "Locked = true", Enabled = false, Context = "DetailView")]
         [VisibleInListView(false)]
         public string City
         {
@@ -174,6 +192,7 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("City", ref _City, value);
             }
         }
+        [Appearance("DisablePropertyState", Criteria = "Locked", Enabled = false, Context = "DetailView")]
         [VisibleInListView(false)]
         [Association("State-CustomerContacts")]
         public State State
@@ -188,7 +207,8 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-       [SizeAttribute(10)]
+        [Appearance("DisablePropertyZipCode", Criteria = "Locked", Enabled = false, Context = "DetailView")]
+        [SizeAttribute(10)]
         [ModelDefault("DisplayFormat", "0:00000-0000")]
         [VisibleInListView(false)]
         public string ZipCode
@@ -204,9 +224,10 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
         [Size(15)]
-        
-        [ModelDefault("DisplayFormat", "{0:(###)###-#### Ext. 0000}")]
+                [ModelDefault("DisplayFormat", "{0:(###)###-#### Ext. 0000}")]
         [ModelDefault("DisplayFormat", "0: (000)000-0000 Ext. 0000")]
+        [Appearance("DisablePropertyPhone", Criteria = "Locked", Enabled = false, Context = "DetailView")]
+
         public string Phone
         {
             get
@@ -220,6 +241,7 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
 
+        [Appearance("DisablePropertyMobile", Criteria = "Locked", Enabled = false, Context = "DetailView")]
 
         [VisibleInListView(false)]
         [Size(10)]
@@ -237,11 +259,14 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("Mobile", ref _Mobile, value);
             }
         }
+
+        [Appearance("DisablePropertyFax", Criteria = "Locked", Enabled = false, Context = "DetailView")]
+
         [VisibleInListView(false)]
         [Size(10)]
         [ModelDefault("EditMask", "(000)000-0000")]
         [ModelDefault("DisplayFormat", "{0:(###)###-####}")]
-        
+
         public string Fax
         {
             get
@@ -254,10 +279,14 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+
+      
         public const string EmailRegularExpression = "^[A-Za-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*\\.([a-z]{2,4})$";
         [Size(255)]
         [RuleRegularExpression(DefaultContexts.Save, EmailRegularExpression, CustomMessageTemplate = "The Field must contain a vaild email address.")]
         [VisibleInListView(false)]
+        [Appearance("DisablePropertyEmail", Criteria = "Locked", Enabled = false, Context = "DetailView")]
+
         public string Email
         {
             get
@@ -269,6 +298,8 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("Email", ref _Email, value);
             }
         }
+        [Appearance("DisablePropertyBirthDate", Criteria = "Locked", Enabled = false, Context = "DetailView")]
+
         [VisibleInListView(false)]
         [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy}")]
         public DateTime BirthDate
@@ -282,6 +313,8 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("BirthDate", ref _BirthDate, value);
             }
         }
+        [Appearance("DisablePropertyFaceBook", Criteria = "Locked", Enabled = false, Context = "DetailView")]
+
         [VisibleInListView(false)]
         public string FaceBook
         {
@@ -294,6 +327,7 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("FaceBook", ref _FaceBook, value);
             }
         }
+        [Appearance("DisablePropertyPhoto", Criteria = "Locked", Enabled = false, Context = "DetailView")]
 
         [Delayed]
         //[ImageEditor(DetailViewImageEditorMode = ImageEditorMode.PictureEdit)]
@@ -305,6 +339,8 @@ namespace RX2_Office.Module.BusinessObjects
             set { SetDelayedPropertyValue("Photo", value); }
 
         }
+
+
         [VisibleInListView(false)]
         [Size(SizeAttribute.Unlimited)]
         public string Notes
@@ -319,6 +355,8 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+        [Appearance("DisablePropertyIsAppUser", Criteria = "Locked", Enabled = false, Context = "DetailView")]
+
         [VisibleInListView(false)]
         public bool IsAppUser
         {
@@ -326,6 +364,7 @@ namespace RX2_Office.Module.BusinessObjects
             set => SetPropertyValue(nameof(isAppUser), ref isAppUser, value);
         }
 
+        [Appearance("DisablePropertySendMarketing", Criteria = "Locked", Enabled = false, Context = "DetailView")]
 
         [VisibleInListView(false)]
         public bool SendMarketing
@@ -340,6 +379,8 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+        [Appearance("DisablePropertyLocked", Criteria = "Locked", Enabled = false, Context = "DetailView")]
+
         [VisibleInListView(true)]
         public bool Locked
         {
@@ -347,6 +388,7 @@ namespace RX2_Office.Module.BusinessObjects
             set => SetPropertyValue(nameof(Locked), ref locked, value);
         }
 
+        [Appearance("DisablePropertyCustomers", Criteria = "Locked", Enabled = false, Context = "DetailView")]
 
         [Association("Customer-CustomerContacts")]
         public Customer Customers
