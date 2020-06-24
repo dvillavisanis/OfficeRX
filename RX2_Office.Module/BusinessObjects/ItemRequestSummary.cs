@@ -15,16 +15,15 @@ using DevExpress.Persistent.Validation;
 namespace RX2_Office.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [ImageName("LicenseType1")]
-    [NavigationItem("Compliance")]
-    [DefaultProperty("LicenseTypeCode")]
+    [NavigationItem("Purchasing")]
+    //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
-    // Specify more UI options using a declarative approach (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112701.aspx).
-    public class LicenseType : XPBaseObject
+    // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
+    public class ItemRequestSummary : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public LicenseType(Session session)
+        public ItemRequestSummary(Session session)
             : base(session)
         {
         }
@@ -47,42 +46,24 @@ namespace RX2_Office.Module.BusinessObjects
         //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
         //    this.PersistentProperty = "Paid";
         //}
-        // Fields...
-        private string _LicenseDescription;
-        private string _LicenseTypeCode;
-        [Key]
-        [Size(5)]
-        public string LicenseTypeCode
+
+        eEDLItemStatus itemStatus;
+        string itemNumber;
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string ItemNumber
         {
-            get
-            {
-                return _LicenseTypeCode;
-            }
-            set
-            {
-                SetPropertyValue("LicenseType", ref _LicenseTypeCode, value);
-            }
+            get => itemNumber;
+            set => SetPropertyValue(nameof(ItemNumber), ref itemNumber, value);
         }
 
-        [Size(64)]
-        public string LicenseDescription
+
+        
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public eEDLItemStatus ItemStatus
         {
-            get
-            {
-                return _LicenseDescription;
-            }
-            set
-            {
-                SetPropertyValue("LicenseDescription", ref _LicenseDescription, value);
-            }
-        }
-        [Association("LicenseType-DistributionCenterLicenses")]
-        public XPCollection<DistributionCenterLicenses> DistributionCenterLicense
-        {
-            get
-            {
-                return GetCollection<DistributionCenterLicenses>("DistributionCenterLicense");
-            }
+            get => itemStatus;
+            set => SetPropertyValue(nameof(ItemStatus), ref itemStatus, value);
         }
 
 

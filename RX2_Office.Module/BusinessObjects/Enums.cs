@@ -119,4 +119,6 @@ namespace RX2_Office.Module.BusinessObjects
     public enum eRecieptOfGoodStatus
     { CheckIn = 10, WaitingForInv = 20, WaitingForPed = 30, PutAway = 40,  Completed = 99 }
 
+    public enum eEDLItemStatus
+    { AlternateAvailable = 10, Available =20, BackOrdered = 30, Discontinued = 40, OnWorkOrder= 50, Purchased= 60 , NotAvailable = 70}
 }

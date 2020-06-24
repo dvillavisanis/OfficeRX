@@ -17,7 +17,7 @@ namespace RX2_Office.Module.BusinessObjects
 {
     [DefaultClassOptions]
     [ListViewAutoFilterRowAttribute(true)]
-    [NavigationItem("License")]
+    [NavigationItem("Compliance")]
     [ImageName("DCLicense")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     [DefaultListViewOptions(MasterDetailMode.ListViewAndDetailView,false , NewItemRowPosition.None)]

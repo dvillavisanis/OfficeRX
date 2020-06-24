@@ -61,7 +61,7 @@ namespace RX2_Office.Module.Controllers
             options.Web.Position = InformationPosition.Right;
             options.Win.Caption = "Success";
             options.Win.Type = WinMessageType.Alert;
-            options.Duration = 10000;
+            options.Duration = 1000;
             Application.ShowViewStrategy.ShowMessage(options);
 
             View.Refresh();
@@ -74,22 +74,20 @@ namespace RX2_Office.Module.Controllers
         /// <param name="e"></param>
         private void CustomRequest_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
         {
-            // TargetViewId = "ItemRequest_DetailView_SalesRepRequest";
+            TargetViewId = "ItemRequest_DetailView_SalesRepRequest";
             IObjectSpace objectSpace = Application.CreateObjectSpace();
             ItemRequest newRequest = objectSpace.CreateObject<ItemRequest>();
-
             newRequest.Customer = objectSpace.GetObject<Customer>((Customer)View.CurrentObject);
             newRequest.RequestBy = SecuritySystem.CurrentUserName;
             newRequest.SearchUntil = DateTime.Today.AddDays(4);
+            newRequest.SubsOkay = false;
+            
 
             //newRequest.Customer.SalesRep;
             newRequest.RequestDt = DateTime.Now;
             e.View = Application.CreateDetailView(objectSpace, TargetViewId, true, newRequest);
             e.View.Caption = e.View.Caption + " - " + newRequest.Customer.CustomerName;
-
-
-
-
+                                 
         }
     }
 }

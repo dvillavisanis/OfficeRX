@@ -256,9 +256,6 @@
                   </LayoutGroup>
                 </LayoutGroup>
               </LayoutGroup>
-              <LayoutGroup Id="Item17">
-                <LayoutItem Id="DeaRegistrationDate" TextAlignMode="AutoSize" />
-              </LayoutGroup>
             </TabbedGroup>
           </LayoutGroup>
           <TabbedGroup Id="Tabs">
@@ -282,9 +279,6 @@
             </LayoutGroup>
             <LayoutGroup Id="WoOriginalNDC" TextAlignMode="AlignWithChildren">
               <LayoutItem Id="WoOriginalNDC" TextAlignMode="AutoSize" />
-            </LayoutGroup>
-            <LayoutGroup Id="NewNDC" TextAlignMode="AlignWithChildren">
-              <LayoutItem Id="NewNDC" TextAlignMode="AutoSize" />
             </LayoutGroup>
             <LayoutGroup Id="ItemT3TemplateHeader" TextAlignMode="AlignWithChildren">
               <LayoutItem Id="ItemT3TemplateHeader" TextAlignMode="AutoSize" />
@@ -324,6 +318,9 @@
             </LayoutGroup>
             <LayoutGroup Id="CustomerGPOItemPricing" TextAlignMode="AlignWithChildren">
               <LayoutItem Id="CustomerGPOItemPricing" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+            <LayoutGroup Id="NewNDC" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="NewNDC" TextAlignMode="AutoSize" />
             </LayoutGroup>
           </TabbedGroup>
         </LayoutGroup>
@@ -403,7 +400,6 @@
               </LayoutGroup>
             </TabbedGroup>
           </LayoutGroup>
-          <LayoutGroup Id="RepackLots_Group" TextAlignMode="AlignWithChildren" />
         </LayoutGroup>
       </Layout>
     </DetailView>
@@ -557,21 +553,6 @@
               <LayoutItem Id="ChangeHistory" TextAlignMode="AutoSize" />
             </LayoutGroup>
           </TabbedGroup>
-          <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="Vendor">
-              <LayoutGroup Id="Vendor_col1">
-                <TabbedGroup Id="Item2">
-                  <LayoutGroup Id="Item1">
-                    <LayoutGroup Id="Autoc6b8302c-6c6d-4bb0-9394-5c47ff7644ed">
-                      <LayoutGroup Id="Auto2a871950-410e-4a1f-87f9-abd1fed27b6f">
-                        <LayoutItem Id="DEALicenceNumber" ViewItem="DEALicenceNumber" />
-                      </LayoutGroup>
-                    </LayoutGroup>
-                  </LayoutGroup>
-                </TabbedGroup>
-              </LayoutGroup>
-            </LayoutGroup>
-          </LayoutGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
@@ -644,6 +625,19 @@
                     <LayoutItem Id="WareHouseId" ViewItem="WareHouseId" />
                   </LayoutGroup>
                 </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="ReceiverPackageItems_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ReceiverPackageItems">
+              <LayoutGroup Id="ReceiverPackageItems_col1">
+                <LayoutItem Id="SerialNumber" ViewItem="SerialNumber" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>

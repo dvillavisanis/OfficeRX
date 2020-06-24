@@ -2200,9 +2200,9 @@
     </DetailView>
     <DetailView Id="ItemRequest_DetailView_SalesRepRequest" ClassName="RX2_Office.Module.BusinessObjects.ItemRequest" IsNewNode="True">
       <Items IsNewNode="True">
-        <PropertyEditor Id="Customer" PropertyName="Customer" IsNewNode="True" />
-        <PropertyEditor Id="Customer.CustomerName" PropertyName="Customer.CustomerName" IsNewNode="True" />
-        <PropertyEditor Id="Customer.ShipState" PropertyName="Customer.ShipState" IsNewNode="True" />
+        <PropertyEditor Id="Customer" PropertyName="Customer" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="Customer.CustomerName" PropertyName="Customer.CustomerName" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="Customer.ShipState" PropertyName="Customer.ShipState" AllowEdit="False" IsNewNode="True" />
         <PropertyEditor Id="CustomerPO" PropertyName="CustomerPO" IsNewNode="True" />
         <PropertyEditor Id="GoodUntilDt" PropertyName="GoodUntilDt" IsNewNode="True" />
         <PropertyEditor Id="ItemNumber" PropertyName="ItemNumber" DataSourcePropertyIsNullMode="SelectNothing" LookupEditorMode="Search" DataSourceCriteria="" View="Items_LookupListView_All" IsNewNode="True" />
@@ -2222,13 +2222,14 @@
         <PropertyEditor Id="RequestQty" PropertyName="RequestQty" IsNewNode="True" />
         <PropertyEditor Id="RequestStatus" PropertyName="RequestStatus" AllowEdit="False" IsNewNode="True" />
         <PropertyEditor Id="SearchUntil" PropertyName="SearchUntil" IsNewNode="True" />
+        <PropertyEditor Id="SubsOkay" PropertyName="SubsOkay" IsNewNode="True" />
         <PropertyEditor Id="UnitPrice" PropertyName="UnitPrice" IsNewNode="True" />
       </Items>
       <Layout IsNewNode="True">
         <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
-          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="48.6088379705401" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="48.524590163934427" IsNewNode="True">
             <LayoutGroup Id="ItemRequest" Index="0" Direction="Horizontal" ShowCaption="True" Caption="Item Request" RelativeSize="100" IsNewNode="True">
-              <LayoutGroup Id="ItemRequest_col1" Index="0" ShowCaption="False" RelativeSize="53.067047075606276" IsNewNode="True">
+              <LayoutGroup Id="ItemRequest_col1" Index="0" ShowCaption="False" RelativeSize="53.027522935779814" IsNewNode="True">
                 <LayoutItem Id="ItemNumber" ViewItem="ItemNumber" ShowCaption="" Index="0" RelativeSize="12.307692307692308" IsNewNode="True" />
                 <LayoutItem Id="ItemNumber.ItemDescription" ViewItem="ItemNumber.ItemDescription" Index="1" RelativeSize="9.23076923076923" IsNewNode="True" />
                 <LayoutItem Id="RequestStatus" ViewItem="RequestStatus" ShowCaption="" Index="2" RelativeSize="9.23076923076923" IsNewNode="True" />
@@ -2240,22 +2241,25 @@
                 <LayoutItem Id="RequestQty" ViewItem="RequestQty" Index="8" RelativeSize="9.23076923076923" IsNewNode="True" />
                 <LayoutItem Id="UnitPrice" ViewItem="UnitPrice" Index="9" RelativeSize="12.307692307692308" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="Auto1b559c3c-986b-48d8-9a10-4a8cd132c35e" ShowCaption="False" Caption="Auto1b559c3c-986b-48d8-9a10-4a8cd132c35e(15)" Index="1" RelativeSize="46.932952924393724" IsNewNode="True">
+              <LayoutGroup Id="Auto1b559c3c-986b-48d8-9a10-4a8cd132c35e" ShowCaption="False" Caption="Auto1b559c3c-986b-48d8-9a10-4a8cd132c35e(15)" Index="1" RelativeSize="46.972477064220186" IsNewNode="True">
                 <LayoutItem Id="Customer" ViewItem="Customer" Index="0" RelativeSize="12.307692307692308" IsNewNode="True" />
                 <LayoutItem Id="Customer.CustomerName" ViewItem="Customer.CustomerName" Index="1" RelativeSize="9.23076923076923" IsNewNode="True" />
                 <LayoutGroup Id="ItemRequest_col2" ShowCaption="False" Index="2" RelativeSize="78.461538461538467" IsNewNode="True">
                   <LayoutItem Id="RequestBy" ViewItem="RequestBy" Index="0" RelativeSize="14.705882352941176" IsNewNode="True" />
-                  <LayoutItem Id="Item3" Index="1" RelativeSize="22.058823529411764" IsNewNode="True" />
+                  <LayoutGroup Id="Autof36578cf-c437-4baa-8886-03ed14b8635b" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="11.764705882352942" IsNewNode="True">
+                    <LayoutItem Id="SubsOkay" ViewItem="SubsOkay" Index="0" RelativeSize="63.28125" IsNewNode="True" />
+                    <LayoutItem Id="Item3" Index="1" RelativeSize="36.71875" IsNewNode="True" />
+                  </LayoutGroup>
                   <LayoutItem Id="CustomerPO" ViewItem="CustomerPO" Index="2" RelativeSize="11.764705882352942" IsNewNode="True" />
                   <LayoutItem Id="SearchUntil" ViewItem="SearchUntil" Index="3" RelativeSize="11.764705882352942" IsNewNode="True" />
                   <LayoutItem Id="RequestDt" ViewItem="RequestDt" Index="4" RelativeSize="11.764705882352942" IsNewNode="True" />
                   <LayoutItem Id="GoodUntilDt" ViewItem="GoodUntilDt" Index="5" RelativeSize="11.764705882352942" IsNewNode="True" />
-                  <LayoutItem Id="Item1" Index="6" RelativeSize="16.176470588235293" IsNewNode="True" />
+                  <LayoutItem Id="Item1" Index="6" RelativeSize="26.470588235294116" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <LayoutGroup Id="SizeableEditors" Index="1" ShowCaption="False" RelativeSize="51.3911620294599" Direction="Vertical" IsNewNode="True">
+          <LayoutGroup Id="SizeableEditors" Index="1" ShowCaption="False" RelativeSize="51.475409836065573" Direction="Vertical" IsNewNode="True">
             <LayoutItem Id="Item2" Index="0" RelativeSize="100" IsNewNode="True" />
           </LayoutGroup>
         </LayoutGroup>
@@ -4157,9 +4161,9 @@
     </ListView>
     <ListView Id="VendorNote_ListView" MasterDetailView="VendorNotePopup_DetailView" DetailViewID="VendorNotePopup_DetailView">
       <Columns>
-        <ColumnInfo Id="Text" AllowEdit="False" MaxLength="45" Caption="Note" />
         <ColumnInfo Id="NoteDate" AllowEdit="False" SortOrder="Ascending" />
         <ColumnInfo Id="Author" AllowEdit="False" />
+        <ColumnInfo Id="Text" AllowEdit="False" MaxLength="45" Caption="Note" />
       </Columns>
     </ListView>
     <DetailView Id="VendorNotePopup_DetailView" ClassName="RX2_Office.Module.BusinessObjects.VendorNote" IsNewNode="True">
