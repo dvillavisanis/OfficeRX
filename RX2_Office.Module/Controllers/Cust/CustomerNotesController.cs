@@ -135,31 +135,32 @@ namespace RX2_Office.Module.Controllers
             MessageOptions options = new MessageOptions();
             if (CBL.SoComplianceCheck(so, out erromsg) == 0)
             {
-               
                 options.Duration = 20000;
                 options.Message = string.Format("Sales Order for {0} has been entered", so.CustomerNumber.CustomerName);
                 options.Type = InformationType.Success;
                 options.Web.Position = InformationPosition.Right;
                 options.Win.Caption = "Success";
                 options.Win.Type = WinMessageType.Alert;
+                so.SOStatus = SalesOrderStatus.Submitted;
             }
             else
             {
-                
                 options.Duration = 20000;
                 options.Message = string.Format("Sales Order for {0} has been entered is in Compliance due to the following {1}", so.CustomerNumber.CustomerName, erromsg);
                 options.Type = InformationType.Warning;
                 options.Web.Position = InformationPosition.Right;
                 options.Win.Caption = "Success Need Compliance";
                 options.Win.Type = WinMessageType.Alert;
-            }
-            //options.OkDelegate = () => {
-            //    IObjectSpace os = Application.CreateObjectSpace(typeof(Customer));
-            // DetailView newTaskDetailView = Application.CreateDetailView(os, os.CreateObject<ItemRequest>());
-            // Application.ShowViewStrategy.ShowViewInPopupWindow(newTaskDetailView);
-            //};
-            Application.ShowViewStrategy.ShowMessage(options);
+                so.SOStatus = SalesOrderStatus.ComplianceCheck;
 
+            }
+            Application.ShowViewStrategy.ShowMessage(options);
+            string msg = string.Format("Sales order: {2} entered by {0} {1} ", SecuritySystem.CurrentUserName, System.Environment.NewLine,so.SalesOrderNumber);
+            foreach (SODetails det in so.SODetails)
+            {
+                msg = msg + string.Format(det.Item.ItemNumber.ToString() + " {0:C2} @ {1} {2} ", det.QtyOrdered, det.UnitPrice, System.Environment.NewLine);
+            }
+            so.CustomerNumber.AddNote(so.CustomerNumber, msg);
 
         }
 
@@ -175,12 +176,10 @@ namespace RX2_Office.Module.Controllers
             newOrder.SOStatus = SalesOrderStatus.New;
             newOrder.ShippingType = newOrder.CustomerNumber.ShippingType;
             newOrder.SalesOrderNumber = "test0001";
-
             if (newOrder.ShippingType == null)
             {
                 newOrder.ShippingType = ApplicationOptions.getDefaultShippingType(objectSpace);
             }
-
 
             e.View = Application.CreateDetailView(objectSpace, TargetViewId, true, newOrder);
             e.View.Caption = e.View.Caption + " - " + newOrder.CustomerNumber.CustomerName;
@@ -203,10 +202,8 @@ namespace RX2_Office.Module.Controllers
         private void DrugRequestAction_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
         {
             e.PopupWindow.View.ObjectSpace.CommitChanges();
-
             View.ObjectSpace.Refresh();
             View.Refresh();
-
             MessageOptions options = new MessageOptions();
             options.Duration = 20000;
             options.Message = string.Format("{0} Request have been successfully updated!", e.PopupWindow.Application.Title);
@@ -236,7 +233,7 @@ namespace RX2_Office.Module.Controllers
             }
 
 #else
-                newmail.MailTo = "sales@atlanticbiologicals.com";
+            newmail.MailTo = "sales@atlanticbiologicals.com";
 #endif
             newmail.MailFrom = "OfficeRx@atlanticbiologicals.com";
 
@@ -407,8 +404,7 @@ namespace RX2_Office.Module.Controllers
                     //};
                     Application.ShowViewStrategy.ShowMessage(options);
                     View.ObjectSpace.Refresh();
-
-                    View.Refresh();
+                                        View.Refresh();
 
                 }
             }
@@ -464,7 +460,7 @@ namespace RX2_Office.Module.Controllers
 
         private void actionpopupCustomerMeeting_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
         {
-           
+
         }
 
         private void actionpopupCustomerMeeting_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)

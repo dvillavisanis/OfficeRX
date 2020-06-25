@@ -20,7 +20,7 @@ namespace RX2_Office.Module.BusinessObjects
     { InnerCarton, Shipping, Pallet }
     public enum Gender { Male, Female }
     public enum SalesOrderStatus
-    { New, Submitted, PickingTicketPrinted, Picking, Picked, Invoiced, Deleted }
+    { New = 0 , Submitted= 20,ComplianceCheck= 30 , PickingTicketPrinted = 40 , Picking = 50, Picked =60 ,ShippingLabel= 70 ,Invoiced = 80, Deleted = 99}
     public enum ItemTypes
     { Inventory, NonInventory, Service }
     public enum InventoryTransactionTypes

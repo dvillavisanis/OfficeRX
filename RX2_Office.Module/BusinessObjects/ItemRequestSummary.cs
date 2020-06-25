@@ -47,6 +47,7 @@ namespace RX2_Office.Module.BusinessObjects
         //    this.PersistentProperty = "Paid";
         //}
 
+
         eEDLItemStatus itemStatus;
         string itemNumber;
 

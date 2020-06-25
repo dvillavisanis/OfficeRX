@@ -30,7 +30,7 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
 
             if (Cust != null)
             {
-                if (Cust.DeaExpDate >= DateTime.Now && (IsValidDEANumber(Cust.DeaNo) ==0))
+                if (Cust.DeaExpDate >= DateTime.Now && (IsValidDEANumber(Cust.DeaNo) == 0))
                 {
                     return success;
 
@@ -42,7 +42,7 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
         #region isValidDEANumber
         public int IsValidDEANumber(string aDeaNo)
         {
-            int  ireturn = 0 ;
+            int ireturn = 0;
             if (string.IsNullOrEmpty(aDeaNo))
             {
                 return -1;
@@ -129,7 +129,7 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
         {
             int errcount = 0;
             IObjectSpace objectSpace = this.application.CreateObjectSpace(typeof(SODetails));
-           // int goodcount = 0;
+            // int goodcount = 0;
 
             CriteriaOperator op = CriteriaOperator.Parse("SalesOrder = ?", so.SalesOrderNumber);
             IList SOD = objectSpace.GetObjects(typeof(SODetails), op);
@@ -191,31 +191,23 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
 
             // Check dea
 
-            if (   IsValidDEANumber(SO.CustomerNumber.DeaNo)  < 0 )  ;
+            if (IsValidDEANumber(SO.CustomerNumber.DeaNo) < 0) ;
             {
                 errcount++;
-                
-                
-                    errmsg = errmsg + "(" + errcount.ToString() + ") Invalid Dea Number. Does not comply with the format  of  AA####### ." + Environment.NewLine;
-                
+                errmsg = errmsg + "(" + errcount.ToString() + ") Invalid Dea Number. Does not comply with the format  of  AA####### ." + Environment.NewLine;
             }
-            
+
 
             if (!(SO.CustomerNumber.DeaExpDate >= DateTime.Now))
             {
                 errcount++;
-                
-                
-                    errmsg = errmsg + "(" + errcount.ToString() + ") Expired DEA Number '" + SO.CustomerNumber.DeaExpDate + "' " + Environment.NewLine;
-                      
-                
-
+                errmsg = errmsg + "(" + errcount.ToString() + ") Expired DEA Number '" + SO.CustomerNumber.DeaExpDate + "' " + Environment.NewLine;
             }
-            if (string.IsNullOrEmpty(SO.CustomerNumber.StateLicense) || SO.CustomerNumber.StateLicense.Trim().Length < 4) 
+            if (string.IsNullOrEmpty(SO.CustomerNumber.StateLicense) || SO.CustomerNumber.StateLicense.Trim().Length < 4)
             {
                 errcount++;
-                errmsg = errmsg +"("+errcount.ToString() +") Invalid State License Must be longer then 4"  + Environment.NewLine;
-            }
+                errmsg = errmsg + "(" + errcount.ToString() + ") Invalid State License Must be longer then 4" + Environment.NewLine;
+                            }
             if (!(SO.CustomerNumber.StateLicExpDate >= DateTime.Now))
             {
                 errcount++;
@@ -224,13 +216,12 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
             if (!AbleToShipInto(SO.DistributionCenterWhse.DistributionCenter, SO.CustomerNumber.ShipState))
             {
                 errcount++;
-                
-                errmsg = errmsg + "(" + errcount.ToString() + ")"+ string.Format("Unable to ship into ? from ? ", SO.CustomerNumber.ShipState.StateCode, SO.DistributionCenterWhse.DistributionCenter.DCName) + Environment.NewLine;
+                                errmsg = errmsg + "(" + errcount.ToString() + ")" + string.Format("Unable to ship into ? from ? ", SO.CustomerNumber.ShipState.StateCode, SO.DistributionCenterWhse.DistributionCenter.DCName) + Environment.NewLine;
             }
             if (!ControlLinesHas222(SO))
             {
                 errcount++;
-                errmsg = errmsg + "(" + errcount.ToString() + ") No 222 Form attached"+   Environment.NewLine;
+                errmsg = errmsg + "(" + errcount.ToString() + ") No 222 Form attached" + Environment.NewLine;
             }
 
             SO.LastComplianceMsg = errmsg;
@@ -239,6 +230,7 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
             if (errcount > 0)
             {
                 erromsg = errmsg;
+                SO.CustomerNumber.AddNote(SO.CustomerNumber, errmsg);
                 return errcount;
             }
             erromsg = "";

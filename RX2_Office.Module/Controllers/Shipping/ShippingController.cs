@@ -134,7 +134,7 @@ namespace RX2_Office.Module.Controllers.Shipping
                 {
                     erromsg = Environment.NewLine + erromsg;
                     options.Duration = 20000;
-                    options.Message = string.Format("Sales Order for {0} has been entered is in Compliance due to the following:{1}" , so.CustomerNumber.CustomerName, erromsg);
+                    options.Message = string.Format("Sales Order for {0} has been entered will be entered into compliance due to the following:{1}" , so.CustomerNumber.CustomerName, erromsg);
                     options.Type = InformationType.Warning;
                     options.Web.Position = InformationPosition.Right;
                     options.Win.Caption = "Needs Compliance Attention";

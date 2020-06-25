@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.PickSht2 = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.SOPack = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
-            this.CompChk = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // PickSht2
             // 
@@ -61,20 +60,10 @@
             this.SOPack.ToolTip = "Pack and Ship";
             this.SOPack.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.SOPack_Execute);
             // 
-            // CompChk
-            // 
-            this.CompChk.Caption = "CompChk";
-            this.CompChk.ConfirmationMessage = "Run this order through Compliance Check?";
-            this.CompChk.Id = "3ccaf7cc-8a25-415c-a996-48e95e209f3c";
-            this.CompChk.ImageName = "SO\\complianceCheck";
-            this.CompChk.ToolTip = null;
-            this.CompChk.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.CompChk_Execute);
-            // 
             // ShippingController
             // 
             this.Actions.Add(this.PickSht2);
             this.Actions.Add(this.SOPack);
-            this.Actions.Add(this.CompChk);
             this.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.SOHeader);
 
         }
@@ -82,6 +71,5 @@
         #endregion
         private DevExpress.ExpressApp.Actions.SimpleAction PickSht2;
         private DevExpress.ExpressApp.Actions.PopupWindowShowAction SOPack;
-        private DevExpress.ExpressApp.Actions.SimpleAction CompChk;
     }
 }

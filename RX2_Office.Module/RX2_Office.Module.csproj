@@ -475,6 +475,12 @@
       <DependentUpon>ShippingController.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessObjects\ReceiverPackage.cs" />
+    <Compile Include="Controllers\SO\SOComplianceCheck.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SO\SOComplianceCheck.Designer.cs">
+      <DependentUpon>SOComplianceCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\IM\InvItemLabelRpt.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -725,6 +731,9 @@
     <EmbeddedResource Include="Controllers\Shipping\ShippingController.resx">
       <DependentUpon>ShippingController.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SO\SOComplianceCheck.resx">
+      <DependentUpon>SOComplianceCheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\SwitchAction.resx">
       <DependentUpon>SwitchAction.cs</DependentUpon>
     </EmbeddedResource>
@@ -911,6 +920,14 @@
     <EmbeddedResource Include="Images\vendorGroup.ico" />
     <EmbeddedResource Include="Images\WO\PalletComm.ico" />
     <None Include="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes1.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes2.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>

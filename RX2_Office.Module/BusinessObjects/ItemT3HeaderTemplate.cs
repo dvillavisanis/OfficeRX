@@ -18,7 +18,7 @@ namespace RX2_Office.Module.BusinessObjects
     [ListViewAutoFilterRowAttribute(true)]
     [DefaultClassOptions]
     [ImageName("BO_Contact")]
-    [NavigationItem("T3")]
+    [NavigationItem("Compliance")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]

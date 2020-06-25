@@ -120,32 +120,7 @@
           <Item Id="Wholesaler_ListView" Removed="True" />
         </Items>
       </Item>
-      <Item Id="Inventory" Index="1" ToolTip="Inventory Module" ImageName="BO_Folder" ChildItemsDisplayStyle="List">
-        <Items>
-          <Item Id="ItemInventory_ListView" Index="0" />
-          <Item Id="Items_ListView" Index="10" />
-          <Item Id="ItemTransaction_ListView" Index="100" />
-          <Item Id="Inventory Setup" ImageName="BO_Folder" ChildItemsDisplayStyle="List" Caption="Inventory Setup" Index="999" IsNewNode="True">
-            <Items IsNewNode="True">
-              <Item Id="DistributionCenter_ListView" ViewId="DistributionCenter_ListView" ObjectKey="" IsNewNode="True" />
-              <Item Id="DistributionCenterWhse_ListView" ViewId="DistributionCenterWhse_ListView" ObjectKey="" IsNewNode="True" />
-              <Item Id="DistributionCenterWhseBins_ListView" ViewId="DistributionCenterWhseBins_ListView" ObjectKey="" IsNewNode="True" />
-              <Item Id="ItemGroupPricing_ListView" ViewId="ItemGroupPricing_ListView" ObjectKey="" IsNewNode="True" />
-              <Item Id="ItemPricingGroup_ListView" ViewId="ItemPricingGroup_ListView" ObjectKey="" IsNewNode="True" />
-              <Item Id="ItemProductLine_ListView" ViewId="ItemProductLine_ListView" ObjectKey="" IsNewNode="True" />
-              <Item Id="ItemUnitOfMeasure_ListView" ViewId="ItemUnitOfMeasure_ListView" ObjectKey="" IsNewNode="True" />
-            </Items>
-          </Item>
-          <Item Id="DistributionCenter_ListView" Removed="True" />
-          <Item Id="DistributionCenterWhse_ListView" Removed="True" />
-          <Item Id="DistributionCenterWhseBins_ListView" Removed="True" />
-          <Item Id="ItemMinChangeHistory_ListView" ViewId="ItemMinChangeHistory_ListView" Visible="False" ObjectKey="" IsNewNode="True" />
-          <Item Id="ItemPricingGroup_ListView" Removed="True" />
-          <Item Id="ItemProductLine_ListView" Removed="True" />
-          <Item Id="ItemUnitOfMeasure_ListView" Removed="True" />
-        </Items>
-      </Item>
-      <Item Id="Purchasing" Index="2" ChildItemsDisplayStyle="List">
+      <Item Id="Purchasing" Index="1" ChildItemsDisplayStyle="List">
         <Items>
           <Item Id="NewPurchaseOrder" Caption="New Purchase Order" ViewId="ItemPurchaseOrderLine_DetailView" Index="0" ObjectKey="" IsNewNode="True" />
           <Item Id="ItemPurchaseOrder_ListView" Caption="Purchase Order List" Index="1">
@@ -188,7 +163,6 @@
           <Item Id="Shippers_ListView" Removed="True" />
         </Items>
       </Item>
-      <Item Id="License" Index="4" ChildItemsDisplayStyle="List" />
       <Item Id="Marketing" Index="5" ChildItemsDisplayStyle="List" />
       <Item Id="Repack" ImageName="BO_Folder" ChildItemsDisplayStyle="List" Index="7" />
       <Item Id="Work Order" Index="8" ChildItemsDisplayStyle="List" />
@@ -208,6 +182,31 @@
         </Items>
       </Item>
       <Item Id="Options" Index="99" ChildItemsDisplayStyle="List" />
+      <Item Id="Inventory" Index="" ToolTip="Inventory Module" ImageName="BO_Folder" ChildItemsDisplayStyle="List">
+        <Items>
+          <Item Id="ItemInventory_ListView" Index="0" />
+          <Item Id="Items_ListView" Index="10" />
+          <Item Id="ItemTransaction_ListView" Index="100" />
+          <Item Id="Inventory Setup" ImageName="BO_Folder" ChildItemsDisplayStyle="List" Caption="Inventory Setup" Index="999" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="DistributionCenter_ListView" ViewId="DistributionCenter_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="DistributionCenterWhse_ListView" ViewId="DistributionCenterWhse_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="DistributionCenterWhseBins_ListView" ViewId="DistributionCenterWhseBins_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="ItemGroupPricing_ListView" ViewId="ItemGroupPricing_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="ItemPricingGroup_ListView" ViewId="ItemPricingGroup_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="ItemProductLine_ListView" ViewId="ItemProductLine_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="ItemUnitOfMeasure_ListView" ViewId="ItemUnitOfMeasure_ListView" ObjectKey="" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="DistributionCenter_ListView" Removed="True" />
+          <Item Id="DistributionCenterWhse_ListView" Removed="True" />
+          <Item Id="DistributionCenterWhseBins_ListView" Removed="True" />
+          <Item Id="ItemMinChangeHistory_ListView" ViewId="ItemMinChangeHistory_ListView" Visible="False" ObjectKey="" IsNewNode="True" />
+          <Item Id="ItemPricingGroup_ListView" Removed="True" />
+          <Item Id="ItemProductLine_ListView" Removed="True" />
+          <Item Id="ItemUnitOfMeasure_ListView" Removed="True" />
+        </Items>
+      </Item>
     </Items>
   </NavigationItems>
   <Options Skin="Coffee" UIType="TabbedMDI" FormStyle="Ribbon" LookupSmallCollectionItemCount="50">
@@ -3883,6 +3882,47 @@
       </Layout>
     </DetailView>
     <ListView Id="SOHeader_ListView" Caption="Sales Order" DetailViewID="SOHeader_DetailView_NewLine" />
+    <ListView Id="SOHeader_ListView_ComplianceCheck" ClassName="RX2_Office.Module.BusinessObjects.SOHeader" DetailViewID="SOHeader_DetailView_NewLine" Caption="Sales Order" Filter="[SOStatus] = ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,ComplianceCheck#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="BillToAddress1" PropertyName="BillToAddress1" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToAddress2" PropertyName="BillToAddress2" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToAddress3" PropertyName="BillToAddress3" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToCity" PropertyName="BillToCity" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToCityStateZip" PropertyName="BillToCityStateZip" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToName" PropertyName="BillToName" Width="400" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToState" PropertyName="BillToState" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToZip" PropertyName="BillToZip" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="CustomerNumber" PropertyName="CustomerNumber" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="CustomerShippingAccount" PropertyName="CustomerShippingAccount" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="LastComplianceMsg" PropertyName="LastComplianceMsg" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Width="50" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="PoNumber" PropertyName="PoNumber" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToAddress" PropertyName="ShipToAddress" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToAddress2" PropertyName="ShipToAddress2" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToAddress3" PropertyName="ShipToAddress3" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToCity" PropertyName="ShipToCity" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToCityStateZip" PropertyName="ShipToCityStateZip" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToName" PropertyName="ShipToName" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToState" PropertyName="ShipToState" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToZip" PropertyName="ShipToZip" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="SalesOrderNumber" PropertyName="SalesOrderNumber" Width="70" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="AccountingSONumber" PropertyName="AccountingSONumber" Width="70" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="SalesOrderDate" PropertyName="SalesOrderDate" Width="70" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="SOStatus" PropertyName="SOStatus" Width="70" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="DistributionCenterWhse" PropertyName="DistributionCenterWhse" Width="70" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="SalesOrderComments" PropertyName="SalesOrderComments" Width="70" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="PickingsheetPrinted" PropertyName="PickingsheetPrinted" Width="50" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="ShippingType" PropertyName="ShippingType" Width="70" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="ImportID" PropertyName="ImportID" Width="70" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="SalesRep" PropertyName="SalesRep" Width="70" Index="9" IsNewNode="True" />
+      </Columns>
+      <Filters CurrentFilterId="Non Printed Picking Sheets " IsNewNode="True">
+        <Filter Id="All" Criteria="" IsNewNode="True" />
+        <Filter Id="In Invoicing " Criteria="[SOStatus] == 5 " Caption="In Invoicing" Description="In Invoicing" IsNewNode="True" />
+        <Filter Id="In Packing " Criteria="[SOStatus] == 3 " Caption="In Packing" Description="In Packing" IsNewNode="True" />
+        <Filter Id="Non Printed Picking Sheets " Criteria="[PickingsheetPrinted] = False" Caption="Non Printed Picking Sheets  " Description="Non Printed Picking Sheets " IsNewNode="True" />
+      </Filters>
+    </ListView>
     <DetailView Id="SOHeader_NewSO" ClassName="RX2_Office.Module.BusinessObjects.SOHeader" Caption="Sales Order" DefaultFocusedItem="PoNumber" IsNewNode="True">
       <Items IsNewNode="True">
         <PropertyEditor Id="AccountingSONumber" PropertyName="AccountingSONumber" AllowEdit="True" IsNewNode="True" />

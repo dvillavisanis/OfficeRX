@@ -56,7 +56,7 @@
             this.ItemPTBMaint.Caption = "PTB";
             this.ItemPTBMaint.Category = "RecordEdit";
             this.ItemPTBMaint.ConfirmationMessage = null;
-            this.ItemPTBMaint.Id = "20be57d9-e9eb-459b-ad2a-5ad326871421";
+            this.ItemPTBMaint.Id = "ItemPTBMaint";
             this.ItemPTBMaint.ImageName = "Pricetobeat";
             this.ItemPTBMaint.TargetObjectsCriteria = " IsCurrentUserInRole(\'Item PTB Maintenance\')";
             this.ItemPTBMaint.ToolTip = null;

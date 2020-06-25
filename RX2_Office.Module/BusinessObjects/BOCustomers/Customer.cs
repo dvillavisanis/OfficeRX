@@ -1518,6 +1518,7 @@ namespace RX2_Office.Module.BusinessObjects
 
         }
 
+       
 
         public decimal GetCustomerItemPrice(int CustomerOID, string ItemNumber)
         {
