@@ -401,6 +401,8 @@
     <Compile Include="BusinessObjects\SalesRepGoals.cs" />
     <Compile Include="BusinessObjects\Shippers.cs" />
     <Compile Include="BusinessObjects\SOHeader.cs" />
+    <Compile Include="BusinessObjects\SOPacking.cs" />
+    <Compile Include="BusinessObjects\SOPackingSerialNo.cs" />
     <Compile Include="BusinessObjects\UserFriendlyIdPersistentObject.cs" />
     <Compile Include="BusinessObjects\UserTask.cs" />
     <Compile Include="BusinessObjects\VendorGroups.cs" />
@@ -928,6 +930,26 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="UnusableNodes2.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes3.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes4.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes5.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes6.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes7.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>

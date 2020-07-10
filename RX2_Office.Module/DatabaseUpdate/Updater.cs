@@ -286,8 +286,8 @@ namespace RX2_Office.Module.DatabaseUpdate
 
 
             #endregion
-
             #endregion
+
             #region Roles
 
             EmployeeRole CustomerCheckData = ObjectSpace.FindObject<EmployeeRole>(new BinaryOperator("Name", "CustomerCheckData"));
@@ -504,9 +504,21 @@ namespace RX2_Office.Module.DatabaseUpdate
 
             }
 
+            
+    
 
+
+            #region ContactMgr
+            EmployeeRole CustomerContactRole = ObjectSpace.FindObject<EmployeeRole>(new BinaryOperator("Name", "ContactMgr"));
+            if (CustomerContactRole == null)
+            {
+                CustomerContactRole = ObjectSpace.CreateObject<EmployeeRole>();
+                CustomerContactRole.Name = "ContactMgr";
+                                ObjectSpace.CommitChanges();
+            }
 
             #endregion
+
 
 
             #region Item
@@ -700,7 +712,7 @@ namespace RX2_Office.Module.DatabaseUpdate
             }
             ObjectSpace.CommitChanges();
             #endregion
-
+            #endregion
 
             #endregion
             #region Unit of Measures
@@ -1306,12 +1318,12 @@ namespace RX2_Office.Module.DatabaseUpdate
             // main admin
             userAdmin.EmployeeRoles.Add(CustomContactLockRole);
             userAdmin.EmployeeRoles.Add(CustomerCheckData);
+            userAdmin.EmployeeRoles.Add(CustomerContactRole);
 
-
-
+                
             userAdmin2.EmployeeRoles.Add(CustomContactLockRole);
             userAdmin2.EmployeeRoles.Add(CustomerCheckData);
-
+            userAdmin2.EmployeeRoles.Add(CustomerContactRole);
 
             ObjectSpace.CommitChanges();
 

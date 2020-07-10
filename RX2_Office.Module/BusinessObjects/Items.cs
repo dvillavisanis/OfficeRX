@@ -1490,11 +1490,7 @@ namespace RX2_Office.Module.BusinessObjects
             CriteriaOperator op = GroupOperator.Combine(GroupOperatorType.And,
                 new BinaryOperator("ItemNumber", NDC),
                 new BinaryOperator("NDC", NDC));
-
-
-
-            Items item = (Items)Session.FindObject(typeof(Items),
-                op, true);
+            Items item = (Items)Session.FindObject(typeof(Items), op, true);
 
 
             if (item == null)
@@ -1529,7 +1525,7 @@ namespace RX2_Office.Module.BusinessObjects
             if (result.ErrorCode == 0)
             {
                 if (string.IsNullOrEmpty(ItemNumber)) ItemNumber = result.fdbRootObject.PackagedDrug.NDC;
-                if (FDAFormat ==null)  FDAFormat =((eNDCFormatCode)Enum.Parse(typeof(eNDCFormatCode), result.fdbRootObject.PackagedDrug.NDCFormatCode));
+                //if (FDAFormat ==null)  FDAFormat =((eNDCFormatCode)Enum.Parse(typeof(eNDCFormatCode), result.fdbRootObject.PackagedDrug.NDCFormatCode));
                 if (string.IsNullOrEmpty(AccountingNumber)) AccountingNumber = result.fdbRootObject.PackagedDrug.NDCFormatted;
                 if (string.IsNullOrEmpty(ItemDescription)) ItemDescription = result.fdbRootObject.PackagedDrug.DrugNameDesc;
                 if ( string.IsNullOrEmpty(Strength)) Strength = result.fdbRootObject.PackagedDrug.MedStrength.ToString();
@@ -1556,11 +1552,7 @@ namespace RX2_Office.Module.BusinessObjects
         {
             string ret;
             ret = string.Empty;
-
-
             return ret;
-
-
         }
 
       

@@ -50,7 +50,7 @@ namespace RX2_Office.Module.BusinessObjects
             {
                 int nextSequence = DistributedIdGeneratorHelper.Generate(Session.DataLayer, this.GetType().FullName, "SalesOrder");
                 accountingSONumber = string.Format("SO{0:D6}", nextSequence);
-
+                salesOrderNumber = accountingSONumber;
             }
 
 
@@ -58,13 +58,18 @@ namespace RX2_Office.Module.BusinessObjects
 
         protected override void OnSaving()
         {
-    
+
             base.OnSaving();
+            if (SalesOrderNumber == null)
+            {
+                SalesOrderNumber = AccountingSONumber;
+            }
         }
 
 
         // Fields...
 
+        string scan;
         string lastComplianceMsg;
         private DistributionCenterWhse _DistributionCenterWhse;
 
@@ -122,6 +127,9 @@ namespace RX2_Office.Module.BusinessObjects
             set
             {
                 SetPropertyValue(nameof(AccountingSONumber), ref accountingSONumber, value);
+                if (SalesOrderNumber == null)  SalesOrderNumber = AccountingSONumber;
+
+                
             }
         }
         public DateTime SalesOrderDate
@@ -165,7 +173,7 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
         [RuleRequiredField()]
-        [VisibleInListView(false)]
+        [VisibleInListView(true)]
         [Association("Customer-SOHeaders")]
         public Customer CustomerNumber
         {
@@ -205,6 +213,8 @@ namespace RX2_Office.Module.BusinessObjects
 
         [RuleRequiredField()]
         [Association("DistributionCenterWhse-SOHeaders")]
+        [DataSourceCriteria("Retail = true ")]
+
         public DistributionCenterWhse DistributionCenterWhse
         {
             get
@@ -544,14 +554,30 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+        [NonPersistent]
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string Scan
+        {
+            get => scan;
+            set => SetPropertyValue(nameof(Scan), ref scan, value);
+        }
+
 
         [Association("SOHeader-SODetails"), DevExpress.Xpo.Aggregated]
-
         public XPCollection<SODetails> SODetails
         {
             get
             {
                 return GetCollection<SODetails>("SODetails");
+            }
+        }
+
+        [Association("SOHeader-SOPacking")]
+        public XPCollection<SOPacking> SOPacking
+        {
+            get
+            {
+                return GetCollection<SOPacking>(nameof(SOPacking));
             }
         }
 
@@ -565,6 +591,15 @@ namespace RX2_Office.Module.BusinessObjects
                     changeHistory = AuditedObjectWeakReference.GetAuditTrail(Session, this);
                 }
                 return changeHistory;
+            }
+        }
+
+        [Association("SOHeader-SoPackingSerailNumbers")]
+        public XPCollection<SOPackingSerialNo> SoPackingSerialNumbers
+        {
+            get
+            {
+                return GetCollection<SOPackingSerialNo>(nameof(SoPackingSerialNumbers));
             }
         }
 

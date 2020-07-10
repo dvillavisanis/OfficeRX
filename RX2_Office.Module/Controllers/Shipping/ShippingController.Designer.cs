@@ -58,13 +58,15 @@
             this.SOPack.TargetObjectsCriteriaMode = DevExpress.ExpressApp.Actions.TargetObjectsCriteriaMode.TrueForAll;
             this.SOPack.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.SOHeader);
             this.SOPack.ToolTip = "Pack and Ship";
+            this.SOPack.CustomizePopupWindowParams += new DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventHandler(this.SOPack_CustomizePopupWindowParams);
+            this.SOPack.CustomizeTemplate += new System.EventHandler<DevExpress.ExpressApp.CustomizeTemplateEventArgs>(this.SOPack_CustomizeTemplate);
             this.SOPack.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.SOPack_Execute);
             // 
             // ShippingController
             // 
             this.Actions.Add(this.PickSht2);
             this.Actions.Add(this.SOPack);
-            this.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.SOHeader);
+            this.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.SOItemDistibution);
 
         }
 

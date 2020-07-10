@@ -37,7 +37,7 @@ namespace RX2_Office.Module
                 typeof(Customer))
             {
 
-                bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("SalesMGR") || ((Employee)SecuritySystem.CurrentUser).IsUserInRole("Administrators");
+                bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("SalesMGR")  || ((Employee)SecuritySystem.CurrentUser).IsUserInRole("Administrators") ;
                 if (flag)
                 {
                     IModelListViewFilterItem myFilter = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter");
@@ -142,7 +142,7 @@ namespace RX2_Office.Module
             if (((IModelListView)filtersNode.Parent).ModelClass.TypeInfo.Type == typeof(CustomerCDR))
             {
 
-                bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("CDRMgr") || ((Employee )SecuritySystem.CurrentUser).IsUserInRole("Administrators");
+                bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("CDRMgr") || ((Employee)SecuritySystem.CurrentUser).IsUserInRole("Administrators");
                 if (flag)
                 {
                     //IModelListViewFilterItem myFilter = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter");
@@ -214,21 +214,46 @@ namespace RX2_Office.Module
                     myFilter1.ToolTip = "All Last Month";
                     myFilter1.Caption = "All Last Month";
                     myFilter1.Description = "Last Month Invoices";
-
-
                 }
-
-
-
-
             }
             #endregion
 
+            #region CustomerContacts
+            if (((IModelListView)filtersNode.Parent).ModelClass.TypeInfo.Type == typeof(CustomerContact))
+            {
+                bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("ContactMgr") || ((Employee)SecuritySystem.CurrentUser).IsUserInRole("Administrators");
+                if (flag)
+                {
+                    IModelListViewFilterItem myFilter = filtersNode.AddNode<IModelListViewFilterItem>("ContactComplexFilter");
+                    myFilter.Criteria = "ContactType = 'PRIMA'";
+                    myFilter.Index = 99;
+                    myFilter.ToolTip = "All Primary Contact";
+                    myFilter.Caption = "All Primary Contacts";
+                    myFilter.Description = "All Primary Contacts";
+
+                    IModelListViewFilterItem myFilter1 = filtersNode.AddNode<IModelListViewFilterItem>("ContactComplexFilter1");
+                    myFilter1.Criteria = "ContactType = 'AP'";
+                    myFilter1.Index = 98;
+                    myFilter1.ToolTip = "All AP Contact";
+                    myFilter1.Caption = "All AP Contacts";
+                    myFilter1.Description = "All AP Contacts";
+
+                    IModelListViewFilterItem myFilter2 = filtersNode.AddNode<IModelListViewFilterItem>("ContactComplexFilter3");
+                    myFilter2.Criteria = "";
+                    myFilter2.Index = 100;
+                    myFilter2.ToolTip = "All";
+                    myFilter2.Caption = "All";
+                    myFilter.Description = "All";
+                }
+            }
+            #endregion
+
+
             #region Item Request
-       // [ListViewFilter(" My Open Last 30 Day Request ", "[RequestBy] = CurrentUserName() && [RequestStatus] < 9  && [RequestDt] >=  ADDDAYS(LocalDateTimeToday(), -30)  ", " My Open last 30 days Request ", "Request I created In the last 30 days", true, Index = 0)]
-       // [ListViewFilter(" My Open Last 30 Day Request ", "[RequestBy] = CurrentUserName() && [RequestStatus] < 9  && [RequestDt] >=  ADDDAYS(LocalDateTimeToday(), -90)  ", " My Open last 90 days Request ", "Request I created In the last 90 days", true, Index = 2)]
-       // [ListViewFilter(" My ALL Open Request ", "[RequestBy] = CurrentUserName() && [RequestStatus] < 9  ", " My All Open Request ", "All Open Request I created", false, Index = 5)]
-       // [ListViewFilter(" All ", "", " All", "All Request", false, Index = 10)]
+            // [ListViewFilter(" My Open Last 30 Day Request ", "[RequestBy] = CurrentUserName() && [RequestStatus] < 9  && [RequestDt] >=  ADDDAYS(LocalDateTimeToday(), -30)  ", " My Open last 30 days Request ", "Request I created In the last 30 days", true, Index = 0)]
+            // [ListViewFilter(" My Open Last 30 Day Request ", "[RequestBy] = CurrentUserName() && [RequestStatus] < 9  && [RequestDt] >=  ADDDAYS(LocalDateTimeToday(), -90)  ", " My Open last 90 days Request ", "Request I created In the last 90 days", true, Index = 2)]
+            // [ListViewFilter(" My ALL Open Request ", "[RequestBy] = CurrentUserName() && [RequestStatus] < 9  ", " My All Open Request ", "All Open Request I created", false, Index = 5)]
+            // [ListViewFilter(" All ", "", " All", "All Request", false, Index = 10)]
 
             if (((IModelListView)filtersNode.Parent).ModelClass.TypeInfo.Type == typeof(ItemRequest))
             {
@@ -281,11 +306,7 @@ namespace RX2_Office.Module
             }
             #endregion
 
-
-
         }
-
-
 
     }
 }

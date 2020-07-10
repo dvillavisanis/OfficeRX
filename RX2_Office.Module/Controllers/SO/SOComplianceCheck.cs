@@ -60,6 +60,9 @@ namespace RX2_Office.Module.Controllers.SO
                     options.Win.Type = WinMessageType.Alert;
                     so.SOStatus = SalesOrderStatus.Picking;
                     so.CustomerNumber.AddNote(so.CustomerNumber, String.Format("Sales Order: {0} Has been Move out of Compliance.", so.SalesOrderNumber));
+                    so.Save();
+                    ObjectSpace.CommitChanges();
+                    View.Refresh();
                 }
                 else
                 {

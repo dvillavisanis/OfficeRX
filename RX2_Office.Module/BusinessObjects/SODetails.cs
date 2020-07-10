@@ -20,11 +20,13 @@ namespace RX2_Office.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class SODetails : BaseObject
+    public class SODetails : XPObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         public SODetails(Session session)
             : base(session)
+           
         {
+            
         }
         public override void AfterConstruction()
         {
@@ -51,8 +53,10 @@ namespace RX2_Office.Module.BusinessObjects
 
         // Fields...
 
+        string scan;
+        int qtyInvoiced;
         private int _QtyPicked;
-        private ItemInventory  _Item;
+        private ItemInventory _Item;
         private SOHeader _SalesOrder;
         private ItemUnitOfMeasure _UnitOfMeasure;
         private int _QtyOrdered;
@@ -60,7 +64,7 @@ namespace RX2_Office.Module.BusinessObjects
 
         [VisibleInListView(false)]
         [Association("SOHeader-SODetails")]
-
+        
         public SOHeader SalesOrder
         {
             get
@@ -75,19 +79,22 @@ namespace RX2_Office.Module.BusinessObjects
 
 
         [Association("ItemInventory-SODetails")]
+        [DataSourceCriteria("Warehouse = '@This.SalesOrder.DistributionCenterWhse' ")]
         public ItemInventory Item
         {
+            
             get
             {
+         
                 return _Item;
             }
             set
             {
                 if (!IsLoading && value != Item)
-                
+
                 {
                     SetPropertyValue("Item", ref _Item, value);
-                                if (this.SalesOrder != null)
+                    if (this.SalesOrder != null)
                     {
                         this.UnitPrice = SalesOrder.CustomerNumber.GetCustomerItemPrice(SalesOrder.CustomerNumber, Item.ItemNumber);
                     }
@@ -99,8 +106,8 @@ namespace RX2_Office.Module.BusinessObjects
 
 
         [VisibleInListView(false)]
-       // [ModelDefault("EditMask", "#,##.##")]
-       // [ModelDefault("DisplayFormat", "{0:0}")]
+        // [ModelDefault("EditMask", "#,##.##")]
+        // [ModelDefault("DisplayFormat", "{0:0}")]
         public decimal UnitPrice
         {
             get
@@ -127,7 +134,7 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-       
+
         public int QtyPicked
         {
             get
@@ -140,6 +147,14 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+        public int QtyInvoiced
+        {
+            get => qtyInvoiced;
+            set => SetPropertyValue(nameof(QtyInvoiced), ref qtyInvoiced, value);
+        }
+
+
+
         [NonPersistentAttribute]
         public decimal ExtendedPrice
         {
@@ -150,7 +165,13 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-
+        [NonPersistentAttribute]
+        [Size(1024)]
+        public string Scan
+        {
+            get => scan;
+            set => SetPropertyValue(nameof(Scan), ref scan, value);
+        }
 
         [VisibleInListView(false)]
         [Association("ItemUnitOfMeasure-SODetails")]

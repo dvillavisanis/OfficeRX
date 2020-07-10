@@ -135,7 +135,7 @@ namespace RX2_Office.Module.Controllers.Shipping
             if (scan.Length < 30)
             {
                 string message = "You did not scan a GS1 2d barcode.";
-                string caption = "Error Detected in Input";
+                //string caption = "Error Detected in Input";
                 // MessageBoxButtons buttons = MessageBoxButtons.OK;
                 //DialogResult result;
                 Application.ShowViewStrategy.ShowMessage(message);

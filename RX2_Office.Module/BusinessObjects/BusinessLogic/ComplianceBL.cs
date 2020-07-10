@@ -40,9 +40,16 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
             return failed;
         }
         #region isValidDEANumber
+        /// <summary>
+        ///  A valid DEA number consists of 2 letters, 6 digits, and 1 check digit.
+        /// </summary>
+        /// <param name="aDeaNo"></param>
+        /// <returns></returns>
+
         public int IsValidDEANumber(string aDeaNo)
         {
-            int ireturn = 0;
+            char[] adea = aDeaNo.ToCharArray();
+            int ireturn = 1;
             if (string.IsNullOrEmpty(aDeaNo))
             {
                 return -1;
@@ -60,31 +67,89 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
             //Step 2: 8 + 6 + 2 = 16 
             //Step 3: 16 * 2 = 32 
             //Step 4: 15 + 32 = 47 
-            // last diget of the dea number is equal the the last diget in the calc 
+            // last diget of the dea number is equal the the last digit in the calc 
             if (aDeaNo.Length == 9)
             {
-                // check to see if fisrt two digits are letters
+                // check to see if first two digits are letters
                 if (Char.IsLetter(aDeaNo[0]) && Char.IsLetter(aDeaNo[1]))
                 {
-                    // Step 1: add the first, third, and fifth digits of the DEA number. 
-                    int step1 = aDeaNo[2] + aDeaNo[4] + aDeaNo[6];
+
+                    int step1 = 0;
+                    // int step4 = 0;
+                    // int step2 = 0;
+
+                    int deaa = 0;
+                    int deab = 0;
+                    int deac = 0;
+                    int dead = 0;
+                    int deae = 0;
+                    int deaf = 0;
+                    int deag = 0;
+                    int compval = 0;
+
+                    string sdeaa;
+                    string sdeab;
+                    string sdeac;
+                    string sdead;
+                    string sdeae;
+                    string sdeaf;
+                    string sdeag;
+
+
+                    sdeaa = adea[2].ToString();
+                    sdeab = adea[3].ToString();
+                    sdeac = adea[4].ToString();
+                    sdead = adea[5].ToString();
+                    sdeae = adea[6].ToString();
+                    sdeaf = adea[7].ToString();
+                    sdeag = adea[8].ToString();
+
+
+
+                    Int32.TryParse(sdeaa, out deaa);
+                    Int32.TryParse(sdeab, out deab);
+                    Int32.TryParse(sdeac, out deac);
+                    Int32.TryParse(sdead, out dead);
+                    Int32.TryParse(sdeae, out deae);
+                    Int32.TryParse(sdeaf, out deaf);
+                    Int32.TryParse(sdeag, out deag);
+
+
+                    // Step
+                    //1: add the first, third, and fifth digits of the DEA number. 
+
+                    int stepa = deaa + deac + deae;
 
                     //   Step 2: add the second, fourth, and sixth digits of the DEA number. 
-                    int step2 = aDeaNo[3] + aDeaNo[5] + aDeaNo[7];
-
                     //   Step 3: multiply the result of Step 2 by two. 
-                    step2 = step2 * 2;
+                    int stepb = (deab + dead + deaf) * 2;
+                                       
+                    //step2 = step2 * 2;
+
                     //   Step 4: add the result of Step 1 to the result of Step 3. 
-                    int step4 = step1 + step2;
-                    if (aDeaNo[8] != step4.ToString()[step4.ToString().Length - 1])
-                    { ireturn = -2; }
+
+                    int stepc = stepa + stepb;
+
+                    // Compare the checksum and the last digits
+                    Int32 step4pos = stepc.ToString().Length - 1;
+                    Char compstr = stepc.ToString()[step4pos];
+
+
+                    Int32.TryParse(compstr.ToString(), out compval);
+
+                    if (deag != compval)
+                    {
+                        ireturn = -1;
+                    }
+                    else
+                        return 1; //Good to go
                 }
                 else
-                {
-                    ireturn = -3;
-                }
-            }
+                { ireturn = -3; }
 
+            }
+            else
+            { ireturn = -4; }
 
             return ireturn;
         }
@@ -191,7 +256,7 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
 
             // Check dea
 
-            if (IsValidDEANumber(SO.CustomerNumber.DeaNo) < 0) ;
+            if (IsValidDEANumber(SO.CustomerNumber.DeaNo) < 0)
             {
                 errcount++;
                 errmsg = errmsg + "(" + errcount.ToString() + ") Invalid Dea Number. Does not comply with the format  of  AA####### ." + Environment.NewLine;
@@ -207,7 +272,7 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
             {
                 errcount++;
                 errmsg = errmsg + "(" + errcount.ToString() + ") Invalid State License Must be longer then 4" + Environment.NewLine;
-                            }
+            }
             if (!(SO.CustomerNumber.StateLicExpDate >= DateTime.Now))
             {
                 errcount++;
@@ -216,7 +281,7 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
             if (!AbleToShipInto(SO.DistributionCenterWhse.DistributionCenter, SO.CustomerNumber.ShipState))
             {
                 errcount++;
-                                errmsg = errmsg + "(" + errcount.ToString() + ")" + string.Format("Unable to ship into ? from ? ", SO.CustomerNumber.ShipState.StateCode, SO.DistributionCenterWhse.DistributionCenter.DCName) + Environment.NewLine;
+                errmsg = errmsg + "(" + errcount.ToString() + ")" + string.Format("Unable to ship into ? from ? ", SO.CustomerNumber.ShipState.StateCode, SO.DistributionCenterWhse.DistributionCenter.DCName) + Environment.NewLine;
             }
             if (!ControlLinesHas222(SO))
             {

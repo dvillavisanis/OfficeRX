@@ -142,6 +142,11 @@ namespace RX2_Office.Module.Controllers
                 options.Win.Caption = "Success";
                 options.Win.Type = WinMessageType.Alert;
                 so.SOStatus = SalesOrderStatus.Submitted;
+                if (so.SalesOrderNumber== null || so.SalesOrderNumber?.Length < 2)
+                { so.SalesOrderNumber = so.AccountingSONumber; }
+
+                so.Save();
+                
             }
             else
             {
@@ -152,7 +157,10 @@ namespace RX2_Office.Module.Controllers
                 options.Win.Caption = "Success Need Compliance";
                 options.Win.Type = WinMessageType.Alert;
                 so.SOStatus = SalesOrderStatus.ComplianceCheck;
+                if (so.SalesOrderNumber == null || so.SalesOrderNumber?.Length < 2)
+                { so.SalesOrderNumber = so.AccountingSONumber; }
 
+                so.Save();
             }
             Application.ShowViewStrategy.ShowMessage(options);
             string msg = string.Format("Sales order: {2} entered by {0} {1} ", SecuritySystem.CurrentUserName, System.Environment.NewLine,so.SalesOrderNumber);
@@ -161,7 +169,10 @@ namespace RX2_Office.Module.Controllers
                 msg = msg + string.Format(det.Item.ItemNumber.ToString() + " {0:C2} @ {1} {2} ", det.QtyOrdered, det.UnitPrice, System.Environment.NewLine);
             }
             so.CustomerNumber.AddNote(so.CustomerNumber, msg);
+            so.Session.CommitTransaction();
 
+
+            View.Refresh();
         }
 
         private void SalesOrderPopup_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
@@ -183,7 +194,7 @@ namespace RX2_Office.Module.Controllers
 
             e.View = Application.CreateDetailView(objectSpace, TargetViewId, true, newOrder);
             e.View.Caption = e.View.Caption + " - " + newOrder.CustomerNumber.CustomerName;
-
+            
         }
 
         private void DrugRequestAction_Execute(object sender, CustomizePopupWindowParamsEventArgs e)

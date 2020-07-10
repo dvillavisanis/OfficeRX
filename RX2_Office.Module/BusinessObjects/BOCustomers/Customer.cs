@@ -181,7 +181,7 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
 
-        string propertyName;
+ 
       
         bool checkData;
         string linkedIn;

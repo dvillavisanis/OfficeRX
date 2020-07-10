@@ -8,11 +8,11 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
     public class SMSCOMMS
     {
         private SerialPort SMSPort;
-        private Thread SMSThread;
+      //  private Thread SMSThread;
         private Thread ReadThread;
         public static bool _Continue = false;
         public static bool _ContSMS = false;
-        private bool _Wait = false;
+        //private bool _Wait = false;
         public static bool _ReadPort = false;
         public delegate void SendingEventHandler(bool Done);
         public event SendingEventHandler Sending;
@@ -60,9 +60,11 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
         {
             string SerialIn = null;
             byte[] RXBuffer = new byte[SMSPort.ReadBufferSize + 1];
-            string SMSMessage = null;
-            int Strpos = 0;
-            string TmpStr = null;
+            //string SMSMessage = null;
+            //   int Strpos = 0;
+            //bool _Wait;
+           
+         //   string TmpStr = null;
             while (SMSPort.IsOpen == true)
             {
                 if ((SMSPort.BytesToRead != 0) & (SMSPort.IsOpen == true))
@@ -82,7 +84,7 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
                             _Continue = true;
                             if (Sending != null)
                                 Sending(true);
-                            _Wait = false;
+                           // _Wait = false;
                             SerialIn = string.Empty;
                             RXBuffer = new byte[SMSPort.ReadBufferSize + 1];
                         }

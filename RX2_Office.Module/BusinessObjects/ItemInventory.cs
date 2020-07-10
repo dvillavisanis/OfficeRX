@@ -16,13 +16,13 @@ namespace RX2_Office.Module.BusinessObjects
     [ListViewAutoFilterRowAttribute(true)]
     [ListViewFilter(" Current Inventory", "[QtyOnHand] <> 0", "Current Inventory", "All Items In Inventory", true)]
     [ListViewFilter(" Current 17856 Inventory", "[QtyOnHand] <> 0 and [ItemNumber] like '17856%' ", "Current 17856 Inventory", "All Items In Inventory", true)]
-
+   
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     [DefaultListViewOptions(MasterDetailMode.ListViewAndDetailView, false, NewItemRowPosition.None)]
 
     public class ItemInventory : XPObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-
+       
         public ItemInventory(Session session)
             : base(session)
         {
@@ -62,6 +62,7 @@ namespace RX2_Office.Module.BusinessObjects
         private DateTime _ExpirtationDate;
         private string _ItemLot;
 
+        
         [RuleRequiredField]
         [Association("Items-ItemInventorys")]
         public Items ItemNumber

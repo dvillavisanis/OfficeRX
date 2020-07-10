@@ -151,7 +151,7 @@
       </Item>
       <Item Id="Shipping" ImageName="BO_Folder" ChildItemsDisplayStyle="List" Index="3">
         <Items>
-          <Item Id="SOHeader_ListView" Caption="Sales Orders" Index="0" />
+          <Item Id="SOHeader_ListView" Caption="Sales Orders" Index="0" ViewId="SOHeader_ListView_Shipping" />
           <Item Id="ItemReceiver_ListView" Index="1" Removed="True" />
           <Item Id="ShippingSetup" ChildItemsDisplayStyle="List" Caption="Shipping Setup" Index="99" IsNewNode="True">
             <Items IsNewNode="True">
@@ -331,7 +331,15 @@
       <SplitLayout SplitterPosition="400" IsNewNode="True" />
     </ListView>
     <ListView Id="Customer_CustomerCDR_ListView" AllowDelete="False" AllowLink="False" AllowNew="False" IsFooterVisible="True" ShowAutoFilterRow="True" />
-    <ListView Id="Customer_CustomerContacts_ListView" IsFooterVisible="True" ShowAutoFilterRow="True" IsGroupPanelVisible="True" AllowUnlink="False" />
+    <ListView Id="Customer_CustomerContacts_ListView" IsFooterVisible="True" ShowAutoFilterRow="True" IsGroupPanelVisible="True" AllowUnlink="False" AllowDelete="False" AllowLink="False" AllowNew="False">
+      <Columns>
+        <ColumnInfo Id="FullName">
+          <Summary Index="1">
+            <ColumnSummaryItem Id="countcontacts" SummaryType="Count" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+      </Columns>
+    </ListView>
     <ListView Id="Customer_CustomerCustomUDRequest_ListView" IsFooterVisible="True" IsGroupPanelVisible="True" ShowAutoFilterRow="True" />
     <ListView Id="Customer_CustomerNotes_ListView" AllowLink="False" AllowNew="False" AllowUnlink="False" AllowDelete="False" />
     <DetailView Id="Customer_DetailView" AllowNew="False" AllowEdit="True" AllowDelete="False">
@@ -714,7 +722,15 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="CustomerContact_ListView" AllowNew="False" AllowUnlink="False" AllowEdit="True" />
+    <ListView Id="CustomerContact_ListView" AllowNew="False" AllowUnlink="False" AllowEdit="False" IsGroupPanelVisible="True" IsFooterVisible="True" AllowDelete="False">
+      <Columns>
+        <ColumnInfo Id="FullName">
+          <Summary>
+            <ColumnSummaryItem Id="countContacts" SummaryType="Count" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+      </Columns>
+    </ListView>
     <DetailView Id="CustomerCustomUDRequest_DetailView" AllowDelete="False" AllowEdit="False" AllowNew="False" />
     <DetailView Id="CustomerCustomUDRequest_DetailView_SalesAdd" ClassName="RX2_Office.Module.BusinessObjects.CustomerCustomUDRequest" AllowDelete="False" AllowEdit="True" AllowNew="False" DefaultFocusedItem="Request" Caption="Customer Custom UD Request" IsNewNode="True">
       <Items IsNewNode="True">
@@ -3650,6 +3666,41 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <DetailView Id="SODetails_DetailView_Packing" ClassName="RX2_Office.Module.BusinessObjects.SODetails" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="ExtendedPrice" PropertyName="ExtendedPrice" IsNewNode="True" />
+        <PropertyEditor Id="Form222Img" PropertyName="Form222Img" IsNewNode="True" />
+        <PropertyEditor Id="Item" PropertyName="Item" IsNewNode="True" />
+        <PropertyEditor Id="Oid" PropertyName="Oid" IsNewNode="True" />
+        <PropertyEditor Id="QtyOrdered" PropertyName="QtyOrdered" IsNewNode="True" />
+        <PropertyEditor Id="QtyPicked" PropertyName="QtyPicked" IsNewNode="True" />
+        <PropertyEditor Id="SOItemDistributions" PropertyName="SOItemDistributions" View="SODetails_SOItemDistributions_ListView" IsNewNode="True" />
+        <PropertyEditor Id="UnitOfMeasure" PropertyName="UnitOfMeasure" IsNewNode="True" />
+        <PropertyEditor Id="UnitPrice" PropertyName="UnitPrice" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" IsNewNode="True">
+            <LayoutGroup Id="SODetails" Index="0" Direction="Horizontal" ShowCaption="True" IsNewNode="True">
+              <LayoutGroup Id="SODetails_col1" Index="0" ShowCaption="False" IsNewNode="True">
+                <LayoutItem Id="Item" ViewItem="Item" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="UnitPrice" ViewItem="UnitPrice" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="QtyOrdered" ViewItem="QtyOrdered" ShowCaption="" Index="2" IsNewNode="True" />
+                <LayoutItem Id="QtyPicked" ViewItem="QtyPicked" ShowCaption="" Index="3" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="SODetails_col2" Index="1" ShowCaption="False" IsNewNode="True">
+                <LayoutItem Id="ExtendedPrice" ViewItem="ExtendedPrice" ShowCaption="" Index="0" IsNewNode="True" />
+                <LayoutItem Id="UnitOfMeasure" ViewItem="UnitOfMeasure" ShowCaption="" Index="1" IsNewNode="True" />
+                <LayoutItem Id="Form222Img" ViewItem="Form222Img" ShowCaption="" Index="2" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SOItemDistributions_Group" Index="1" Direction="Horizontal" ShowCaption="True" IsNewNode="True">
+            <LayoutItem Id="SOItemDistributions" ViewItem="SOItemDistributions" ShowCaption="" Index="0" IsNewNode="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="SODetails_ListView_NewSO" ClassName="RX2_Office.Module.BusinessObjects.SODetails" DetailViewID="SODetails_DetailView_NewLine" IsFooterVisible="True" IsNewNode="True">
       <Columns IsNewNode="True">
         <ColumnInfo Id="SalesOrder" PropertyName="SalesOrder" Width="70" Index="0" IsNewNode="True" />
@@ -3694,7 +3745,6 @@
         <PropertyEditor Id="ShipToName" AllowEdit="False" />
         <PropertyEditor Id="ShipToState" AllowEdit="False" />
         <PropertyEditor Id="ShipToZip" AllowEdit="False" />
-        <PropertyEditor Id="SODetails" AllowEdit="False" LinkView="SODetails_ListView_NewSO" View="SODetails_ListView_NewSO" />
         <PropertyEditor Id="SOStatus" AllowEdit="False" />
       </Items>
       <Layout>
@@ -3775,9 +3825,6 @@
             </LayoutGroup>
           </LayoutGroup>
           <TabbedGroup Id="Tabs" RelativeSize="38.087774294670844">
-            <LayoutGroup Id="SODetails" RelativeSize="100">
-              <LayoutItem Id="SODetails" RelativeSize="100" />
-            </LayoutGroup>
             <LayoutGroup Id="ChangeHistory" RelativeSize="100" Removed="True">
               <LayoutItem Id="ChangeHistory" RelativeSize="100" />
             </LayoutGroup>
@@ -3813,7 +3860,6 @@
         <PropertyEditor Id="ShipToName" PropertyName="ShipToName" AllowEdit="False" IsNewNode="True" />
         <PropertyEditor Id="ShipToState" PropertyName="ShipToState" AllowEdit="False" IsNewNode="True" />
         <PropertyEditor Id="ShipToZip" PropertyName="ShipToZip" AllowEdit="False" IsNewNode="True" />
-        <PropertyEditor Id="SODetails" PropertyName="SODetails" LinkView="SODetails_ListView_NewSO" View="SODetails_ListView_NewSO" AllowEdit="False" IsNewNode="True" />
         <PropertyEditor Id="SOStatus" PropertyName="SOStatus" AllowEdit="False" IsNewNode="True" />
       </Items>
       <Layout IsNewNode="True">
@@ -3881,6 +3927,73 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <DetailView Id="SOHeader_DetailView_Packing" ClassName="RX2_Office.Module.BusinessObjects.SOHeader" AllowEdit="True" AllowNew="False" Caption="Sales Order" AllowDelete="False" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="AccountingSONumber" PropertyName="AccountingSONumber" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="CustomerNumber.CustomerName" PropertyName="CustomerNumber.CustomerName" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="DistributionCenterWhse" PropertyName="DistributionCenterWhse" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="PoNumber" PropertyName="PoNumber" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrderComments" PropertyName="SalesOrderComments" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrderDate" PropertyName="SalesOrderDate" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrderNumber" PropertyName="SalesOrderNumber" IsNewNode="True" />
+        <PropertyEditor Id="SalesRep" PropertyName="SalesRep" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="Scan" PropertyName="Scan" IsNewNode="True" />
+        <PropertyEditor Id="ShipToAddress" PropertyName="ShipToAddress" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="ShipToAddress2" PropertyName="ShipToAddress2" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="ShipToAddress3" PropertyName="ShipToAddress3" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="ShipToCityStateZip" PropertyName="ShipToCityStateZip" IsNewNode="True" />
+        <PropertyEditor Id="SODetails" PropertyName="SODetails" View="SOHeader_SODetails_ListView" IsNewNode="True" />
+        <PropertyEditor Id="SOPacking" PropertyName="SOPacking" View="SOHeader_SOPacking_ListView" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="45.845272206303726" IsNewNode="True">
+            <LayoutGroup Id="SOHeader" Index="0" ShowCaption="True" RelativeSize="69.6875" IsNewNode="True">
+              <LayoutGroup Id="SOHeader_col1" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Autocb818a81-f27a-4bf8-a0b7-337eb7dd01bb" ShowCaption="False" Caption="Autocb818a81-f27a-4bf8-a0b7-337eb7dd01bb(5)" Direction="Horizontal" Index="0" RelativeSize="83.15789473684211" IsNewNode="True">
+                  <LayoutGroup Id="Auto8d6d15b7-b710-4a02-b368-e17333fd12a5" ShowCaption="False" Caption="Auto8d6d15b7-b710-4a02-b368-e17333fd12a5(6)" Index="0" RelativeSize="49.637155297532658" IsNewNode="True">
+                    <LayoutItem Id="AccountingSONumber" ViewItem="AccountingSONumber" Index="0" RelativeSize="20.253164556962027" IsNewNode="True" />
+                    <LayoutItem Id="CustomerNumber.CustomerName" ViewItem="CustomerNumber.CustomerName" Index="1" RelativeSize="15.189873417721518" IsNewNode="True" />
+                    <LayoutItem Id="ShipToAddress" ViewItem="ShipToAddress" Index="2" RelativeSize="15.189873417721518" IsNewNode="True" />
+                    <LayoutItem Id="ShipToAddress2" ViewItem="ShipToAddress2" Index="3" RelativeSize="15.189873417721518" IsNewNode="True" />
+                    <LayoutItem Id="ShipToAddress3" ViewItem="ShipToAddress3" Index="4" RelativeSize="15.189873417721518" IsNewNode="True" />
+                    <LayoutItem Id="ShipToCityStateZip" ViewItem="ShipToCityStateZip" Index="5" RelativeSize="18.9873417721519" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Autoa51658ac-4825-442b-b747-9181e8948bcb" ShowCaption="False" Caption="Autoa51658ac-4825-442b-b747-9181e8948bcb(9)" Index="1" RelativeSize="50.362844702467342" IsNewNode="True">
+                    <LayoutItem Id="SalesOrderNumber" ViewItem="SalesOrderNumber" Index="0" RelativeSize="20.253164556962027" IsNewNode="True" />
+                    <LayoutItem Id="SalesOrderDate" ViewItem="SalesOrderDate" Index="1" RelativeSize="15.189873417721518" IsNewNode="True" />
+                    <LayoutItem Id="PoNumber" ViewItem="PoNumber" Index="2" RelativeSize="15.189873417721518" IsNewNode="True" />
+                    <LayoutItem Id="SalesRep" ViewItem="SalesRep" Index="3" RelativeSize="15.189873417721518" IsNewNode="True" />
+                    <LayoutItem Id="SalesOrderComments" ViewItem="SalesOrderComments" Index="4" RelativeSize="15.189873417721518" IsNewNode="True" />
+                    <LayoutGroup Id="Autoe42eccef-c57b-4d7e-9ace-3086736b7c0f" ShowCaption="False" Caption="Autoe42eccef-c57b-4d7e-9ace-3086736b7c0f(10)" Direction="Horizontal" Index="5" RelativeSize="18.9873417721519" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutItem Id="DistributionCenterWhse" ViewItem="DistributionCenterWhse" ShowCaption="" Index="1" RelativeSize="16.842105263157894" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutItem Id="Item2" Index="1" RelativeSize="11.25" IsNewNode="True" />
+            <LayoutItem Id="Scan" ViewItem="Scan" Index="2" RelativeSize="7.5" IsNewNode="True" />
+            <LayoutGroup Id="XPObject" Index="3" ShowCaption="False" RelativeSize="11.5625" Caption="Oid" Direction="Vertical" IsNewNode="True">
+              <LayoutItem Id="Item1" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Index="1" ShowCaption="False" RelativeSize="54.154727793696274" Caption="Last Compliance Msg" Direction="Vertical" IsNewNode="True">
+            <TabbedGroup Id="Item5" CaptionLocation="Top" Index="0" RelativeSize="74.867724867724874" IsNewNode="True">
+              <LayoutGroup Id="Item6" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="0" RelativeSize="100" Caption="Items" IsNewNode="True">
+                <LayoutItem Id="SOPacking" ViewItem="SOPacking" Index="0" RelativeSize="100" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="100" Caption="SerialNumbers" IsNewNode="True">
+                <LayoutItem Id="SoPackingSerailNumbers" ViewItem="SoPackingSerailNumbers" Index="0" RelativeSize="100" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item7" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="2" RelativeSize="100" Caption="Details" IsNewNode="True">
+                <LayoutItem Id="SODetails" ViewItem="SODetails" Index="0" RelativeSize="100" IsNewNode="True" />
+              </LayoutGroup>
+            </TabbedGroup>
+            <LayoutItem Id="Item3" Index="1" RelativeSize="25.132275132275133" IsNewNode="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="SOHeader_ListView" Caption="Sales Order" DetailViewID="SOHeader_DetailView_NewLine" />
     <ListView Id="SOHeader_ListView_ComplianceCheck" ClassName="RX2_Office.Module.BusinessObjects.SOHeader" DetailViewID="SOHeader_DetailView_NewLine" Caption="Sales Order" Filter="[SOStatus] = ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,ComplianceCheck#" IsNewNode="True">
       <Columns IsNewNode="True">
@@ -3892,7 +4005,6 @@
         <ColumnInfo Id="BillToName" PropertyName="BillToName" Width="400" Index="-1" IsNewNode="True" />
         <ColumnInfo Id="BillToState" PropertyName="BillToState" Width="70" Index="-1" IsNewNode="True" />
         <ColumnInfo Id="BillToZip" PropertyName="BillToZip" Width="70" Index="-1" IsNewNode="True" />
-        <ColumnInfo Id="CustomerNumber" PropertyName="CustomerNumber" Width="70" Index="-1" IsNewNode="True" />
         <ColumnInfo Id="CustomerShippingAccount" PropertyName="CustomerShippingAccount" Width="70" Index="-1" IsNewNode="True" />
         <ColumnInfo Id="LastComplianceMsg" PropertyName="LastComplianceMsg" Width="70" Index="-1" IsNewNode="True" />
         <ColumnInfo Id="Oid" PropertyName="Oid" Width="50" Index="-1" IsNewNode="True" />
@@ -3907,8 +4019,50 @@
         <ColumnInfo Id="ShipToZip" PropertyName="ShipToZip" Width="70" Index="-1" IsNewNode="True" />
         <ColumnInfo Id="SalesOrderNumber" PropertyName="SalesOrderNumber" Width="70" Index="0" IsNewNode="True" />
         <ColumnInfo Id="AccountingSONumber" PropertyName="AccountingSONumber" Width="70" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="CustomerNumber" PropertyName="CustomerNumber" Width="70" Index="2" AllowEdit="False" SortIndex="0" SortOrder="Ascending" IsNewNode="True" />
         <ColumnInfo Id="SalesOrderDate" PropertyName="SalesOrderDate" Width="70" Index="2" IsNewNode="True" />
         <ColumnInfo Id="SOStatus" PropertyName="SOStatus" Width="70" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="DistributionCenterWhse" PropertyName="DistributionCenterWhse" Width="70" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="SalesOrderComments" PropertyName="SalesOrderComments" Width="70" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="PickingsheetPrinted" PropertyName="PickingsheetPrinted" Width="50" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="ShippingType" PropertyName="ShippingType" Width="70" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="ImportID" PropertyName="ImportID" Width="70" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="SalesRep" PropertyName="SalesRep" Width="70" Index="9" IsNewNode="True" />
+      </Columns>
+      <Filters CurrentFilterId="Non Printed Picking Sheets " IsNewNode="True">
+        <Filter Id="All" Criteria="" IsNewNode="True" />
+        <Filter Id="In Invoicing " Criteria="[SOStatus] == 5 " Caption="In Invoicing" Description="In Invoicing" IsNewNode="True" />
+        <Filter Id="In Packing " Criteria="[SOStatus] == 3 " Caption="In Packing" Description="In Packing" IsNewNode="True" />
+        <Filter Id="Non Printed Picking Sheets " Criteria="[PickingsheetPrinted] = False" Caption="Non Printed Picking Sheets  " Description="Non Printed Picking Sheets " IsNewNode="True" />
+      </Filters>
+    </ListView>
+    <ListView Id="SOHeader_ListView_Shipping" ClassName="RX2_Office.Module.BusinessObjects.SOHeader" Caption="Sales Order" Filter="[SOStatus] In (##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,PickingTicketPrinted#, ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,Picking#, ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,Picked#, ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,ShippingLabel#, ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,Submitted#)" DetailViewID="SOHeader_DetailView_Packing" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="BillToAddress1" PropertyName="BillToAddress1" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToAddress2" PropertyName="BillToAddress2" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToAddress3" PropertyName="BillToAddress3" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToCity" PropertyName="BillToCity" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToCityStateZip" PropertyName="BillToCityStateZip" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToName" PropertyName="BillToName" Width="400" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToState" PropertyName="BillToState" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="BillToZip" PropertyName="BillToZip" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="CustomerShippingAccount" PropertyName="CustomerShippingAccount" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="LastComplianceMsg" PropertyName="LastComplianceMsg" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Width="50" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="PoNumber" PropertyName="PoNumber" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToAddress" PropertyName="ShipToAddress" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToAddress2" PropertyName="ShipToAddress2" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToAddress3" PropertyName="ShipToAddress3" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToCity" PropertyName="ShipToCity" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToCityStateZip" PropertyName="ShipToCityStateZip" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToName" PropertyName="ShipToName" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToState" PropertyName="ShipToState" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShipToZip" PropertyName="ShipToZip" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="SalesOrderNumber" PropertyName="SalesOrderNumber" Width="70" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="AccountingSONumber" PropertyName="AccountingSONumber" Width="70" Index="1" AllowEdit="False" IsNewNode="True" />
+        <ColumnInfo Id="CustomerNumber" PropertyName="CustomerNumber" Width="70" Index="2" AllowEdit="False" SortIndex="0" SortOrder="Ascending" IsNewNode="True" />
+        <ColumnInfo Id="SalesOrderDate" PropertyName="SalesOrderDate" Width="70" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="SOStatus" PropertyName="SOStatus" Width="70" Index="3" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="DistributionCenterWhse" PropertyName="DistributionCenterWhse" Width="70" Index="4" IsNewNode="True" />
         <ColumnInfo Id="SalesOrderComments" PropertyName="SalesOrderComments" Width="70" Index="5" IsNewNode="True" />
         <ColumnInfo Id="PickingsheetPrinted" PropertyName="PickingsheetPrinted" Width="50" Index="6" IsNewNode="True" />
@@ -3954,41 +4108,41 @@
         <PropertyEditor Id="ShipToName" PropertyName="ShipToName" AllowEdit="False" IsNewNode="True" />
         <PropertyEditor Id="ShipToState" PropertyName="ShipToState" AllowEdit="False" IsNewNode="True" />
         <PropertyEditor Id="ShipToZip" PropertyName="ShipToZip" AllowEdit="False" IsNewNode="True" />
-        <PropertyEditor Id="SODetails" PropertyName="SODetails" LinkView="SODetails_ListView_NewSO" View="SODetails_ListView_NewSO" Caption="Sales Order Lines" IsNewNode="True" />
+        <PropertyEditor Id="SODetails" PropertyName="SODetails" View="SOHeader_SODetails_ListView" IsNewNode="True" />
         <PropertyEditor Id="SOStatus" PropertyName="SOStatus" AllowEdit="False" IsNewNode="True" />
       </Items>
       <Layout IsNewNode="True">
         <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
-          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="73.569023569023571" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="67.757009345794387" IsNewNode="True">
             <LayoutGroup Id="SOHeader" Index="0" ShowCaption="True" RelativeSize="100" Caption="Sales Order" IsNewNode="True">
               <LayoutGroup Id="SOHeader_col1" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
-                <LayoutGroup Id="Autocb818a81-f27a-4bf8-a0b7-337eb7dd01bb" ShowCaption="False" Caption="Autocb818a81-f27a-4bf8-a0b7-337eb7dd01bb(5)" Direction="Horizontal" Index="0" RelativeSize="17.128463476070529" IsNewNode="True">
-                  <LayoutGroup Id="Autoba82aa6b-a7f2-415a-bd7a-309893bf8876" ShowCaption="False" Caption="Autoba82aa6b-a7f2-415a-bd7a-309893bf8876(6)" Index="0" RelativeSize="23.401826484018265" IsNewNode="True">
+                <LayoutGroup Id="Autocb818a81-f27a-4bf8-a0b7-337eb7dd01bb" ShowCaption="False" Caption="Autocb818a81-f27a-4bf8-a0b7-337eb7dd01bb(5)" Direction="Horizontal" Index="0" RelativeSize="17.171717171717173" IsNewNode="True">
+                  <LayoutGroup Id="Autoba82aa6b-a7f2-415a-bd7a-309893bf8876" ShowCaption="False" Caption="Autoba82aa6b-a7f2-415a-bd7a-309893bf8876(6)" Index="0" RelativeSize="25.310173697270471" IsNewNode="True">
                     <LayoutItem Id="SalesOrderDate" ViewItem="SalesOrderDate" Index="0" RelativeSize="47.058823529411768" IsNewNode="True" />
                     <LayoutItem Id="CustomerNumber" ViewItem="CustomerNumber" Index="1" RelativeSize="52.941176470588232" IsNewNode="True" />
                   </LayoutGroup>
-                  <LayoutGroup Id="Autoa51658ac-4825-442b-b747-9181e8948bcb" ShowCaption="False" Caption="Autoa51658ac-4825-442b-b747-9181e8948bcb(9)" Index="1" RelativeSize="76.598173515981742" IsNewNode="True">
+                  <LayoutGroup Id="Autoa51658ac-4825-442b-b747-9181e8948bcb" ShowCaption="False" Caption="Autoa51658ac-4825-442b-b747-9181e8948bcb(9)" Index="1" RelativeSize="74.689826302729529" IsNewNode="True">
                     <LayoutGroup Id="Autoe42eccef-c57b-4d7e-9ace-3086736b7c0f" ShowCaption="False" Caption="Autoe42eccef-c57b-4d7e-9ace-3086736b7c0f(10)" Direction="Horizontal" Index="0" RelativeSize="55.882352941176471" IsNewNode="True">
-                      <LayoutItem Id="SOStatus" ViewItem="SOStatus" Index="0" RelativeSize="29.806259314456035" IsNewNode="True" />
-                      <LayoutItem Id="AccountingSONumber" ViewItem="AccountingSONumber" Index="1" RelativeSize="29.806259314456035" IsNewNode="True" />
-                      <LayoutItem Id="PickingsheetPrinted" ViewItem="PickingsheetPrinted" Index="2" RelativeSize="40.387481371087929" IsNewNode="True" />
+                      <LayoutItem Id="SOStatus" ViewItem="SOStatus" Index="0" RelativeSize="33.056478405315616" IsNewNode="True" />
+                      <LayoutItem Id="AccountingSONumber" ViewItem="AccountingSONumber" Index="1" RelativeSize="33.056478405315616" IsNewNode="True" />
+                      <LayoutItem Id="PickingsheetPrinted" ViewItem="PickingsheetPrinted" Index="2" RelativeSize="33.887043189368768" IsNewNode="True" />
                     </LayoutGroup>
                     <LayoutItem Id="PoNumber" ViewItem="PoNumber" Index="1" RelativeSize="44.117647058823529" IsNewNode="True" />
                   </LayoutGroup>
                 </LayoutGroup>
-                <LayoutGroup Id="Autoe570e98e-4cfc-418b-8cb7-2fc5a2e5652a" ShowCaption="False" Caption="Autoe570e98e-4cfc-418b-8cb7-2fc5a2e5652a(14)" Direction="Horizontal" Index="1" RelativeSize="8.3123425692695214" IsNewNode="True">
-                  <LayoutItem Id="CustomerNumber.CustomerName" ViewItem="CustomerNumber.CustomerName" Index="0" RelativeSize="65.753424657534254" IsNewNode="True" />
-                  <LayoutItem Id="SalesRep" ViewItem="SalesRep" Index="1" RelativeSize="34.246575342465754" IsNewNode="True" />
+                <LayoutGroup Id="Autoe570e98e-4cfc-418b-8cb7-2fc5a2e5652a" ShowCaption="False" Caption="Autoe570e98e-4cfc-418b-8cb7-2fc5a2e5652a(14)" Direction="Horizontal" Index="1" RelativeSize="8.3333333333333339" IsNewNode="True">
+                  <LayoutItem Id="CustomerNumber.CustomerName" ViewItem="CustomerNumber.CustomerName" Index="0" RelativeSize="65.75682382133995" IsNewNode="True" />
+                  <LayoutItem Id="SalesRep" ViewItem="SalesRep" Index="1" RelativeSize="34.24317617866005" IsNewNode="True" />
                 </LayoutGroup>
-                <LayoutItem Id="SalesOrderComments" ViewItem="SalesOrderComments" Index="2" RelativeSize="6.0453400503778338" IsNewNode="True" />
-                <LayoutGroup Id="Autof2dd0f33-1c54-4c32-9dca-c16b752a4349" ShowCaption="False" Caption="Autof2dd0f33-1c54-4c32-9dca-c16b752a4349(18)" Direction="Vertical" Index="3" RelativeSize="16.624685138539043" IsNewNode="True">
+                <LayoutItem Id="SalesOrderComments" ViewItem="SalesOrderComments" Index="2" RelativeSize="6.0606060606060606" IsNewNode="True" />
+                <LayoutGroup Id="Autof2dd0f33-1c54-4c32-9dca-c16b752a4349" ShowCaption="False" Caption="Autof2dd0f33-1c54-4c32-9dca-c16b752a4349(18)" Direction="Vertical" Index="3" RelativeSize="16.666666666666668" IsNewNode="True">
                   <LayoutItem Id="DistributionCenterWhse" ViewItem="DistributionCenterWhse" Index="0" RelativeSize="45.454545454545453" IsNewNode="True" />
                   <LayoutGroup Id="Autoc6248b0b-ac06-4c6a-a048-73b4ecdfff6e" ShowCaption="False" Caption="Autoc6248b0b-ac06-4c6a-a048-73b4ecdfff6e(20)" Direction="Horizontal" Index="1" RelativeSize="54.545454545454547" IsNewNode="True">
-                    <LayoutItem Id="ShippingType" ViewItem="ShippingType" Index="0" RelativeSize="49.771689497716892" IsNewNode="True" />
-                    <LayoutItem Id="CustomerShippingAccount" ViewItem="CustomerShippingAccount" Index="1" RelativeSize="50.228310502283108" IsNewNode="True" />
+                    <LayoutItem Id="ShippingType" ViewItem="ShippingType" Index="0" RelativeSize="49.75186104218362" IsNewNode="True" />
+                    <LayoutItem Id="CustomerShippingAccount" ViewItem="CustomerShippingAccount" Index="1" RelativeSize="50.24813895781638" IsNewNode="True" />
                   </LayoutGroup>
                 </LayoutGroup>
-                <TabbedGroup Id="Item2" CaptionLocation="Top" Index="4" RelativeSize="51.889168765743072" IsNewNode="True">
+                <TabbedGroup Id="Item2" CaptionLocation="Top" Index="4" RelativeSize="51.767676767676768" IsNewNode="True">
                   <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Bill To" IsNewNode="True">
                     <LayoutItem Id="BillToName" ViewItem="BillToName" Index="0" RelativeSize="19.277108433734941" IsNewNode="True" />
                     <LayoutItem Id="BillToAddress1" ViewItem="BillToAddress1" Index="1" RelativeSize="14.457831325301205" IsNewNode="True" />
@@ -3996,8 +4150,8 @@
                     <LayoutItem Id="BillToAddress3" ViewItem="BillToAddress3" Index="3" RelativeSize="14.457831325301205" IsNewNode="True" />
                     <LayoutItem Id="BillToCity" ViewItem="BillToCity" Index="4" RelativeSize="14.457831325301205" IsNewNode="True" />
                     <LayoutGroup Id="Autof06c219f-2457-4578-a246-57e4c087fa35" ShowCaption="False" Caption="Autof06c219f-2457-4578-a246-57e4c087fa35(25)" Direction="Horizontal" Index="5" RelativeSize="22.891566265060241" IsNewNode="True">
-                      <LayoutItem Id="BillToState" ViewItem="BillToState" Index="0" RelativeSize="59.669811320754718" IsNewNode="True" />
-                      <LayoutItem Id="BillToZip" ViewItem="BillToZip" Index="1" RelativeSize="40.330188679245282" IsNewNode="True" />
+                      <LayoutItem Id="BillToState" ViewItem="BillToState" Index="0" RelativeSize="59.566326530612244" IsNewNode="True" />
+                      <LayoutItem Id="BillToZip" ViewItem="BillToZip" Index="1" RelativeSize="40.433673469387756" IsNewNode="True" />
                     </LayoutGroup>
                   </LayoutGroup>
                   <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Index="1" Caption="Ship To " RelativeSize="100" IsNewNode="True">
@@ -4007,23 +4161,22 @@
                     <LayoutItem Id="ShipToAddress3" ViewItem="ShipToAddress3" Index="3" RelativeSize="14.457831325301205" IsNewNode="True" />
                     <LayoutItem Id="ShipToCity" ViewItem="ShipToCity" Index="4" RelativeSize="14.457831325301205" IsNewNode="True" />
                     <LayoutGroup Id="Auto27031acf-4a0c-4cd7-90c5-6cf0c2eb4d15" ShowCaption="False" Caption="Auto27031acf-4a0c-4cd7-90c5-6cf0c2eb4d15(27)" Direction="Horizontal" Index="5" RelativeSize="22.891566265060241" IsNewNode="True">
-                      <LayoutItem Id="ShipToState" ViewItem="ShipToState" Index="0" RelativeSize="42.216981132075475" IsNewNode="True" />
-                      <LayoutItem Id="ShipToZip" ViewItem="ShipToZip" Index="1" RelativeSize="57.783018867924525" IsNewNode="True" />
+                      <LayoutItem Id="ShipToState" ViewItem="ShipToState" Index="0" RelativeSize="42.091836734693878" IsNewNode="True" />
+                      <LayoutItem Id="ShipToZip" ViewItem="ShipToZip" Index="1" RelativeSize="57.908163265306122" IsNewNode="True" />
                     </LayoutGroup>
                   </LayoutGroup>
                 </TabbedGroup>
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" Index="1" RelativeSize="26.430976430976433" IsNewNode="True">
-            <LayoutGroup Id="SODetails" Index="0" ShowCaption="True" RelativeSize="100" TextAlignMode="AlignWithChildren" IsNewNode="True">
-              <LayoutItem Id="SODetails" ViewItem="SODetails" ShowCaption="False" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
+          <TabbedGroup Id="Tabs" Index="1" RelativeSize="32.242990654205606" IsNewNode="True">
+            <LayoutGroup Id="SODetails" ShowCaption="True" Direction="Vertical" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutItem Id="SODetails" ViewItem="SODetails" Index="0" RelativeSize="100" IsNewNode="True" />
             </LayoutGroup>
           </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="SOHeader_SODetails_ListView" AllowEdit="False" MasterDetailView="SODetails_DetailView_NewLine" />
     <DetailView Id="SOItemDistibution_DetailView">
       <Items>
         <PropertyEditor Id="DistributionDate" AllowEdit="False" />
@@ -4045,6 +4198,73 @@
                 <LayoutItem Id="UnitCost" RelativeSize="5.3691275167785237" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="SOPackingSerialNo_DetailView">
+      <Items>
+        <PropertyEditor Id="SalesOrder.AccountingSONumber" PropertyName="SalesOrder.AccountingSONumber" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.CustomerNumber" PropertyName="SalesOrder.CustomerNumber" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.CustomerNumber.CustomerName" PropertyName="SalesOrder.CustomerNumber.CustomerName" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.CustomerNumber.SalesRep.SalesRepFullName" PropertyName="SalesOrder.CustomerNumber.SalesRep.SalesRepFullName" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.PoNumber" PropertyName="SalesOrder.PoNumber" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.SalesOrderComments" PropertyName="SalesOrder.SalesOrderComments" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.SalesOrderDate" PropertyName="SalesOrder.SalesOrderDate" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.SalesOrderNumber" PropertyName="SalesOrder.SalesOrderNumber" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.ShipToAddress" PropertyName="SalesOrder.ShipToAddress" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.ShipToAddress2" PropertyName="SalesOrder.ShipToAddress2" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.ShipToAddress3" PropertyName="SalesOrder.ShipToAddress3" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.ShipToCity" PropertyName="SalesOrder.ShipToCity" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.ShipToCityStateZip" PropertyName="SalesOrder.ShipToCityStateZip" IsNewNode="True" />
+        <PropertyEditor Id="SalesOrder.ShipToState" PropertyName="SalesOrder.ShipToState" IsNewNode="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="Autod7c2b774-054b-4488-8c5e-3aa1ee68d801" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="28.653295128939828" IsNewNode="True">
+              <LayoutGroup Id="Auto1ca1b2ec-19f2-4fdd-868d-2537a07083f9" ShowCaption="False" Caption="" Index="0" RelativeSize="51.285714285714285" IsNewNode="True">
+                <LayoutItem Id="SalesOrder.CustomerNumber.CustomerName" ViewItem="SalesOrder.CustomerNumber.CustomerName" Index="0" RelativeSize="16" IsNewNode="True" />
+                <LayoutItem Id="SalesOrder.CustomerNumber" ViewItem="SalesOrder.CustomerNumber" Index="1" RelativeSize="12" IsNewNode="True" />
+                <LayoutItem Id="SalesOrder.ShipToAddress" ViewItem="SalesOrder.ShipToAddress" Index="2" RelativeSize="12" IsNewNode="True" />
+                <LayoutItem Id="SalesOrder.ShipToAddress2" ViewItem="SalesOrder.ShipToAddress2" Index="3" RelativeSize="12" IsNewNode="True" />
+                <LayoutItem Id="SalesOrder.ShipToAddress3" ViewItem="SalesOrder.ShipToAddress3" Index="4" RelativeSize="12" IsNewNode="True" />
+                <LayoutItem Id="SalesOrder.ShipToCity" ViewItem="SalesOrder.ShipToCity" Index="5" RelativeSize="12" IsNewNode="True" />
+                <LayoutGroup Id="Auto8485e526-3cd6-41f5-8487-b9da4909d996" ShowCaption="False" Caption="" Direction="Horizontal" Index="6" RelativeSize="24" IsNewNode="True">
+                  <LayoutItem Id="SalesOrder.ShipToState" ViewItem="SalesOrder.ShipToState" Index="0" RelativeSize="50.696378830083567" IsNewNode="True" />
+                  <LayoutItem Id="SalesOrder.ShipToCityStateZip" ViewItem="SalesOrder.ShipToCityStateZip" Index="1" RelativeSize="49.303621169916433" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Auto29cece4f-457f-44a7-8458-b3e9fc314c7f" ShowCaption="False" Caption="" Index="1" RelativeSize="48.714285714285715" IsNewNode="True">
+                <LayoutItem Id="SalesOrder.AccountingSONumber" ViewItem="SalesOrder.AccountingSONumber" Index="0" RelativeSize="16" IsNewNode="True" />
+                <LayoutItem Id="SalesOrder.SalesOrderNumber" ViewItem="SalesOrder.SalesOrderNumber" Index="1" RelativeSize="12" IsNewNode="True" />
+                <LayoutItem Id="SalesOrder.SalesOrderDate" ViewItem="SalesOrder.SalesOrderDate" Index="2" RelativeSize="12" IsNewNode="True" />
+                <LayoutItem Id="SalesOrder.PoNumber" ViewItem="SalesOrder.PoNumber" Index="3" RelativeSize="36" IsNewNode="True" />
+                <LayoutItem Id="SalesOrder.CustomerNumber.SalesRep.SalesRepFullName" ViewItem="SalesOrder.CustomerNumber.SalesRep.SalesRepFullName" Index="4" RelativeSize="12" IsNewNode="True" />
+                <LayoutItem Id="SalesOrder.SalesOrderComments" ViewItem="SalesOrder.SalesOrderComments" Index="5" RelativeSize="12" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutItem Id="Item1" Index="1" RelativeSize="42.836676217765046" IsNewNode="True" />
+            <LayoutGroup Id="SOPackingSerialNo" Index="2" RelativeSize="23.06590257879656">
+              <LayoutGroup Id="SOPackingSerialNo_col1" RelativeSize="50">
+                <LayoutItem Id="SalesOrder" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="ItemNumber" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="Lot" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="ShipQty" RelativeSize="23.529411764705884" />
+              </LayoutGroup>
+              <LayoutGroup Id="SOPackingSerialNo_col2" RelativeSize="50">
+                <LayoutItem Id="ExpirationDate" RelativeSize="23.529411764705884" />
+                <LayoutItem Id="SerialNumber" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="UserName" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="DateEntered" RelativeSize="41.1764705882353" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" Index="3" RelativeSize="5.4441260744985671">
+              <LayoutItem Id="Oid" RelativeSize="100" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="Scan" Direction="Horizontal" RelativeSize="50" Removed="True">
+            <LayoutItem Id="Scan" Removed="True" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>

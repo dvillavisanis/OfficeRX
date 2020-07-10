@@ -277,7 +277,7 @@ namespace RX2_Office.Module.Controllers.Shipping
             ItemInventoryBatch iib = objectToShow;
 
             // Find the item in the item list
-            bool found = false;
+           // bool found = false;
             Session session;
             session = objectToShow.Session;
             CriteriaOperator op = GroupOperator.Combine(GroupOperatorType.And,
@@ -338,7 +338,7 @@ namespace RX2_Office.Module.Controllers.Shipping
             ItemInventoryBatch iib = objectToShow;
 
             // Find the item in the item list
-            bool found = false;
+           // bool found = false;
             Session session;
             session = objectToShow.Session;
             CriteriaOperator op = GroupOperator.Combine(GroupOperatorType.And,

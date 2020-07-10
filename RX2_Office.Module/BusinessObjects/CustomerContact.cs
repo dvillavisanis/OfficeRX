@@ -13,20 +13,24 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.ConditionalAppearance;
+using DevExpress.ExpressApp;
 
 namespace RX2_Office.Module.BusinessObjects
 {
     [DefaultClassOptions]
     [ListViewAutoFilterRowAttribute(true)]
+    
     [ImageName("BO_Contact")]
     [NavigationItem("Sales")]
-    [ListViewFilter("Primary Contact", "ContactType = 'PRIMA'", "Primary Contact", "Primary sales Contacts", false)]
-    [ListViewFilter("Account Payable", "ContactType = 'AP'", "AP Sales ", "ACcount Payable Contacts", false)]
-    //[ListViewFilter("My Customers (fake)", "[SalesRep] = 'Dvillavisanis'", "My Customers (fake)", "Customers that are mine", true)]
-    [ListViewFilter(" All", "", true)]
+    [ListViewFilter(" My Contacts ", "Customers.[SalesRep] = CurrentUserName()  ", " My Customers Contacts ", "Contacts that are mine", true, Index = 0)]
+    [ListViewFilter(" My Primary Contact", "Customers.[SalesRep] = CurrentUserName() && ContactType = 'PRIMA'", " My Primary Contact", "Primary sales Contacts", false, Index = 1)]
+    [ListViewFilter(" My Account Payable", "Customers.[SalesRep] = CurrentUserName() && ContactType = 'AP'", " My AP Contacts  ", "ACcount Payable Contacts", false, Index = 2)]
+    // Orxsecurity filters
+
+
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-    //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
-    //[Persistent("DatabaseTableName")]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
+
     // Specify more UI options using a declarative approach (http://documentation.devexpress.com/#Xaf/CustomDocument2701).
     public class CustomerContact : XPObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (http://documentation.devexpress.com/#Xaf/CustomDocument3146).
@@ -35,14 +39,12 @@ namespace RX2_Office.Module.BusinessObjects
         {
         }
 
-
         public override void AfterConstruction()
         {
             base.AfterConstruction();
             FirstName = "NONE";
-            
-
         }
+
         [Action(Caption = "Lock", ConfirmationMessage = "Are you sureYou want to lock?", ImageName = "lock", AutoCommit = true, TargetObjectsCriteria = "IsCurrentUserInRole('CustomContactLock') && locked = 0")]
         public void ContactLock()
         {
@@ -50,7 +52,6 @@ namespace RX2_Office.Module.BusinessObjects
             Locked = true;
             this.Save();
         }
-
 
         [Action(Caption = "UnLock", ConfirmationMessage = "Are you sureYou want to Unlock?", ImageName = "lock_off", AutoCommit = true, TargetObjectsCriteria = "IsCurrentUserInRole('CustomContactLock') && locked = 1")]
         public void ContactUnLock()
@@ -110,7 +111,7 @@ namespace RX2_Office.Module.BusinessObjects
             }
             set
             {
-              
+
                 SetPropertyValue("FirstName", ref _FirstName, value);
             }
         }
@@ -224,7 +225,7 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
         [Size(15)]
-                [ModelDefault("DisplayFormat", "{0:(###)###-#### Ext. 0000}")]
+        [ModelDefault("DisplayFormat", "{0:(###)###-#### Ext. 0000}")]
         [ModelDefault("DisplayFormat", "0: (000)000-0000 Ext. 0000")]
         [Appearance("DisablePropertyPhone", Criteria = "Locked", Enabled = false, Context = "DetailView")]
 
@@ -280,11 +281,11 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
 
-      
+
         public const string EmailRegularExpression = "^[A-Za-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*\\.([a-z]{2,4})$";
         [Size(255)]
         [RuleRegularExpression(DefaultContexts.Save, EmailRegularExpression, CustomMessageTemplate = "The Field must contain a vaild email address.")]
-        [VisibleInListView(false)]
+        [VisibleInListView(true)]
         [Appearance("DisablePropertyEmail", Criteria = "Locked", Enabled = false, Context = "DetailView")]
 
         public string Email
@@ -298,9 +299,10 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("Email", ref _Email, value);
             }
         }
-        [Appearance("DisablePropertyBirthDate", Criteria = "Locked", Enabled = false, Context = "DetailView")]
 
-        [VisibleInListView(false)]
+
+        [Appearance("DisablePropertyBirthDate", Criteria = "Locked", Enabled = false, Context = "DetailView")]
+                [VisibleInListView(false)]
         [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy}")]
         public DateTime BirthDate
         {

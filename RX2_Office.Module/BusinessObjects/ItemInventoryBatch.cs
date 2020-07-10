@@ -67,7 +67,7 @@ namespace RX2_Office.Module.BusinessObjects
         eItemInventoryBatchStatus status;
         DistributionCenterWhse dCWarehouse;
         string createdBy;
-        DistributionCenterWhse distributionCenter;
+     //   DistributionCenterWhse distributionCenter;
         DateTime createdDate;
         string batchDiscription;
         [Required]
