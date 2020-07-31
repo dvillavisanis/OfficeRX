@@ -29,7 +29,7 @@
     <Items>
       <Item Id="Shipping">
         <Items>
-          <Item Id="SOHeader_ListView" ViewId="SOHeader_ListView_Shipping" Caption="Shipping Sales Order" />
+          <Item Id="SOHeader_ListView" Caption="Shipping Sales Order" ViewId="SOHeader_ListView_Shipping" />
         </Items>
       </Item>
       <Item Id="navCompliance" Caption="Compliance" Index="4" IsNewNode="True">
@@ -52,6 +52,73 @@
     <SchemaModule Name="SystemWindowsFormsModule" Version="19.2.1.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <DetailView Id="CustomerContact_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="51.575931232091691">
+            <LayoutGroup Id="CustomerContact" RelativeSize="100">
+              <LayoutGroup Id="CustomerContact_col1" RelativeSize="43.002915451895042">
+                <LayoutGroup Id="Autoccc762c0-ce39-44ca-84c4-c67f13aaf50e" RelativeSize="11.838006230529595">
+                  <LayoutGroup Id="Auto363b9d15-f70f-4de9-b6bf-1ac576c9ebb3" RelativeSize="50.16949152542373">
+                    <LayoutItem Id="Customers" RelativeSize="100" />
+                    <LayoutItem Id="FirstName" Removed="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto96d733b4-bebd-4cff-97a9-4a15f3546a27" RelativeSize="49.83050847457627">
+                    <LayoutGroup Id="Auto5009c4d9-f83e-40cb-8c21-e228f54f89f8" Direction="Vertical" RelativeSize="100">
+                      <LayoutItem Id="BirthDate" RelativeSize="100" />
+                      <LayoutItem Id="SendMarketing" Removed="True" />
+                    </LayoutGroup>
+                    <LayoutItem Id="MiddleName" Removed="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutItem Id="ContactType" Index="1" RelativeSize="7.4766355140186915" />
+                <LayoutGroup Id="Auto15b92416-9268-46aa-aaa7-d10f8a5193fb" ShowCaption="False" Caption="Auto15b92416-9268-46aa-aaa7-d10f8a5193fb(12)" Direction="Horizontal" Index="2" RelativeSize="11.214953271028037" IsNewNode="True">
+                  <LayoutItem Id="FirstName" ViewItem="FirstName" Index="0" RelativeSize="49.83050847457627" IsNewNode="True" />
+                  <LayoutItem Id="MiddleName" ViewItem="MiddleName" Index="1" RelativeSize="50.16949152542373" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="LastName" Index="3" RelativeSize="7.4766355140186915" />
+                <LayoutItem Id="FullName" Index="4" RelativeSize="7.4766355140186915" />
+                <TabbedGroup Id="Item2" Index="5" RelativeSize="54.517133956386296">
+                  <LayoutGroup Id="Item3" Index="0">
+                    <LayoutItem Id="Phone" ViewItem="Phone" Index="0" RelativeSize="23.529411764705884" IsNewNode="True" Removed="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Item1" Index="1" />
+                </TabbedGroup>
+                <LayoutItem Id="Phone" Index="6" RelativeSize="9.60960960960961" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="CustomerContact_col2" RelativeSize="56.997084548104958">
+                <LayoutGroup Id="Autodb35fdf8-2e7c-49fe-b70d-dae832d8ce30" Caption="Autodb35fdf8-2e7c-49fe-b70d-dae832d8ce30(32)" RelativeSize="34.267912772585667">
+                  <LayoutItem Id="Photo" RelativeSize="52.685421994884912" />
+                  <LayoutGroup Id="Auto32cc0622-5cb5-4a5a-a433-d32c7327ca43" ShowCaption="False" Caption="" Index="1" RelativeSize="47.314578005115088" IsNewNode="True">
+                    <LayoutItem Id="SendInvoice" ViewItem="SendInvoice" Index="0" RelativeSize="28.181818181818183" IsNewNode="True" />
+                    <LayoutItem Id="IsAppUser" ViewItem="IsAppUser" Index="1" RelativeSize="20.90909090909091" IsNewNode="True" />
+                    <LayoutItem Id="SendMarketing" ViewItem="SendMarketing" Index="2" RelativeSize="20.90909090909091" IsNewNode="True" />
+                    <LayoutItem Id="Locked" ViewItem="Locked" Index="3" RelativeSize="20.90909090909091" IsNewNode="True" />
+                    <LayoutItem Id="Item4" Index="4" RelativeSize="9.0909090909090917" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutItem Id="Item4" RelativeSize="45.219638242894057" Removed="True" />
+                </LayoutGroup>
+                <LayoutItem Id="Notes" RelativeSize="65.732087227414326" />
+                <LayoutItem Id="IsAppUser" ViewItem="IsAppUser" Index="2" RelativeSize="7.1651090342679131" Removed="True" />
+                <LayoutItem Id="Locked" ViewItem="Locked" Index="2" RelativeSize="9.657320872274143" Removed="True" />
+                <LayoutItem Id="SendInvoice" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" RelativeSize="9.23076923076923" Caption="Oid" Direction="Horizontal" Removed="True">
+              <LayoutItem Id="Oid" RelativeSize="100" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" Index="1" RelativeSize="48.424068767908309">
+            <LayoutGroup Id="SOHeaders" TextAlignMode="AlignWithChildren" RelativeSize="100">
+              <LayoutItem Id="SOHeaders" TextAlignMode="AutoSize" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="ChangeHistory" TextAlignMode="AlignWithChildren" RelativeSize="100">
+              <LayoutItem Id="ChangeHistory" TextAlignMode="AutoSize" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="CustomerInvoiceHistory_InvoicenumberDetails_ListView" AllowDelete="False" AllowLink="False" AllowNew="False" />
     <DetailView Id="CustomerInvoiceHistoryDetails_DetailView" AllowDelete="False" AllowEdit="False" AllowNew="False" CustomizationEnabled="False" />
     <ListView Id="CustomerInvoiceHistoryDetails_ListView" AllowDelete="False" AllowLink="False" AllowNew="False" />
@@ -248,7 +315,7 @@
       </Layout>
     </DetailView>
     <ListView Id="SOHeader_ListView_ComplianceCheck" AllowLink="False" AllowDelete="False" AllowNew="False" IsFooterVisible="True" Criteria="[SOStatus] = ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,ComplianceCheck#" Caption="SO Comp Check" DetailViewID="SOHeader_DetailView_NewLine_Compliance" />
-    <ListView Id="SOHeader_ListView_Shipping" ClassName="RX2_Office.Module.BusinessObjects.SOHeader" DetailViewID="SOHeader_DetailView_NewLine_Compliance" Caption="SO Shipping" Filter="[SOStatus] = ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,ComplianceCheck#" AllowLink="False" AllowDelete="False" AllowNew="False" IsFooterVisible="True" Criteria="[SOStatus] In (##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,PickingTicketPrinted#, ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,Picking#, ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,Picked#, ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,ShippingLabel#)" IsNewNode="True">
+    <ListView Id="SOHeader_ListView_Shipping" Caption="SO Shipping" Filter="[SOStatus] = ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,ComplianceCheck#" AllowLink="False" AllowDelete="False" AllowNew="False" IsFooterVisible="True" Criteria="[SOStatus] In (##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,PickingTicketPrinted#, ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,Picking#, ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,Picked#, ##Enum#RX2_Office.Module.BusinessObjects.SalesOrderStatus,ShippingLabel#)" ClassName="RX2_Office.Module.BusinessObjects.SOHeader" DetailViewID="SOHeader_DetailView_NewLine_Compliance" IsNewNode="True">
       <Columns IsNewNode="True">
         <ColumnInfo Id="BillToAddress1" PropertyName="BillToAddress1" Width="70" Index="-1" IsNewNode="True" />
         <ColumnInfo Id="BillToAddress2" PropertyName="BillToAddress2" Width="70" Index="-1" IsNewNode="True" />

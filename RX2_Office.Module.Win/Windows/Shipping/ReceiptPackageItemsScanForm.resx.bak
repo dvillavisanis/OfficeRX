@@ -129,13 +129,13 @@
     <value>0, 0</value>
   </data>
   <data name="barDockControlTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>916, 0</value>
+    <value>971, 0</value>
   </data>
   <data name="&gt;&gt;barDockControlTop.Name" xml:space="preserve">
     <value>barDockControlTop</value>
   </data>
   <data name="&gt;&gt;barDockControlTop.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barDockControlTop.Parent" xml:space="preserve">
     <value>$this</value>
@@ -150,13 +150,13 @@
     <value>0, 567</value>
   </data>
   <data name="barDockControlBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>916, 0</value>
+    <value>971, 0</value>
   </data>
   <data name="&gt;&gt;barDockControlBottom.Name" xml:space="preserve">
     <value>barDockControlBottom</value>
   </data>
   <data name="&gt;&gt;barDockControlBottom.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barDockControlBottom.Parent" xml:space="preserve">
     <value>$this</value>
@@ -177,7 +177,7 @@
     <value>barDockControlLeft</value>
   </data>
   <data name="&gt;&gt;barDockControlLeft.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barDockControlLeft.Parent" xml:space="preserve">
     <value>$this</value>
@@ -189,7 +189,7 @@
     <value>Right</value>
   </data>
   <data name="barDockControlRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>916, 0</value>
+    <value>971, 0</value>
   </data>
   <data name="barDockControlRight.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 567</value>
@@ -198,7 +198,7 @@
     <value>barDockControlRight</value>
   </data>
   <data name="&gt;&gt;barDockControlRight.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barDockControlRight.Parent" xml:space="preserve">
     <value>$this</value>
@@ -213,15 +213,123 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>916, 579</value>
+    <value>971, 579</value>
+  </data>
+  <data name="itemSummaryList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <metadata name="ndc2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="ndc2.HeaderText" xml:space="preserve">
+    <value>NDC</value>
+  </data>
+  <metadata name="EXPDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="EXPDate.HeaderText" xml:space="preserve">
+    <value>Exp Date</value>
+  </data>
+  <metadata name="Lot2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Lot2.HeaderText" xml:space="preserve">
+    <value>Lot</value>
+  </data>
+  <metadata name="Qty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Qty.HeaderText" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="itemSummaryList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>386, 22</value>
+  </data>
+  <data name="itemSummaryList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>466, 173</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="itemSummaryList.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;itemSummaryList.Name" xml:space="preserve">
+    <value>itemSummaryList</value>
+  </data>
+  <data name="&gt;&gt;itemSummaryList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;itemSummaryList.Parent" xml:space="preserve">
+    <value>viewSitePanel</value>
+  </data>
+  <data name="&gt;&gt;itemSummaryList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RecordgridList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <metadata name="Gtin.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Gtin.HeaderText" xml:space="preserve">
+    <value>Gtin</value>
+  </data>
+  <metadata name="NDC.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="NDC.HeaderText" xml:space="preserve">
+    <value>NDC</value>
+  </data>
+  <metadata name="SerialNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="SerialNumber.HeaderText" xml:space="preserve">
+    <value>Serial Number</value>
+  </data>
+  <metadata name="ExpirtationDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="ExpirtationDate.HeaderText" xml:space="preserve">
+    <value>Exp Date</value>
+  </data>
+  <metadata name="Lot.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Lot.HeaderText" xml:space="preserve">
+    <value>Lot</value>
+  </data>
+  <metadata name="Barcode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Barcode.HeaderText" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="RecordgridList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 201</value>
+  </data>
+  <data name="RecordgridList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>961, 310</value>
+  </data>
+  <data name="RecordgridList.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;RecordgridList.Name" xml:space="preserve">
+    <value>RecordgridList</value>
+  </data>
+  <data name="&gt;&gt;RecordgridList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RecordgridList.Parent" xml:space="preserve">
+    <value>viewSitePanel</value>
+  </data>
+  <data name="&gt;&gt;RecordgridList.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="btnClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>824, 62</value>
+    <value>858, 62</value>
   </data>
   <data name="btnClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnClose.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
@@ -238,10 +346,10 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;btnClose.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="btnSubmit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>824, 13</value>
+    <value>858, 22</value>
   </data>
   <data name="btnSubmit.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -262,7 +370,7 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;btnSubmit.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="lblExpDt.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -271,7 +379,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblExpDt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 151</value>
+    <value>27, 170</value>
   </data>
   <data name="lblExpDt.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 13</value>
@@ -292,7 +400,7 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;lblExpDt.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -301,7 +409,7 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 124</value>
+    <value>27, 143</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 13</value>
@@ -322,7 +430,7 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -331,7 +439,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 97</value>
+    <value>27, 116</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>22, 13</value>
@@ -352,7 +460,7 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -361,7 +469,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 65</value>
+    <value>27, 84</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 13</value>
@@ -382,13 +490,13 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 24</value>
+    <value>27, 43</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 13</value>
@@ -409,31 +517,31 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
-  <data name="textBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 143</value>
+  <data name="txtExpDt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 162</value>
   </data>
-  <data name="textBox5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txtExpDt.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 21</value>
   </data>
-  <data name="textBox5.TabIndex" type="System.Int32, mscorlib">
+  <data name="txtExpDt.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;textBox5.Name" xml:space="preserve">
-    <value>textBox5</value>
+  <data name="&gt;&gt;txtExpDt.Name" xml:space="preserve">
+    <value>txtExpDt</value>
   </data>
-  <data name="&gt;&gt;textBox5.Type" xml:space="preserve">
+  <data name="&gt;&gt;txtExpDt.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtExpDt.Parent" xml:space="preserve">
     <value>viewSitePanel</value>
   </data>
-  <data name="&gt;&gt;textBox5.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;txtExpDt.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="txtSerialNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 116</value>
+    <value>130, 135</value>
   </data>
   <data name="txtSerialNumber.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 21</value>
@@ -451,10 +559,10 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;txtSerialNumber.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="txtLot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 89</value>
+    <value>130, 108</value>
   </data>
   <data name="txtLot.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 21</value>
@@ -472,10 +580,10 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;txtLot.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="txtItemNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 62</value>
+    <value>130, 81</value>
   </data>
   <data name="txtItemNumber.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 21</value>
@@ -493,10 +601,10 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;txtItemNumber.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="txtBarcode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 5</value>
+    <value>130, 24</value>
   </data>
   <data name="txtBarcode.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -517,31 +625,7 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;txtBarcode.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="listBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 222</value>
-  </data>
-  <data name="listBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>911, 290</value>
-  </data>
-  <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;listBox1.Name" xml:space="preserve">
-    <value>listBox1</value>
-  </data>
-  <data name="&gt;&gt;listBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listBox1.Parent" xml:space="preserve">
-    <value>viewSitePanel</value>
-  </data>
-  <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="viewSitePanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -553,7 +637,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="viewSitePanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>916, 531</value>
+    <value>971, 531</value>
   </data>
   <data name="viewSitePanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -562,7 +646,7 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;viewSitePanel.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;viewSitePanel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -577,10 +661,10 @@
     <value>False</value>
   </data>
   <data name="diagnosticContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>865, 12</value>
+    <value>911, 11</value>
   </data>
   <data name="diagnosticContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>18, 24</value>
+    <value>22, 25</value>
   </data>
   <data name="diagnosticContainer.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -589,7 +673,7 @@
     <value>diagnosticContainer</value>
   </data>
   <data name="&gt;&gt;diagnosticContainer.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ButtonsContainer, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ButtonsContainer, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;diagnosticContainer.Parent" xml:space="preserve">
     <value>bottomPanel</value>
@@ -601,13 +685,13 @@
     <value>False</value>
   </data>
   <data name="buttonsContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>893, 12</value>
+    <value>943, 11</value>
   </data>
   <data name="buttonsContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="buttonsContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>18, 24</value>
+    <value>23, 25</value>
   </data>
   <data name="buttonsContainer.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -619,7 +703,7 @@
     <value>buttonsContainer</value>
   </data>
   <data name="&gt;&gt;buttonsContainer.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ButtonsContainer, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ButtonsContainer, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;buttonsContainer.Parent" xml:space="preserve">
     <value>bottomPanel</value>
@@ -637,7 +721,7 @@
     <value>Root</value>
   </data>
   <data name="bottomPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>916, 36</value>
+    <value>971, 36</value>
   </data>
   <data name="bottomPanel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -646,13 +730,30 @@
     <value>bottomPanel</value>
   </data>
   <data name="&gt;&gt;bottomPanel.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Layout.XafLayoutControl, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Layout.XafLayoutControl, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;bottomPanel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bottomPanel.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="ReceiptPackageItemsScanForm.IconOptions.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAQcwAAAADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAgAIAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAACAAACAAAAAgIAAgAAAAIAAgACAgAAAgICAAMDAwAAAAP8AAP8AAAD//wD/AAAA/wD/AP//
+        AAD///8AAAAAAAAAAAAAAHd3d3AAAAAAAAAAAAAAB3d3d3d3cAAAAAAAAAAAd3d3d3d3d3d3AAAAAAB3
+        d3d3d3d3d3d3dwAAAAd3d3d3d3d3d3d3d3cAAHd3d3d3d3d3d3d3d3d3B3d3d3d3d3d3d3d3d3d3d3d3
+        d3d3d3AAAAAAAHd3d3dwAAAAAAAAAAAAAAB3d3d3AAAAAAAAAHd3AAAAd3d3dwAAAAAAAAd3d3cAAHd3
+        d3cAAAAAAAB3d3d3AAB3d3d3AAAAAAAHd3d3dwAAd3d3dwAHcAAAd3d3d3cAAHd3d3cAd3dwB3d3d3d3
+        AAB3d3d3AHd3d3d3d3d3dwAAd3d3dwB3d3d3d3cAd3cAAHd3d3cAdwd3d3dwAHd3AAB3d3d3AHcHd3d3
+        AAB3dwAAd3d3dwB3d3d3d3AAd3cAAHd3d3cAd3d3d3d3cHd3AAB3d3d3AHd3dwd3d3d3dwAAd3d3dwB3
+        dwAAd3d3d3cAAHd3d3cAB3AAAAd3d3d3AAB3d3d3AAAAAAAAd3d3dwAAd3d3dwAAAAAAAAd3d3cAAHd3
+        d3cAAAAAAAAAd3dwAAB3d3d3AAAAAAAAAAdwAAAAd3d3dwAAAAAAAAAAAAAAAHd3d3cAAAAAAAAAAAAA
+        AAB3d3d3AAAAAAAAAAAAAAAAd3dwAAAAAAAAAAAAAAAAAHdwAAD///Af//+AB//8AAD/wAAA/gAAAPAA
+        AACAAAAAAAf/AH///wD//D8A//gPAP/wDwD/4A8A58APAMGADwDAAA8AwAMPAMgHDwDIDw8AwAcPAMAB
+        DwDAgA8Aw8APAOfgDwD/8A8A//gPAP/8HwD//n8A////AP///wD///8H////Hw==
+</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 12</value>
@@ -664,121 +765,181 @@
     <value>xafBarManager</value>
   </data>
   <data name="&gt;&gt;xafBarManager.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.Controls.XafBarManager, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.Controls.XafBarManager, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cObjectsCreation.Name" xml:space="preserve">
     <value>cObjectsCreation</value>
   </data>
   <data name="&gt;&gt;cObjectsCreation.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cRecordEdit.Name" xml:space="preserve">
     <value>cRecordEdit</value>
   </data>
   <data name="&gt;&gt;cRecordEdit.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cView.Name" xml:space="preserve">
     <value>cView</value>
   </data>
   <data name="&gt;&gt;cView.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cPrint.Name" xml:space="preserve">
     <value>cPrint</value>
   </data>
   <data name="&gt;&gt;cPrint.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cEdit.Name" xml:space="preserve">
     <value>cEdit</value>
   </data>
   <data name="&gt;&gt;cEdit.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cOpenObject.Name" xml:space="preserve">
     <value>cOpenObject</value>
   </data>
   <data name="&gt;&gt;cOpenObject.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cUndoRedo.Name" xml:space="preserve">
     <value>cUndoRedo</value>
   </data>
   <data name="&gt;&gt;cUndoRedo.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cExport.Name" xml:space="preserve">
     <value>cExport</value>
   </data>
   <data name="&gt;&gt;cExport.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;actionContainersManager.Name" xml:space="preserve">
     <value>actionContainersManager</value>
   </data>
   <data name="&gt;&gt;actionContainersManager.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainersManager, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainersManager, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;diagnosticContainerLayoutGroup.Name" xml:space="preserve">
     <value>diagnosticContainerLayoutGroup</value>
   </data>
   <data name="&gt;&gt;diagnosticContainerLayoutGroup.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;buttonsContainerLayoutGroup.Name" xml:space="preserve">
     <value>buttonsContainerLayoutGroup</value>
   </data>
   <data name="&gt;&gt;buttonsContainerLayoutGroup.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ndc2.Name" xml:space="preserve">
+    <value>ndc2</value>
+  </data>
+  <data name="&gt;&gt;ndc2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EXPDate.Name" xml:space="preserve">
+    <value>EXPDate</value>
+  </data>
+  <data name="&gt;&gt;EXPDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Lot2.Name" xml:space="preserve">
+    <value>Lot2</value>
+  </data>
+  <data name="&gt;&gt;Lot2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Qty.Name" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="&gt;&gt;Qty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Root.Name" xml:space="preserve">
     <value>Root</value>
   </data>
   <data name="&gt;&gt;Root.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;simpleSeparator.Name" xml:space="preserve">
     <value>simpleSeparator</value>
   </data>
   <data name="&gt;&gt;simpleSeparator.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.SimpleSeparator, DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.SimpleSeparator, DevExpress.XtraLayout.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;emptySpaceItem.Name" xml:space="preserve">
     <value>emptySpaceItem</value>
   </data>
   <data name="&gt;&gt;emptySpaceItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;diagnosticContainerLayoutItem.Name" xml:space="preserve">
     <value>diagnosticContainerLayoutItem</value>
   </data>
   <data name="&gt;&gt;diagnosticContainerLayoutItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;buttonsContainerLayoutItem.Name" xml:space="preserve">
     <value>buttonsContainerLayoutItem</value>
   </data>
   <data name="&gt;&gt;buttonsContainerLayoutItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;formStateModelSynchronizer.Name" xml:space="preserve">
     <value>formStateModelSynchronizer</value>
   </data>
   <data name="&gt;&gt;formStateModelSynchronizer.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Core.FormStateModelSynchronizer, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Core.FormStateModelSynchronizer, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;viewSiteManager.Name" xml:space="preserve">
     <value>viewSiteManager</value>
   </data>
   <data name="&gt;&gt;viewSiteManager.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ViewSiteManager, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ViewSiteManager, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Gtin.Name" xml:space="preserve">
+    <value>Gtin</value>
+  </data>
+  <data name="&gt;&gt;Gtin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NDC.Name" xml:space="preserve">
+    <value>NDC</value>
+  </data>
+  <data name="&gt;&gt;NDC.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SerialNumber.Name" xml:space="preserve">
+    <value>SerialNumber</value>
+  </data>
+  <data name="&gt;&gt;SerialNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ExpirtationDate.Name" xml:space="preserve">
+    <value>ExpirtationDate</value>
+  </data>
+  <data name="&gt;&gt;ExpirtationDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Lot.Name" xml:space="preserve">
+    <value>Lot</value>
+  </data>
+  <data name="&gt;&gt;Lot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Barcode.Name" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="&gt;&gt;Barcode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ReceiptPackageItemsScanForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.PopupFormBase, DevExpress.ExpressApp.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.ExpressApp.Win.Templates.PopupFormBase, DevExpress.ExpressApp.Win.v19.2, Version=19.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="cObjectsCreation.Caption" xml:space="preserve">
     <value>cObjectsCreation</value>

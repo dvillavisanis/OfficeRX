@@ -34,7 +34,7 @@ namespace RX2_Office.Module.Win.Controllers.Shipping
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt));
-            DevExpress.ExpressApp.Win.Layout.XafLayoutConstants xafLayoutConstants2 = new DevExpress.ExpressApp.Win.Layout.XafLayoutConstants();
+            DevExpress.ExpressApp.Win.Layout.XafLayoutConstants xafLayoutConstants1 = new DevExpress.ExpressApp.Win.Layout.XafLayoutConstants();
             this.xafBarManager = new DevExpress.ExpressApp.Win.Templates.Controls.XafBarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -86,6 +86,7 @@ namespace RX2_Office.Module.Win.Controllers.Shipping
             this.buttonsContainerLayoutItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.formStateModelSynchronizer = new DevExpress.ExpressApp.Win.Core.FormStateModelSynchronizer(this.components);
             this.viewSiteManager = new DevExpress.ExpressApp.Win.Templates.ViewSiteManager(this.components);
+            this.BarcodeScan = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xafBarManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagnosticContainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagnosticContainerLayoutGroup)).BeginInit();
@@ -389,7 +390,8 @@ namespace RX2_Office.Module.Win.Controllers.Shipping
             this.ItemNumber,
             this.Lot,
             this.ExpireationDate,
-            this.SerialNumber});
+            this.SerialNumber,
+            this.BarcodeScan});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
@@ -457,13 +459,13 @@ namespace RX2_Office.Module.Win.Controllers.Shipping
             this.bottomPanel.OptionsView.EnableIndentsInGroupsWithoutBorders = true;
             this.bottomPanel.OptionsView.UseSkinIndents = false;
             this.bottomPanel.Root = this.Root;
-            xafLayoutConstants2.InvisibleGroupVerticalDistance = 10;
-            xafLayoutConstants2.ItemToBorderHorizontalDistance = 10;
-            xafLayoutConstants2.ItemToBorderVerticalDistance = 10;
-            xafLayoutConstants2.ItemToItemHorizontalDistance = 10;
-            xafLayoutConstants2.ItemToItemVerticalDistance = 4;
-            xafLayoutConstants2.ItemToTabBorderDistance = 2;
-            this.bottomPanel.XafLayoutConstants = xafLayoutConstants2;
+            xafLayoutConstants1.InvisibleGroupVerticalDistance = 10;
+            xafLayoutConstants1.ItemToBorderHorizontalDistance = 10;
+            xafLayoutConstants1.ItemToBorderVerticalDistance = 10;
+            xafLayoutConstants1.ItemToItemHorizontalDistance = 10;
+            xafLayoutConstants1.ItemToItemVerticalDistance = 4;
+            xafLayoutConstants1.ItemToTabBorderDistance = 2;
+            this.bottomPanel.XafLayoutConstants = xafLayoutConstants1;
             // 
             // Root
             // 
@@ -521,6 +523,11 @@ namespace RX2_Office.Module.Win.Controllers.Shipping
             // viewSiteManager
             // 
             this.viewSiteManager.ViewSiteControl = this.viewSitePanel;
+            // 
+            // BarcodeScan
+            // 
+            this.BarcodeScan.Name = "BarcodeScan";
+            resources.ApplyResources(this.BarcodeScan, "BarcodeScan");
             // 
             // Receipt
             // 
@@ -606,5 +613,6 @@ namespace RX2_Office.Module.Win.Controllers.Shipping
         private DevExpress.XtraGrid.Columns.GridColumn Lot;
         private DevExpress.XtraGrid.Columns.GridColumn ExpireationDate;
         private DevExpress.XtraGrid.Columns.GridColumn SerialNumber;
+        private DevExpress.XtraGrid.Columns.GridColumn BarcodeScan;
     }
 }

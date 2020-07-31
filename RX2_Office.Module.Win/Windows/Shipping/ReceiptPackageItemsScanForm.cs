@@ -12,9 +12,11 @@ using RX2_Office.Module.BusinessObjects.BusinessLogic;
 using System.Windows.Forms;
 using System;
 using RX2_Office.Module.BusinessObjects;
+using System.Globalization;
 
 namespace RX2_Office.Module.Win.Windows.Shipping
 {
+    
     public partial class ReceiptPackageItemsScanForm : PopupFormBase
     {
         BarcodeUtil2 bcutil = new BarcodeUtil2();
@@ -199,17 +201,22 @@ namespace RX2_Office.Module.Win.Windows.Shipping
             {
                 if (!row.IsNewRow)
                 {
-                    DateTime? tempdate = null;
+                    DateTime tempdate = Convert.ToDateTime("1/1/1900");
+                    String temp = null;
                     ReceiverPackageItems rpi = new ReceiverPackageItems(RP.Session);
                     rpi.ItemNumber = row.Cells["NDC2"].Value.ToString();
-                    tempdate = yymmddToDateTime(row.Cells["EXPDate"].Value.ToString());
-                    if (tempdate != null)
+                    temp = row.Cells["EXPDate"].Value.ToString();
+                    if (temp != null)
                     {
-                        rpi.ExpireDate = tempdate.Value;
+                        DateTime.TryParseExact(temp,"yyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out tempdate);
+                    rpi.ExpireDate = tempdate;
+                    
                     }
+                    
+                    rpi.BarCode = row.Cells["Barcode"].Value.ToString();
                     rpi.Lot = row.Cells["Lot2"].Value.ToString();
                     rpi.Qty = Convert.ToDouble(row.Cells["Qty"].Value.ToString());
-                   // rpi.BarCode = row.Cells["BarCode"].Value.ToString();
+                  
                     // rpi.ExpireDate = "";
                     rpi.ReceiverPackageId = RP;
                   
@@ -274,6 +281,8 @@ namespace RX2_Office.Module.Win.Windows.Shipping
 
         }
 
+        
+
         private void btnClose_Click(object sender, EventArgs e)
         {
 
@@ -282,5 +291,9 @@ namespace RX2_Office.Module.Win.Windows.Shipping
             this.Close();
 
         }
+
+
     }
+   
+
 }

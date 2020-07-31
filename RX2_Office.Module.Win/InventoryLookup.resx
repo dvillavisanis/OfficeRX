@@ -135,7 +135,7 @@
     <value>barDockControlTop</value>
   </data>
   <data name="&gt;&gt;barDockControlTop.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;barDockControlTop.Parent" xml:space="preserve">
     <value>$this</value>
@@ -156,7 +156,7 @@
     <value>barDockControlBottom</value>
   </data>
   <data name="&gt;&gt;barDockControlBottom.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;barDockControlBottom.Parent" xml:space="preserve">
     <value>$this</value>
@@ -177,7 +177,7 @@
     <value>barDockControlLeft</value>
   </data>
   <data name="&gt;&gt;barDockControlLeft.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;barDockControlLeft.Parent" xml:space="preserve">
     <value>$this</value>
@@ -198,7 +198,7 @@
     <value>barDockControlRight</value>
   </data>
   <data name="&gt;&gt;barDockControlRight.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;barDockControlRight.Parent" xml:space="preserve">
     <value>$this</value>
@@ -232,7 +232,7 @@
     <value>viewSitePanel</value>
   </data>
   <data name="&gt;&gt;viewSitePanel.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;viewSitePanel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -259,7 +259,7 @@
     <value>diagnosticContainer</value>
   </data>
   <data name="&gt;&gt;diagnosticContainer.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ButtonsContainer, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ButtonsContainer, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;diagnosticContainer.Parent" xml:space="preserve">
     <value>bottomPanel</value>
@@ -295,7 +295,7 @@
     <value>buttonsContainer</value>
   </data>
   <data name="&gt;&gt;buttonsContainer.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ButtonsContainer, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ButtonsContainer, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;buttonsContainer.Parent" xml:space="preserve">
     <value>bottomPanel</value>
@@ -343,7 +343,7 @@
     <value>bottomPanel</value>
   </data>
   <data name="&gt;&gt;bottomPanel.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Layout.XafLayoutControl, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Layout.XafLayoutControl, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;bottomPanel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -361,121 +361,121 @@
     <value>xafBarManager</value>
   </data>
   <data name="&gt;&gt;xafBarManager.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.Controls.XafBarManager, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.Controls.XafBarManager, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;cObjectsCreation.Name" xml:space="preserve">
     <value>cObjectsCreation</value>
   </data>
   <data name="&gt;&gt;cObjectsCreation.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;cRecordEdit.Name" xml:space="preserve">
     <value>cRecordEdit</value>
   </data>
   <data name="&gt;&gt;cRecordEdit.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;cView.Name" xml:space="preserve">
     <value>cView</value>
   </data>
   <data name="&gt;&gt;cView.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;cPrint.Name" xml:space="preserve">
     <value>cPrint</value>
   </data>
   <data name="&gt;&gt;cPrint.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;cEdit.Name" xml:space="preserve">
     <value>cEdit</value>
   </data>
   <data name="&gt;&gt;cEdit.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;cOpenObject.Name" xml:space="preserve">
     <value>cOpenObject</value>
   </data>
   <data name="&gt;&gt;cOpenObject.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;cUndoRedo.Name" xml:space="preserve">
     <value>cUndoRedo</value>
   </data>
   <data name="&gt;&gt;cUndoRedo.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;cExport.Name" xml:space="preserve">
     <value>cExport</value>
   </data>
   <data name="&gt;&gt;cExport.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainers.ActionContainerBarItem, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;actionContainersManager.Name" xml:space="preserve">
     <value>actionContainersManager</value>
   </data>
   <data name="&gt;&gt;actionContainersManager.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ActionContainersManager, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ActionContainersManager, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;diagnosticContainerLayoutGroup.Name" xml:space="preserve">
     <value>diagnosticContainerLayoutGroup</value>
   </data>
   <data name="&gt;&gt;diagnosticContainerLayoutGroup.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;buttonsContainerLayoutGroup.Name" xml:space="preserve">
     <value>buttonsContainerLayoutGroup</value>
   </data>
   <data name="&gt;&gt;buttonsContainerLayoutGroup.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;Root.Name" xml:space="preserve">
     <value>Root</value>
   </data>
   <data name="&gt;&gt;Root.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;simpleSeparator.Name" xml:space="preserve">
     <value>simpleSeparator</value>
   </data>
   <data name="&gt;&gt;simpleSeparator.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.SimpleSeparator, DevExpress.XtraLayout.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraLayout.SimpleSeparator, DevExpress.XtraLayout.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;emptySpaceItem.Name" xml:space="preserve">
     <value>emptySpaceItem</value>
   </data>
   <data name="&gt;&gt;emptySpaceItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;diagnosticContainerLayoutItem.Name" xml:space="preserve">
     <value>diagnosticContainerLayoutItem</value>
   </data>
   <data name="&gt;&gt;diagnosticContainerLayoutItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;buttonsContainerLayoutItem.Name" xml:space="preserve">
     <value>buttonsContainerLayoutItem</value>
   </data>
   <data name="&gt;&gt;buttonsContainerLayoutItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v19.2, Culture=neutral</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;formStateModelSynchronizer.Name" xml:space="preserve">
     <value>formStateModelSynchronizer</value>
   </data>
   <data name="&gt;&gt;formStateModelSynchronizer.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Core.FormStateModelSynchronizer, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Core.FormStateModelSynchronizer, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;viewSiteManager.Name" xml:space="preserve">
     <value>viewSiteManager</value>
   </data>
   <data name="&gt;&gt;viewSiteManager.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.ViewSiteManager, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.ViewSiteManager, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>InventoryLookup</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>DevExpress.ExpressApp.Win.Templates.PopupFormBase, DevExpress.ExpressApp.Win.v19.2, Culture=neutral</value>
+    <value>DevExpress.ExpressApp.Win.Templates.PopupFormBase, DevExpress.ExpressApp.Win.v20.1, Culture=neutral</value>
   </data>
   <data name="cObjectsCreation.Caption" xml:space="preserve">
     <value>cObjectsCreation</value>

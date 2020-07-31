@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="CustomerContact_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="ChangeHistory_Group" TextAlignMode="AlignWithChildren" RelativeSize="24.444444444444443" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

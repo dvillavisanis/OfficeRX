@@ -34,7 +34,7 @@ namespace RX2_Office.Module.Win.Windows.Shipping
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceiptPackageItemsScanForm));
-            DevExpress.ExpressApp.Win.Layout.XafLayoutConstants xafLayoutConstants1 = new DevExpress.ExpressApp.Win.Layout.XafLayoutConstants();
+            DevExpress.ExpressApp.Win.Layout.XafLayoutConstants xafLayoutConstants2 = new DevExpress.ExpressApp.Win.Layout.XafLayoutConstants();
             this.xafBarManager = new DevExpress.ExpressApp.Win.Templates.Controls.XafBarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -60,6 +60,12 @@ namespace RX2_Office.Module.Win.Windows.Shipping
             this.Lot2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecordgridList = new System.Windows.Forms.DataGridView();
+            this.Gtin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NDC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpirtationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblExpDt = new System.Windows.Forms.Label();
@@ -80,12 +86,6 @@ namespace RX2_Office.Module.Win.Windows.Shipping
             this.buttonsContainerLayoutItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.formStateModelSynchronizer = new DevExpress.ExpressApp.Win.Core.FormStateModelSynchronizer(this.components);
             this.viewSiteManager = new DevExpress.ExpressApp.Win.Templates.ViewSiteManager(this.components);
-            this.Gtin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NDC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpirtationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xafBarManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagnosticContainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagnosticContainerLayoutGroup)).BeginInit();
@@ -351,6 +351,38 @@ namespace RX2_Office.Module.Win.Windows.Shipping
             this.Barcode});
             this.RecordgridList.Name = "RecordgridList";
             // 
+            // Gtin
+            // 
+            this.Gtin.DataPropertyName = "GTIN";
+            resources.ApplyResources(this.Gtin, "Gtin");
+            this.Gtin.Name = "Gtin";
+            // 
+            // NDC
+            // 
+            resources.ApplyResources(this.NDC, "NDC");
+            this.NDC.Name = "NDC";
+            // 
+            // SerialNumber
+            // 
+            resources.ApplyResources(this.SerialNumber, "SerialNumber");
+            this.SerialNumber.Name = "SerialNumber";
+            // 
+            // ExpirtationDate
+            // 
+            resources.ApplyResources(this.ExpirtationDate, "ExpirtationDate");
+            this.ExpirtationDate.Name = "ExpirtationDate";
+            // 
+            // Lot
+            // 
+            resources.ApplyResources(this.Lot, "Lot");
+            this.Lot.Name = "Lot";
+            // 
+            // Barcode
+            // 
+            resources.ApplyResources(this.Barcode, "Barcode");
+            this.Barcode.MaxInputLength = 255;
+            this.Barcode.Name = "Barcode";
+            // 
             // btnClose
             // 
             resources.ApplyResources(this.btnClose, "btnClose");
@@ -433,13 +465,13 @@ namespace RX2_Office.Module.Win.Windows.Shipping
             this.bottomPanel.OptionsView.EnableIndentsInGroupsWithoutBorders = true;
             this.bottomPanel.OptionsView.UseSkinIndents = false;
             this.bottomPanel.Root = this.Root;
-            xafLayoutConstants1.InvisibleGroupVerticalDistance = 10;
-            xafLayoutConstants1.ItemToBorderHorizontalDistance = 10;
-            xafLayoutConstants1.ItemToBorderVerticalDistance = 10;
-            xafLayoutConstants1.ItemToItemHorizontalDistance = 10;
-            xafLayoutConstants1.ItemToItemVerticalDistance = 4;
-            xafLayoutConstants1.ItemToTabBorderDistance = 2;
-            this.bottomPanel.XafLayoutConstants = xafLayoutConstants1;
+            xafLayoutConstants2.InvisibleGroupVerticalDistance = 10;
+            xafLayoutConstants2.ItemToBorderHorizontalDistance = 10;
+            xafLayoutConstants2.ItemToBorderVerticalDistance = 10;
+            xafLayoutConstants2.ItemToItemHorizontalDistance = 10;
+            xafLayoutConstants2.ItemToItemVerticalDistance = 4;
+            xafLayoutConstants2.ItemToTabBorderDistance = 2;
+            this.bottomPanel.XafLayoutConstants = xafLayoutConstants2;
             // 
             // Root
             // 
@@ -497,38 +529,6 @@ namespace RX2_Office.Module.Win.Windows.Shipping
             // viewSiteManager
             // 
             this.viewSiteManager.ViewSiteControl = this.viewSitePanel;
-            // 
-            // Gtin
-            // 
-            this.Gtin.DataPropertyName = "GTIN";
-            resources.ApplyResources(this.Gtin, "Gtin");
-            this.Gtin.Name = "Gtin";
-            // 
-            // NDC
-            // 
-            resources.ApplyResources(this.NDC, "NDC");
-            this.NDC.Name = "NDC";
-            // 
-            // SerialNumber
-            // 
-            resources.ApplyResources(this.SerialNumber, "SerialNumber");
-            this.SerialNumber.Name = "SerialNumber";
-            // 
-            // ExpirtationDate
-            // 
-            resources.ApplyResources(this.ExpirtationDate, "ExpirtationDate");
-            this.ExpirtationDate.Name = "ExpirtationDate";
-            // 
-            // Lot
-            // 
-            resources.ApplyResources(this.Lot, "Lot");
-            this.Lot.Name = "Lot";
-            // 
-            // Barcode
-            // 
-            resources.ApplyResources(this.Barcode, "Barcode");
-            this.Barcode.MaxInputLength = 255;
-            this.Barcode.Name = "Barcode";
             // 
             // ReceiptPackageItemsScanForm
             // 
