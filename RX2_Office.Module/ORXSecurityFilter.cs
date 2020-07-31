@@ -1,27 +1,9 @@
-using System;
-using System.Text;
-using System.Linq;
 using DevExpress.ExpressApp;
-using System.ComponentModel;
-using DevExpress.ExpressApp.DC;
-using System.Collections.Generic;
-using DevExpress.Persistent.Base;
-using DevExpress.Persistent.BaseImpl;
 using DevExpress.ExpressApp.Model;
-using DevExpress.ExpressApp.Actions;
-using DevExpress.ExpressApp.Editors;
-using DevExpress.ExpressApp.Updating;
 using DevExpress.ExpressApp.Model.Core;
-using DevExpress.ExpressApp.Model.DomainLogics;
-using DevExpress.ExpressApp.Model.NodeGenerators;
-using DevExpress.ExpressApp.Xpo;
-using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp.ReportsV2;
 using RX2_Office.Module.BusinessObjects;
-using RX2_Office.Module.Reports;
 using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Security;
-using DevExpress.ExpressApp.Security.Strategy;
 
 
 
@@ -33,11 +15,9 @@ namespace RX2_Office.Module
         {
             IModelListViewFilters filtersNode = (IModelListViewFilters)node;
             #region CustomerFilters
-            if (((IModelListView)filtersNode.Parent).ModelClass.TypeInfo.Type ==
-                typeof(Customer))
+            if (((IModelListView)filtersNode.Parent).ModelClass.TypeInfo.Type == typeof(Customer))
             {
-
-                bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("SalesMGR")  || ((Employee)SecuritySystem.CurrentUser).IsUserInRole("Administrators") ;
+                bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("SalesMGR") || ((Employee)SecuritySystem.CurrentUser).IsUserInRole("Administrators");
                 if (flag)
                 {
                     IModelListViewFilterItem myFilter = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter");
@@ -49,21 +29,21 @@ namespace RX2_Office.Module
                     IModelListViewFilterItem myFilter1 = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter1");
 
                     myFilter1.Criteria = "[LastInvoiceDate] >=  ADDDAYS(LocalDateTimeToday(), -30) ";
-                    myFilter1.Index = 98;
+                    myFilter1.Index = 50;
                     myFilter1.ToolTip = "All Customers who Purchase In 30 Days  will take longer";
                     myFilter1.Caption = "All Customers who Purchase In 30 Days ";
                     myFilter1.Description = "All Customers who Purchase In 30 Days ";
 
                     IModelListViewFilterItem myFilter2 = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter2");
                     myFilter2.Criteria = "[LastInvoiceDate] >=  ADDDAYS(LocalDateTimeToday(), -60) ";
-                    myFilter2.Index = 98;
+                    myFilter2.Index = 51;
                     myFilter2.ToolTip = "All Customers who Purchase In 60 Days  will take longer";
                     myFilter2.Caption = "All Customers who Purchase In 60 Days ";
                     myFilter2.Description = "All Customers who Purchase In 60 Days ";
 
                     IModelListViewFilterItem myFilter4 = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter4");
                     myFilter4.Criteria = "[LastInvoiceDate] >=  ADDDAYS(LocalDateTimeToday(), -90) ";
-                    myFilter4.Index = 98;
+                    myFilter4.Index = 52;
                     myFilter4.ToolTip = "All Customers who Purchase In 90 Days  will take longer";
                     myFilter4.Caption = "All Customers who Purchase In 90 Days ";
                     myFilter4.Description = "All Customers who Purchase In 90 Days ";
@@ -71,7 +51,7 @@ namespace RX2_Office.Module
 
                     IModelListViewFilterItem myFilter5 = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter5");
                     myFilter5.Criteria = "[LastInvoiceDate] >=  ADDDAYS(LocalDateTimeToday(), -365) ";
-                    myFilter5.Index = 98;
+                    myFilter5.Index = 53;
                     myFilter5.ToolTip = "All Customers who Purchase In 365 Days  will take longer";
                     myFilter5.Caption = "All Customers who Purchase In 365 Days ";
                     myFilter5.Description = "All Customers who Purchase In 365 Days ";
@@ -79,28 +59,28 @@ namespace RX2_Office.Module
 
                     IModelListViewFilterItem myFilter3 = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter3");
                     myFilter3.Criteria = "LastCallDate <=  ADDDAYS(LocalDateTimeToday(), -30) ||  LastCallDate is null";
-                    myFilter3.Index = 98;
+                    myFilter3.Index = 60;
                     myFilter3.ToolTip = "All Customers Not Called in 30 Days";
                     myFilter3.Caption = "All Customers Not Called in 30 Days ";
                     myFilter3.Description = "All Customers Not Called in 30 Days ";
 
                     IModelListViewFilterItem myFilter6 = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter6");
                     myFilter6.Criteria = "LastCallDate <=  ADDDAYS(LocalDateTimeToday(), -60)  ||  LastCallDate is null ";
-                    myFilter6.Index = 98;
+                    myFilter6.Index = 61;
                     myFilter6.ToolTip = "All Customers Not Called in 60 Days";
                     myFilter6.Caption = "All Customers Not Called in 60 Days ";
                     myFilter6.Description = "All Customers Not Called in 60 Days ";
 
                     IModelListViewFilterItem myFilter7 = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter7");
                     myFilter7.Criteria = "LastCallDate <=  ADDDAYS(LocalDateTimeToday(), -90) ||  LastCallDate is null ";
-                    myFilter7.Index = 98;
+                    myFilter7.Index = 62;
                     myFilter7.ToolTip = "All Customers Not Called in 90 Days";
                     myFilter7.Caption = "All Customers Not Called in 90 Days ";
                     myFilter7.Description = "All Customers Not Called in 90 Days ";
 
                     IModelListViewFilterItem myFilter8 = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter8");
                     myFilter8.Criteria = "LastCallDate <=  ADDDAYS(LocalDateTimeToday(), -365)  ||  LastCallDate is null ";
-                    myFilter8.Index = 98;
+                    myFilter8.Index = 63;
                     myFilter8.ToolTip = "All Customers Not Called in 365 Days";
                     myFilter8.Caption = "All Customers Not Called in 365 Days ";
                     myFilter8.Description = "All Customers Not Called in 365 Days ";
@@ -116,7 +96,7 @@ namespace RX2_Office.Module
             if (((IModelListView)filtersNode.Parent).ModelClass.TypeInfo.Type == typeof(CustomerNote))
             {
 
-                bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("SalesMGR") || ((Employee)SecuritySystem.CurrentUser).IsUserInRole("Administrators");
+                bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("SalesMgrRole") || ((Employee)SecuritySystem.CurrentUser).IsUserInRole("Administrators");
                 if (flag)
                 {
                     IModelListViewFilterItem myFilter = filtersNode.AddNode<IModelListViewFilterItem>("MyComplexFilter");
@@ -181,12 +161,7 @@ namespace RX2_Office.Module
             #endregion
 
             #region Customer InvoiceHistory
-            //         [ListViewFilter("Past Year", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -365)", "Past Year Invoice", "Only invoices in the past year. ", false)]
-            // [ListViewFilter("Last Week", "[InvoiceDate] > LocalDateTimeLastWeek() and [InvoiceDate] < LocalDateTimeThisWeek()", "Last Week", "Last Weeks Invoices. ", false)]
-            // [ListViewFilter("Last Month", "[InvoiceDate] > LocalDateTimeLastMonth() and [InvoiceDate] < LocalDateTimeThisMonth()", "Last Month", "Last month Invoices. ", false)]
-            // [ListViewFilter("This Week", "[InvoiceDate] > LocalDateTimeThisWeek() and [InvoiceDate] <= LocalDateTimeToday()", "This Week", "This Weeks Invoices. ", false)]
-            // [ListViewFilter("This Month", "[InvoiceDate] > LocalDateTimeThisMonth() and [InvoiceDate] < LocalDateTimeNextMonth()", "This Month", "Thisd month Invoices. ", false)]
-
+           
             if (((IModelListView)filtersNode.Parent).ModelClass.TypeInfo.Type == typeof(CustomerInvoiceHistory))
             {
 
@@ -219,31 +194,32 @@ namespace RX2_Office.Module
             #endregion
 
             #region CustomerContacts
+
             if (((IModelListView)filtersNode.Parent).ModelClass.TypeInfo.Type == typeof(CustomerContact))
             {
-                bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("ContactMgr") || ((Employee)SecuritySystem.CurrentUser).IsUserInRole("Administrators");
+                      bool flag = ((Employee)SecuritySystem.CurrentUser).IsUserInRole("SalesMgrRole") || ((Employee)SecuritySystem.CurrentUser).IsUserInRole("Administrators");
+
                 if (flag)
                 {
                     IModelListViewFilterItem myFilter = filtersNode.AddNode<IModelListViewFilterItem>("ContactComplexFilter");
                     myFilter.Criteria = "ContactType = 'PRIMA'";
-                    myFilter.Index = 99;
+                    myFilter.Index = 50;
                     myFilter.ToolTip = "All Primary Contact";
                     myFilter.Caption = "All Primary Contacts";
                     myFilter.Description = "All Primary Contacts";
 
                     IModelListViewFilterItem myFilter1 = filtersNode.AddNode<IModelListViewFilterItem>("ContactComplexFilter1");
                     myFilter1.Criteria = "ContactType = 'AP'";
-                    myFilter1.Index = 98;
+                    myFilter1.Index = 51;
                     myFilter1.ToolTip = "All AP Contact";
                     myFilter1.Caption = "All AP Contacts";
                     myFilter1.Description = "All AP Contacts";
 
-                    IModelListViewFilterItem myFilter2 = filtersNode.AddNode<IModelListViewFilterItem>("ContactComplexFilter3");
-                    myFilter2.Criteria = "";
-                    myFilter2.Index = 100;
+                    IModelListViewFilterItem myFilter2 = filtersNode.AddNode<IModelListViewFilterItem>("ContactsComplexFilter3");                    myFilter2.Criteria = "";
+                    myFilter2.Index = 98;
                     myFilter2.ToolTip = "All";
-                    myFilter2.Caption = "All";
-                    myFilter.Description = "All";
+                    myFilter2.Caption = "All Contacts";
+                    myFilter.Description = "All Contacts";
                 }
             }
             #endregion

@@ -18,10 +18,10 @@ namespace RX2_Office.Module.BusinessObjects
     [DefaultClassOptions]
     [ImageName("whseinv")]
     [NavigationItem("Inventory")]
-    [DefaultProperty("Whsecode")]
+    [DefaultProperty("ItemNumber")]
     [ListViewAutoFilterRowAttribute(true)]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
+    
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
@@ -118,18 +118,73 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-        DateTime lastReceivedate;
-        public DateTime LastReceivedate
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public double QtyAvailable=> (QtyOnHand - QtyOnSO);
+
+        DateTime lastReceiveDate;
+        public DateTime LastReceiveDate
         {
             get
             {
-                return lastReceivedate;
+                return lastReceiveDate;
             }
             set
             {
-                SetPropertyValue(nameof(LastReceivedate), ref lastReceivedate, value);
+                SetPropertyValue(nameof(LastReceiveDate), ref lastReceiveDate, value);
+            }
+        }
+        [Association("ItemWarehouse-SODetails")]
+        public XPCollection<SODetails> SODetails
+        {
+            get
+            {
+                return GetCollection<SODetails>(nameof(SODetails));
             }
         }
 
+        // Created/Updated: ABC\VillavisanisD on SOLIDTSI-03 at 7/31/2020 2:06 PM
+        public new class FieldsClass : XPObject.FieldsClass
+        {
+            public FieldsClass()
+            {
+
+            }
+
+            public FieldsClass(string propertyName) : base(propertyName)
+            {
+
+            }
+
+            public PersistentBase.FieldsClass ItemNumber => new PersistentBase.FieldsClass(GetNestedName("ItemNumber"));
+
+            public PersistentBase.FieldsClass Warehouse => new PersistentBase.FieldsClass(GetNestedName("Warehouse"));
+
+            public OperandProperty QtyOnHand => new OperandProperty(GetNestedName("QtyOnHand"));
+
+            public OperandProperty WhseUnitCost => new OperandProperty(GetNestedName("WhseUnitCost"));
+
+            public OperandProperty QtyOnSO => new OperandProperty(GetNestedName("QtyOnSO"));
+
+            public OperandProperty QtyAvailable => new OperandProperty(GetNestedName("QtyAvailable"));
+
+            public OperandProperty LastReceiveDate => new OperandProperty(GetNestedName("LastReceiveDate"));
+
+            public OperandProperty SODetails => new OperandProperty(GetNestedName("SODetails"));
+        }
+
+        public new static FieldsClass Fields
+        {
+            get
+            {
+                if (ReferenceEquals(_Fields, null))
+                {
+                    _Fields = new FieldsClass();
+                }
+
+                return _Fields;
+            }
+        }
+
+        static FieldsClass _Fields;
     }
 }

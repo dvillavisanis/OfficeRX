@@ -68,10 +68,11 @@ namespace RX2_Office.Module.BusinessObjects
         //}
         // Fields...
 
+        string venderReferenceNumber;
         DateTime addToAccountingDT;
         bool addToAccounting;
-      
-      //  VendorItemPricing vendorItemPricing;
+
+        //  VendorItemPricing vendorItemPricing;
         private DateTime _LastDatePurchasedFrom;
         private bool _IsActive;
         private string _Oldvendorid;
@@ -121,6 +122,16 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("AccountingVendorNumber", ref _AccountingVendorNumber, value);
             }
         }
+
+        
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string VenderReferenceNumber
+        {
+            get => venderReferenceNumber;
+            set => SetPropertyValue(nameof(VenderReferenceNumber), ref venderReferenceNumber, value);
+        }
+
+
         [VisibleInListView(false)]
         [VisibleInLookupListView(false)]
         public string Address

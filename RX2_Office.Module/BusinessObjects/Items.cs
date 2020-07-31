@@ -99,6 +99,7 @@ namespace RX2_Office.Module.BusinessObjects
         // Fields...
 
 
+        int totalQty;
         string nDCWithDashes;
         bool isActive;
         string labelName30;
@@ -281,7 +282,7 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-        
+
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NDCWithDashes
         {
@@ -463,7 +464,7 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("PackageDescription", ref _PackageDescription, value);
             }
         }
-        
+
         public bool IsActive
         {
             get => isActive;
@@ -1290,7 +1291,7 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-        
+
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public eNDCFormatCode FDAFormat
         {
@@ -1325,6 +1326,14 @@ namespace RX2_Office.Module.BusinessObjects
             {
                 SetPropertyValue("LastReceiptUnitCost", ref _LastReceiptUnitCost, value);
             }
+        }
+
+        // Calculated fields
+        
+        public int TotalQty
+        {
+            get => totalQty;
+            set => SetPropertyValue(nameof(TotalQty), ref totalQty, value);
         }
 
         [Association("Vendor-LastPurchasedFrom")]
@@ -1458,6 +1467,7 @@ namespace RX2_Office.Module.BusinessObjects
                 return GetCollection<ItemWarehouse>(nameof(ItemWarehouseInv));
             }
         }
+       
 
         [Association("Items-CustomerGPOItemPricing")]
         public XPCollection<CustomerGPOItemPricing> CustomerGPOItemPricing
@@ -1539,7 +1549,6 @@ namespace RX2_Office.Module.BusinessObjects
                 // if (string.IsNullOrEmpty(StandardUnitOfMeasure)) StandardUnitOfMeasure = result.fdbRootObject.PackagedDrug.PackageSizeUnitsCodeDesc;
                 if (!AppearsOnDailyMed) AppearsOnDailyMed = true;
                 string storagecondition =result.fdbRootObject.PackagedDrug.StorageConditionInfo.StorageConditionCode    ;
-
 
                // ret = 1;
             }

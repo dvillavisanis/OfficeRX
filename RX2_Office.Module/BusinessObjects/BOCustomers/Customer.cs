@@ -17,23 +17,23 @@ namespace RX2_Office.Module.BusinessObjects
     [NavigationItem("Sales")]
     [ListViewAutoFilterRowAttribute(true)]
     [DefaultClassOptions]
-    [ListViewFilter(" My Customers ", "[SalesRep] = CurrentUserName()  ", " My Customers ", "Customers that are mine",false, Index = 0)]
+    [ListViewFilter(" My Customers ", "[SalesRep] = CurrentUserName()  ", " My Customers ", "Customers that are mine", true, Index = 0)]
     [ListViewFilter(" My Customers who Purchase In  30 Days ", "[SalesRep] = CurrentUserName() && LastInvoiceDate >=  ADDDAYS(LocalDateTimeToday(), -30) ", " My Customers who Purchase In  30 Days ", " My Customers who Purchase In  30 Days", false, Index = 1)]
     [ListViewFilter(" My Customers who Purchase In  60 Days ", "[SalesRep] = CurrentUserName() && LastInvoiceDate >=  ADDDAYS(LocalDateTimeToday(), -60) ", " My Customers who Purchase In  60 Days ", " My Customers who Purchase In  60 Days", false, Index = 2)]
     [ListViewFilter(" My Customers who Purchase In  90 Days ", "[SalesRep] = CurrentUserName() && LastInvoiceDate >=  ADDDAYS(LocalDateTimeToday(), -90) ", " My Customers who Purchase In  90 Days ", " My Customers who Purchase In  90 Days", false, Index = 3)]
     [ListViewFilter(" My Customers who Purchase In 365 Days ", "[SalesRep] = CurrentUserName() && LastInvoiceDate >=  ADDDAYS(LocalDateTimeToday(), -365)", " My Customers who Purchase In 365 Days ", " My Customers who Purchase In 365 Days", false, Index = 4)]
     [ListViewFilter(" My Customers Not Called in 30 Days", "[SalesRep] = CurrentUserName() && (LastCallDate <=  ADDDAYS(LocalDateTimeToday(), -30)  || LastCallDate is null ) ", " My Customers Not Called in 30 Days ", " My Customers Not Called in 30 Days", false, Index = 0)]
-  
+
     // Orxsecurity filters
 
-    [RuleCombinationOfPropertiesIsUnique("CustomerNo unique", DefaultContexts.Save, "CustomerNo" ,"Customer No: Already Exist /r Customer No Must be Unique")]
+    [RuleCombinationOfPropertiesIsUnique("CustomerNo unique", DefaultContexts.Save, "CustomerNo", "Customer No: Already Exist /r Customer No Must be Unique")]
     [ImageName("Customer")]
     [Appearance("ExpiredDEA1", AppearanceItemType = "ViewItem", TargetItems = "*",
-     Criteria = "Len(DeaNo) > 8 and DeaExpDate < Today()", Context = "ListView", FontColor = "Maroon", Priority = 2)]
+     Criteria = "Len(DeaNo) > 8 and DeaExpDate < Today()  ", Context = "ListView", FontColor = "Maroon", Priority = 2)]
     [Appearance("ExpiredDEA", AppearanceItemType = "ViewItem", FontStyle = FontStyle.Strikeout, TargetItems = "DeaNo, DeaExpDate",
      Criteria = "Len(DeaNo) > 8 and DeaExpDate < Today()", Context = "ListView", FontColor = "Maroon", Priority = 2)]
     [Appearance("ActiveDEA", AppearanceItemType = "ViewItem", TargetItems = "*",
-     Criteria = "Len(DeaNo) > 8 and DeaExpDate > Today()", Context = "ListView", FontColor = "ForestGreen", Priority = 1)]
+     Criteria = "Len(DeaNo) > 8 and DeaExpDate > Today() and (len(StateLicense) > 4 and StateLicExpDate > Today())", Context = "ListView", FontColor = "ForestGreen", Priority = 1)]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     [DefaultListViewOptions(MasterDetailMode.ListViewAndDetailView, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
@@ -44,7 +44,7 @@ namespace RX2_Office.Module.BusinessObjects
             : base(session)
         {
 
-           // test
+            // test
 
         }
         public override void AfterConstruction()
@@ -55,52 +55,50 @@ namespace RX2_Office.Module.BusinessObjects
 
             if (App != null)
             {
-                
+
                 CreditLimit = App.DefaultSalesCreditLimit;
                 this.CustomerNo = GetNextCustomerNumber();
-                
+
             }
-           //set default values
+            //set default values
 
             CreditHold = false;
             string CurrentUserName = SecuritySystem.CurrentUserName;
             UnitCount = 0;
-            
+
         }
-        
+
         public void AddNote(Customer cust, String Note)
         {
             //IObjectSpace objectSpace = CreateObject(objectSpace);
             //CustomerNote cn = objectSpace.CreateObject<CustomerNote>();
-
             CustomerNote cn = new CustomerNote(Session);
             cn.Author = SecuritySystem.CurrentUserName;
             cn.Customers = cust;
             cn.NoteDate = DateTime.Now;
             cn.Text = Note;
             cn.Save();
-            
         }
 
 
         [Action(Caption = "Check Data", ConfirmationMessage = "Check Data?", ImageName = "lock", AutoCommit = true, TargetObjectsCriteria = "IsCurrentUserInRole('CustomerCheckData') && CheckData = 0")]
         public void ContactLock()
         {
-            
+
             this.CheckData = true;
 
         }
 
 
+        /// <summary>
+        /// Contact Unlock - Unlocks the contact for editing
+        /// 
+        /// </summary>
         [Action(Caption = "UnLock", ConfirmationMessage = "Finished Checking Data?", ImageName = "lock_off", AutoCommit = true, TargetObjectsCriteria = "IsCurrentUserInRole('CustomerCheckData') && CheckData = 1")]
         public void ContactUnLock()
         {
             this.CheckData = false;
         }
-
-
-
-
 
         public decimal GetCustomerItemPrice(Customer Cust, Items ItemNo)
         {
@@ -181,8 +179,9 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
 
- 
-      
+
+
+        string deaExpYear;
         bool checkData;
         string linkedIn;
         static decimal customerSalesGoal;
@@ -569,6 +568,10 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string DeaExpYear => DeaExpDate.Year.ToString();
+
         [Appearance("DeaNoisempty1", Criteria = "IsNullOrEmpty(DeaNo)", Enabled = false, Context = "DetailView")]
 
         [VisibleInListView(false)]
@@ -585,8 +588,8 @@ namespace RX2_Office.Module.BusinessObjects
             get => cI;
             set => SetPropertyValue(nameof(CI), ref cI, value);
         }
-        
-      
+
+
         [VisibleInListView(false)]
         public bool CII
         {
@@ -934,7 +937,7 @@ namespace RX2_Office.Module.BusinessObjects
         {
             get
             {
-                                
+
                 return _FederalTaxId;
             }
             set
@@ -1217,7 +1220,7 @@ namespace RX2_Office.Module.BusinessObjects
 
 
         [DataSourceCriteria("Oid != '1'")]
-        [Association("Customer-RepackItems" )]
+        [Association("Customer-RepackItems")]
         public XPCollection<RepackItems> RepackItems
         {
             get
@@ -1225,7 +1228,7 @@ namespace RX2_Office.Module.BusinessObjects
                 return GetCollection<RepackItems>(nameof(RepackItems));
             }
         }
-       
+
 
 
         //[PersistentAlias("[<CustomerInvoiceHistoryDetails>][InvoiceNumber.CustomerID == ^.Oid and IsThisMonth(InvoiceNumber.InvoiceDate)].Sum(QtyShipped * UnitPrice )")]
@@ -1509,7 +1512,7 @@ namespace RX2_Office.Module.BusinessObjects
             if (AO != null)
             {
                 int newid = AO.NextCustomerNumber++;
-               AO.Save();
+                AO.Save();
 
                 return newid.ToString("0000000000");
             }
@@ -1518,7 +1521,7 @@ namespace RX2_Office.Module.BusinessObjects
 
         }
 
-       
+
 
         public decimal GetCustomerItemPrice(int CustomerOID, string ItemNumber)
         {

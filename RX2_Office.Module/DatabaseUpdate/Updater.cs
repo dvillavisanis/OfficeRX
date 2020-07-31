@@ -1194,7 +1194,7 @@ namespace RX2_Office.Module.DatabaseUpdate
             if (CCT == null)
             {
                 CustomerContactType ct = ObjectSpace.CreateObject<CustomerContactType>();
-                ct.ContactTypeCd = "Other";
+                ct.ContactTypeCd = "OTHER";
                 ct.ContactTypeDescription = "Other Contact";
                 ObjectSpace.CommitChanges();
             }

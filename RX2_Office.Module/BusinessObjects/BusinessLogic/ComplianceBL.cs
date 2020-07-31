@@ -67,14 +67,14 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
             //Step 2: 8 + 6 + 2 = 16 
             //Step 3: 16 * 2 = 32 
             //Step 4: 15 + 32 = 47 
-            // last diget of the dea number is equal the the last digit in the calc 
+            // last digit of the dea number is equal the the last digit in the calc 
             if (aDeaNo.Length == 9)
             {
                 // check to see if first two digits are letters
                 if (Char.IsLetter(aDeaNo[0]) && Char.IsLetter(aDeaNo[1]))
                 {
 
-                    int step1 = 0;
+                   // int step1 = 0;
                     // int step4 = 0;
                     // int step2 = 0;
 
@@ -201,7 +201,7 @@ namespace RX2_Office.Module.BusinessObjects.BusinessLogic
 
             foreach (SODetails sod in SOD)
             {
-                if (sod.Item.ItemNumber.DeaClass == DeaClassEnum.CII || sod.Item.ItemNumber.DeaClass == DeaClassEnum.CI)
+                if (sod.ItemNumber.ItemNumber.DeaClass == DeaClassEnum.CII || sod.ItemNumber.ItemNumber.DeaClass == DeaClassEnum.CI)
                 {
                     if (sod.Form222Img.Length <= 100)
                     {

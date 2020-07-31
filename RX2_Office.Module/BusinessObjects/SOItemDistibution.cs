@@ -49,7 +49,7 @@ namespace RX2_Office.Module.BusinessObjects
         //}
 
         // Fields...
-        private bool _Invoiced;
+      
         private SODetails _SOLineDetail;
 
       private DateTime _DistributionDate;
@@ -150,18 +150,7 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
 
-        public bool Invoiced
-        {
-            get
-            {
-                return _Invoiced;
-            }
-            set
-            {
-                SetPropertyValue("Invoiced", ref _Invoiced, value);
-            }
-        }
-
+      
 
 
     }

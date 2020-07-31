@@ -78,7 +78,7 @@ namespace RX2_Office.Module.Controllers
             e.View = Application.CreateDetailView(objectSpace, TargetViewId, true, clr);
             e.View.Caption = e.View.Caption + " - " + clr.Customer.CustomerName;
             //e.Size = new Size(1000, 1000);
-
+            System.Diagnostics.Process.Start("https://apps.deadiversion.usdoj.gov/webforms/validateLogin.jsp");
         }
     }
 }

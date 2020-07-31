@@ -37,7 +37,7 @@
             this.DeliverInvoice.Caption = "Deliver Inv";
             this.DeliverInvoice.Category = "RecordEdit";
             this.DeliverInvoice.ConfirmationMessage = null;
-            this.DeliverInvoice.Id = "07f0ac15-e315-4850-96f3-1a512670fdf6";
+            this.DeliverInvoice.Id = "SO-DeliverInvoiceController";
             this.DeliverInvoice.ImageName = "invoice-to-mail";
             this.DeliverInvoice.PaintStyle = DevExpress.ExpressApp.Templates.ActionItemPaintStyle.CaptionAndImage;
             this.DeliverInvoice.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.CustomerInvoiceHistory);
@@ -48,7 +48,6 @@
             // 
             this.Actions.Add(this.DeliverInvoice);
             this.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.CustomerInvoiceHistory);
-            this.TypeOfView = typeof(DevExpress.ExpressApp.View);
 
         }
 

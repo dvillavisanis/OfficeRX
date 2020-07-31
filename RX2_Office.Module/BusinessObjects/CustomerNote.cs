@@ -27,13 +27,13 @@ namespace RX2_Office.Module.BusinessObjects
     
    // [ListViewFilter(" My This Week", "[NoteDate] >= LocalDateTimeThisWeek() and [NoteDate] <= LocalDateTimeNextWeek() and [Customers.SalesRep] = CurrentUserName()", " My This Week", "This Weeks Notes. ", false)]
 
-    [ListViewFilter(" This Month", "[NoteDate] >= LocalDateTimeThisMonth() and [NoteDate] <= LocalDateTimeNextMonth() ", "This Month", "This Month Notes. ", true)]
-    [ListViewFilter(" This Week", "[NoteDate] >= LocalDateTimeThisWeek() and [NoteDate] <= LocalDateTimeNextWeek() ", "My This Week", "This Weeks Notes. ", false)]
-    [ListViewFilter(" Yesterday's's Notes", "[NoteDate] >=  LocalDateTimeYesterday() and [NoteDate] < LocalDateTimeToday() ", " Yesterday and Today", " Notes from yesterday and Today.", false)]
-    [ListViewFilter(" Last Week", "[NoteDate] >= LocalDateTimeLastWeek() and [NoteDate] <= LocalDateTimeThisWeek() ", "Last Week", "Last Weeks Notes. ", false)]
-    [ListViewFilter(" Last Month", "[NoteDate] >= LocalDateTimeLastMonth() and [NoteDate] <= LocalDateTimeThisMonth() ", "Last Month ", "Last Month Notes. ", false)]
-    [ListViewFilter(" All Past Year", "[NoteDate] >  ADDDAYS(LocalDateTimeToday(), -365) ", "All Past Year Notes", "All notes for past 365 days. ", false)]
-    [ListViewFilter(" All ", "", "All Notes", "All Notes", false)]
+    [ListViewFilter(" My This Month", "[Author] = CurrentUserName() && [NoteDate] >= LocalDateTimeThisMonth() and [NoteDate] <= LocalDateTimeNextMonth() ", "My This Month", "My This Month Notes. ", true , Index = 1 )]
+    [ListViewFilter(" My This Week", "[Author] = CurrentUserName() && [NoteDate] >= LocalDateTimeThisWeek() and [NoteDate] <= LocalDateTimeNextWeek() ", "My This Week", "My This Weeks Notes. ", false, Index = 2)]
+    [ListViewFilter(" My Yesterday's's Notes", "[Author] = CurrentUserName() && [NoteDate] >=  LocalDateTimeYesterday() and [NoteDate] <= LocalDateTimeToday() ", " My Yesterday and Today", "  My Notes from yesterday and Today.", false, Index = 3)]
+    [ListViewFilter(" My Last Week", "[Author] = CurrentUserName() && [NoteDate] >= LocalDateTimeLastWeek() and [NoteDate] <= LocalDateTimeThisWeek() ", "Last Week", "Last Weeks Notes. ", false, Index = 4)]
+    [ListViewFilter(" My Last Month", "[Author] = CurrentUserName() && [NoteDate] >= LocalDateTimeLastMonth() and [NoteDate] <= LocalDateTimeThisMonth() ", "My Last Month ", "My Last Month Notes. ", false, Index = 5)]
+    [ListViewFilter(" My All Past Year", "[Author] = CurrentUserName() && [NoteDate] >  ADDDAYS(LocalDateTimeToday(), -365) ", "My Past Year Notes", "My notes for past 365 days. ", false, Index = 6)]
+    [ListViewFilter(" My All ", "[Author] = CurrentUserName() ", "My All Notes", "My All Notes", false,Index = 0 )]
 
 
     //[Persistent("DatabaseTableName")]

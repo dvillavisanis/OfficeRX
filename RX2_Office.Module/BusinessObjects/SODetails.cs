@@ -22,20 +22,23 @@ namespace RX2_Office.Module.BusinessObjects
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
     public class SODetails : XPObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
+        private decimal? fOnSalesOrder = null;
         public SODetails(Session session)
             : base(session)
-           
+
         {
-            
+
         }
         public override void AfterConstruction()
         {
             base.AfterConstruction();
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
 
-           this.UnitOfMeasure = Session.FindObject<ItemUnitOfMeasure>(CriteriaOperator.Parse("UnitOfMeasureCode = 'EA'"));
+            this.UnitOfMeasure = Session.FindObject<ItemUnitOfMeasure>(CriteriaOperator.Parse("UnitOfMeasureCode = 'EA'"));
 
         }
+
+       
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]
         //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]
@@ -53,10 +56,11 @@ namespace RX2_Office.Module.BusinessObjects
 
         // Fields...
 
+        string itemDescription;
         string scan;
         int qtyInvoiced;
         private int _QtyPicked;
-        private ItemInventory _Item;
+        private ItemWarehouse _Item;
         private SOHeader _SalesOrder;
         private ItemUnitOfMeasure _UnitOfMeasure;
         private int _QtyOrdered;
@@ -64,7 +68,7 @@ namespace RX2_Office.Module.BusinessObjects
 
         [VisibleInListView(false)]
         [Association("SOHeader-SODetails")]
-        
+
         public SOHeader SalesOrder
         {
             get
@@ -77,26 +81,26 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-
-        [Association("ItemInventory-SODetails")]
+        [Indexed]
+        [Association("ItemWarehouse-SODetails")]
         [DataSourceCriteria("Warehouse = '@This.SalesOrder.DistributionCenterWhse' ")]
-        public ItemInventory Item
+        public ItemWarehouse ItemNumber
         {
-            
+
             get
             {
-         
+
                 return _Item;
             }
             set
             {
-                if (!IsLoading && value != Item)
+                if (!IsLoading && value != ItemNumber)
 
                 {
                     SetPropertyValue("Item", ref _Item, value);
                     if (this.SalesOrder != null)
                     {
-                        this.UnitPrice = SalesOrder.CustomerNumber.GetCustomerItemPrice(SalesOrder.CustomerNumber, Item.ItemNumber);
+                        this.UnitPrice = SalesOrder.CustomerNumber.GetCustomerItemPrice(SalesOrder.CustomerNumber, ItemNumber.ItemNumber);
                     }
                 }
 
@@ -165,6 +169,19 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+        [NonPersistent]
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string ItemDescription
+        {
+            get
+            {
+                return ItemNumber?.ItemNumber?.ItemNumberDescription;
+            }
+
+        }
+
+
         [NonPersistentAttribute]
         [Size(1024)]
         public string Scan
@@ -208,5 +225,7 @@ namespace RX2_Office.Module.BusinessObjects
                 return GetCollection<SOItemDistibution>("SOItemDistributions");
             }
         }
+
+
     }
 }

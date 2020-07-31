@@ -40,20 +40,22 @@ namespace RX2_Office.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
             SalesOrderDate = DateTime.Now;
             SOStatus = SalesOrderStatus.New;
+            
             if (!(Session is NestedUnitOfWork)
-           && (Session.DataLayer != null)
-               && Session.IsNewObject(this)
-                   && (Session.ObjectLayer is SimpleObjectLayer)
+                  && (Session.DataLayer != null)
+                 && Session.IsNewObject(this)
+                    && (Session.ObjectLayer is SimpleObjectLayer)
                    //OR
                    //&& !(Session.ObjectLayer is DevExpress.ExpressApp.Security.ClientServer.SecuredSessionObjectLayer)
                    && string.IsNullOrEmpty(SalesOrderNumber))
             {
+                CustomerShippingAccount = CustomerNumber?.CustomerShippingAccount;
+                ShippingType = CustomerNumber?.ShippingType;
                 int nextSequence = DistributedIdGeneratorHelper.Generate(Session.DataLayer, this.GetType().FullName, "SalesOrder");
                 accountingSONumber = string.Format("SO{0:D6}", nextSequence);
                 salesOrderNumber = accountingSONumber;
             }
-
-
+           
         }
 
         protected override void OnSaving()
@@ -69,6 +71,8 @@ namespace RX2_Office.Module.BusinessObjects
 
         // Fields...
 
+    
+        CustomerContact contact;
         string scan;
         string lastComplianceMsg;
         private DistributionCenterWhse _DistributionCenterWhse;
@@ -127,11 +131,13 @@ namespace RX2_Office.Module.BusinessObjects
             set
             {
                 SetPropertyValue(nameof(AccountingSONumber), ref accountingSONumber, value);
-                if (SalesOrderNumber == null)  SalesOrderNumber = AccountingSONumber;
+                if (SalesOrderNumber == null) SalesOrderNumber = accountingSONumber;
 
-                
+
             }
         }
+        
+        
         public DateTime SalesOrderDate
         {
             get
@@ -172,6 +178,7 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+
         [RuleRequiredField()]
         [VisibleInListView(true)]
         [Association("Customer-SOHeaders")]
@@ -210,6 +217,16 @@ namespace RX2_Office.Module.BusinessObjects
             }
 
         }
+
+        [DataSourceCriteria("Customers = '@This.CustomerNumber' ")]
+        [Association("CustomerContact-SOHeaders")]
+        public CustomerContact Contact
+
+        {
+            get => contact;
+            set => SetPropertyValue(nameof(Contact), ref contact, value);
+        }
+
 
         [RuleRequiredField()]
         [Association("DistributionCenterWhse-SOHeaders")]

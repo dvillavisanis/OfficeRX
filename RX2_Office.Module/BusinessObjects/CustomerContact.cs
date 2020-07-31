@@ -1,19 +1,13 @@
 using System;
-using System.Linq;
-using System.Text;
 using DevExpress.Xpo;
-using DevExpress.ExpressApp.Xpo;
-using System.ComponentModel;
-using DevExpress.ExpressApp.DC;
-using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
-using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp;
+using System.ComponentModel;
 
 namespace RX2_Office.Module.BusinessObjects
 {
@@ -24,11 +18,11 @@ namespace RX2_Office.Module.BusinessObjects
     [NavigationItem("Sales")]
     [ListViewFilter(" My Contacts ", "Customers.[SalesRep] = CurrentUserName()  ", " My Customers Contacts ", "Contacts that are mine", true, Index = 0)]
     [ListViewFilter(" My Primary Contact", "Customers.[SalesRep] = CurrentUserName() && ContactType = 'PRIMA'", " My Primary Contact", "Primary sales Contacts", false, Index = 1)]
-    [ListViewFilter(" My Account Payable", "Customers.[SalesRep] = CurrentUserName() && ContactType = 'AP'", " My AP Contacts  ", "ACcount Payable Contacts", false, Index = 2)]
+   [ListViewFilter(" My Account Payable", "Customers.[SalesRep] = CurrentUserName() && ContactType = 'AP'", " My AP Contacts  ", "ACcount Payable Contacts", false, Index = 2)]
     // Orxsecurity filters
 
 
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
+    [DefaultProperty("FullName")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
 
     // Specify more UI options using a declarative approach (http://documentation.devexpress.com/#Xaf/CustomDocument2701).
@@ -61,11 +55,9 @@ namespace RX2_Office.Module.BusinessObjects
             this.Save();
         }
 
-
-
-
         //private string _PersistentProperty;
         // Fields...
+        bool sendInvoice;
         CustomerContactType contactType;
         bool locked;
         private bool isAppUser;
@@ -97,7 +89,18 @@ namespace RX2_Office.Module.BusinessObjects
         public CustomerContactType ContactType
         {
             get => contactType;
-            set => SetPropertyValue(nameof(ContactType), ref contactType, value);
+            set
+            {
+                if (!IsLoading )
+                {
+                    if (contactType.ContactTypeCd == "AP" && sendInvoice == false)
+                    {
+                        sendInvoice = true;
+                    }
+                }
+
+                SetPropertyValue(nameof(ContactType), ref contactType, value);
+            }
         }
 
         [Appearance("DisablePropertyFirstName", Criteria = "Locked", Enabled = false, Context = "DetailView")]
@@ -302,7 +305,7 @@ namespace RX2_Office.Module.BusinessObjects
 
 
         [Appearance("DisablePropertyBirthDate", Criteria = "Locked", Enabled = false, Context = "DetailView")]
-                [VisibleInListView(false)]
+        [VisibleInListView(false)]
         [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy}")]
         public DateTime BirthDate
         {
@@ -341,6 +344,14 @@ namespace RX2_Office.Module.BusinessObjects
             set { SetDelayedPropertyValue("Photo", value); }
 
         }
+
+        
+        public bool SendInvoice
+        {
+            get => sendInvoice;
+            set => SetPropertyValue(nameof(SendInvoice), ref sendInvoice, value);
+        }
+
 
 
         [VisibleInListView(false)]
@@ -418,6 +429,17 @@ namespace RX2_Office.Module.BusinessObjects
                 }
             }
         }
+        [Association("CustomerContact-SOHeaders")]
+        public XPCollection<SOHeader> SOHeaders
+        {
+            get
+            {
+                return GetCollection<SOHeader>(nameof(SOHeaders));
+            }
+        }
+
+
+
         private XPCollection<AuditDataItemPersistent> changeHistory;
         public XPCollection<AuditDataItemPersistent> ChangeHistory
         {

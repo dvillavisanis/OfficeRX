@@ -513,17 +513,6 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <DetailView Id="SOHeader_NewSO">
-      <Layout Id="Layout">
-        <LayoutGroup Id="Main">
-          <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="SODetails" TextAlignMode="AlignWithChildren">
-              <LayoutItem Id="SODetails" TextAlignMode="AutoSize" ViewItem="SODetails" />
-            </LayoutGroup>
-          </TabbedGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
     <DetailView Id="Vendor_DetailView">
       <Layout Id="Layout">
         <LayoutGroup Id="Main">
@@ -574,9 +563,41 @@
         <PropertyEditor Id="OriginalInventory" View="ItemInventory_LookupListView_Workorder" />
       </Items>
     </DetailView>
+    <DetailView Id="SOHeader_DetailView_Packing">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <TabbedGroup Id="Item5">
+              <LayoutGroup Id="Item4">
+                <LayoutItem Id="SoPackingSerailNumbers" ViewItem="SoPackingSerailNumbers" />
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="SODetails_ListView_NewSO">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Item.ItemNumber.ItemDescription" PropertyName="Item.ItemNumber.ItemDescription" Index="1" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SODetails_DetailView_Packing">
+      <Items Id="Items">
+        <PropertyEditor Id="Item" PropertyName="Item" />
+      </Items>
+    </DetailView>
     <DetailView Id="SODetails_DetailView_NewLine" DefaultFocusedItem="Itemnumber">
       <Items Id="Items">
-        <PropertyEditor Id="Item" View="ItemInventory_ListView" />
+        <PropertyEditor Id="Item.QtyOnHand" PropertyName="Item.QtyOnHand" />
+        <PropertyEditor Id="Item.ItemNumber.StdPrice" PropertyName="Item.ItemNumber.StdPrice" AllowEdit="False" />
+        <PropertyEditor Id="Item.ItemNumber.QtyOnHand" PropertyName="Item.ItemNumber.QtyOnHand" />
+        <PropertyEditor Id="Item.ItemNumber.MinPrice" PropertyName="Item.ItemNumber.MinPrice" AllowEdit="False" />
+        <PropertyEditor Id="Item.ItemNumber.ItemPTBs" PropertyName="Item.ItemNumber.ItemPTBs" View="Items_ItemPTBs_ListView" AllowEdit="False" />
+        <PropertyEditor Id="Item.ItemNumber.ItemDescription" PropertyName="Item.ItemNumber.ItemDescription" AllowEdit="False" />
+        <PropertyEditor Id="Item.ItemNumber.CurrentPTB" PropertyName="Item.ItemNumber.CurrentPTB" AllowEdit="False" />
+        <PropertyEditor Id="Item.ItemNumber.AccountingNumber" PropertyName="Item.ItemNumber.AccountingNumber" AllowEdit="False" />
+        <PropertyEditor Id="Item.ItemNumber" PropertyName="Item.ItemNumber" />
+        <PropertyEditor Id="Item" PropertyName="Item" View="ItemInventory_ListView" AllowEdit="True" DataSourcePropertyIsNullMode="SelectAll" />
       </Items>
     </DetailView>
     <DetailView Id="ItemRequest_DetailView_SalesRepRequest">
@@ -609,6 +630,12 @@
         <PropertyEditor Id="ItemNumber" View="Items_LookupListView_All" />
       </Items>
     </DetailView>
+    <ListView Id="SOHeader_SODetails_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Item" SortIndex="0" SortOrder="Descending" Width="92" />
+        <ColumnInfo Id="Item.ItemNumber.ItemDescription" PropertyName="Item.ItemNumber.ItemDescription" Index="1" Width="95" />
+      </Columns>
+    </ListView>
     <DetailView Id="CustomerInvoiceHistoryDetails_DetailView">
       <Layout Id="Layout">
         <LayoutGroup Id="Main">
@@ -628,6 +655,15 @@
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="ItemInventory_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="SODetails" Caption="Sales Orders" />
+          </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>

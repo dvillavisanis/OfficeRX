@@ -157,7 +157,7 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("SoldToName", ref _CustomerName, value);
             }
         }
-
+        [Indexed]
         [Association("SalesReps-CustomerInvoiceHistorys")]
         public SalesRep SalesRep
         {

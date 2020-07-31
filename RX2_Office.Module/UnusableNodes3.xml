@@ -512,23 +512,6 @@
           </TabbedGroup>
         </LayoutGroup>
       </Layout>
-      <Items Id="Items">
-        <PropertyEditor Id="SODetails" PropertyName="SODetails" LinkView="SODetails_ListView_NewSO" View="SODetails_ListView_NewSO" AllowEdit="False" />
-      </Items>
-    </DetailView>
-    <DetailView Id="SOHeader_NewSO">
-      <Layout Id="Layout">
-        <LayoutGroup Id="Main">
-          <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="SODetails" TextAlignMode="AlignWithChildren">
-              <LayoutItem Id="SODetails" TextAlignMode="AutoSize" ViewItem="SODetails" />
-            </LayoutGroup>
-          </TabbedGroup>
-        </LayoutGroup>
-      </Layout>
-      <Items Id="Items">
-        <PropertyEditor Id="SODetails" PropertyName="SODetails" LinkView="SODetails_ListView_NewSO" View="SODetails_ListView_NewSO" Caption="Sales Order Lines" />
-      </Items>
     </DetailView>
     <DetailView Id="Vendor_DetailView">
       <Layout Id="Layout">
@@ -562,7 +545,6 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="SOHeader_SODetails_ListView" AllowEdit="False" MasterDetailView="SODetails_DetailView_NewLine" />
     <DetailView Id="WorkOrders_New">
       <Layout Id="Layout">
         <LayoutGroup Id="Main">
@@ -580,6 +562,19 @@
       <Items Id="Items">
         <PropertyEditor Id="OriginalInventory" View="ItemInventory_LookupListView_Workorder" />
       </Items>
+    </DetailView>
+    <DetailView Id="SOHeader_DetailView_Packing">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <TabbedGroup Id="Item5">
+              <LayoutGroup Id="Item4">
+                <LayoutItem Id="SoPackingSerailNumbers" ViewItem="SoPackingSerailNumbers" />
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
     </DetailView>
     <DetailView Id="SODetails_DetailView_NewLine" DefaultFocusedItem="Itemnumber">
       <Items Id="Items">
@@ -648,20 +643,6 @@
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <DetailView Id="SOHeader_DetailView">
-      <Items Id="Items">
-        <PropertyEditor Id="SODetails" AllowEdit="False" LinkView="SODetails_ListView_NewSO" View="SODetails_ListView_NewSO" />
-      </Items>
-      <Layout Id="Layout">
-        <LayoutGroup Id="Main">
-          <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="SODetails" RelativeSize="100">
-              <LayoutItem Id="SODetails" RelativeSize="100" />
-            </LayoutGroup>
-          </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>

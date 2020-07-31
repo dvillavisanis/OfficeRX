@@ -7,6 +7,7 @@ using DevExpress.Persistent.Base;
 using System.Collections.Generic;
 using DevExpress.Persistent.Validation;
 using DevExpress.ExpressApp.SystemModule;
+using System.ComponentModel;
 
 namespace RX2_Office.Module.BusinessObjects
 {
@@ -17,12 +18,11 @@ namespace RX2_Office.Module.BusinessObjects
     [ListViewFilter(" Current Inventory", "[QtyOnHand] <> 0", "Current Inventory", "All Items In Inventory", true)]
     [ListViewFilter(" Current 17856 Inventory", "[QtyOnHand] <> 0 and [ItemNumber] like '17856%' ", "Current 17856 Inventory", "All Items In Inventory", true)]
    
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-    [DefaultListViewOptions(MasterDetailMode.ListViewAndDetailView, false, NewItemRowPosition.None)]
-
+    [DefaultProperty("ItemNumber")]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
+    
     public class ItemInventory : XPObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-       
         public ItemInventory(Session session)
             : base(session)
         {
@@ -32,26 +32,10 @@ namespace RX2_Office.Module.BusinessObjects
             base.AfterConstruction();
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
-        //private string _PersistentProperty;
-        //[XafDisplayName("My display name"), ToolTip("My hint message")]
-        //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]
-        //[Persistent("DatabaseColumnName"), RuleRequiredField(DefaultContexts.Save)]
-        //public string PersistentProperty {
-        //    get { return _PersistentProperty; }
-        //    set { SetPropertyValue("PersistentProperty", ref _PersistentProperty, value); }
-        //}
-
-        //[Action(Caption = "My UI Action", ConfirmationMessage = "Are you sure?", ImageName = "Attention", AutoCommit = true)]
-        //public void ActionMethod() {
-        //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
-        //    this.PersistentProperty = "Paid";
-        //}
-
         // Fields...
 
        
         private ItemReceiver _ReceiverId;
-        [Indexed("ItemLot")]
         private DistributionCenterWhseBins _Bin;
         private DistributionCenterWhse _Warehouse;
         private Items _ItemNumber;
@@ -61,8 +45,11 @@ namespace RX2_Office.Module.BusinessObjects
         private double _QtyOnHand;
         private DateTime _ExpirtationDate;
         private string _ItemLot;
+        private decimal? fOrdersTotal = null;
 
-        
+
+        // [Indexed("ItemNumber;Warehouse;ItemLot", Unique = true)]
+
         [RuleRequiredField]
         [Association("Items-ItemInventorys")]
         public Items ItemNumber
@@ -73,7 +60,7 @@ namespace RX2_Office.Module.BusinessObjects
             }
             set
             {
-                SetPropertyValue("Itemnumber", ref _ItemNumber, value);
+                SetPropertyValue("ItemNumber", ref _ItemNumber, value);
             }
         }
 
@@ -106,7 +93,7 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("Warehouse", ref _Warehouse, value);
             }
         }
-        [RuleRequiredField]
+     
         [Size(25)]
         public string ItemLot
         {
@@ -176,6 +163,9 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+
+
+
         public double UnitCost
         {
             get
@@ -244,14 +234,14 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-        [Association("ItemInventory-SODetails")]
-        public XPCollection<SODetails> SODetails
-        {
-            get
-            {
-                return GetCollection<SODetails>(nameof(SODetails));
-            }
-        }
+        //[Association("ItemInventory-SODetails")]
+        //public XPCollection<SODetails> SODetails
+        //{
+        //    get
+        //    {
+        //        return GetCollection<SODetails>(nameof(SODetails));
+        //    }
+        //}
 
         [Association("ItemInventory-ItemTransactions")]
         public XPCollection<ItemTransaction> ItemTransactions
@@ -270,6 +260,8 @@ namespace RX2_Office.Module.BusinessObjects
                 return GetCollection<ItemInventorySerialNo>(nameof(ItemInventorySerialNos));
             }
         }
+
+
 
         [Association("ItemInventory-SOItemDistribution")]
         public XPCollection<SOItemDistibution> SOItemDistribution

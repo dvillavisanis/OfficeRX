@@ -12,20 +12,20 @@
           </Item>
         </Items>
       </Item>
-      <Item Id="Inventory">
-        <Items Id="Items">
-          <Item Id="Inventory Setup">
-            <Items Id="Items">
-              <Item Id="ItemGroupPricing_ListView" ViewId="ItemGroupPricing_ListView" />
-            </Items>
-          </Item>
-        </Items>
-      </Item>
       <Item Id="Shipping">
         <Items Id="Items">
           <Item Id="ShippingSetup">
             <Items Id="Items">
               <Item Id="EmployeeShippers_ListView" ViewId="EmployeeShippers_ListView" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+      <Item Id="Inventory">
+        <Items Id="Items">
+          <Item Id="Inventory Setup">
+            <Items Id="Items">
+              <Item Id="ItemGroupPricing_ListView" ViewId="ItemGroupPricing_ListView" />
             </Items>
           </Item>
         </Items>
@@ -507,18 +507,7 @@
         <LayoutGroup Id="Main">
           <TabbedGroup Id="Tabs">
             <LayoutGroup Id="SODetails" TextAlignMode="AlignWithChildren">
-              <LayoutItem Id="SODetails" TextAlignMode="AutoSize" />
-            </LayoutGroup>
-          </TabbedGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <DetailView Id="SOHeader_NewSO">
-      <Layout Id="Layout">
-        <LayoutGroup Id="Main">
-          <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="SODetails" TextAlignMode="AlignWithChildren">
-              <LayoutItem Id="SODetails" TextAlignMode="AutoSize" />
+              <LayoutItem Id="SODetails" TextAlignMode="AutoSize" ViewItem="SODetails" />
             </LayoutGroup>
           </TabbedGroup>
         </LayoutGroup>
@@ -574,6 +563,19 @@
         <PropertyEditor Id="OriginalInventory" View="ItemInventory_LookupListView_Workorder" />
       </Items>
     </DetailView>
+    <DetailView Id="SOHeader_DetailView_Packing">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <TabbedGroup Id="Item5">
+              <LayoutGroup Id="Item4">
+                <LayoutItem Id="SoPackingSerailNumbers" ViewItem="SoPackingSerailNumbers" />
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="SODetails_DetailView_NewLine" DefaultFocusedItem="Itemnumber">
       <Items Id="Items">
         <PropertyEditor Id="Item" View="ItemInventory_ListView" />
@@ -608,6 +610,15 @@
       <Items Id="Items">
         <PropertyEditor Id="ItemNumber" View="Items_LookupListView_All" />
       </Items>
+    </DetailView>
+    <DetailView Id="CustomerContact_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="ChangeHistory_Group" Direction="Vertical" RelativeSize="44.723618090452263" Index="1">
+            <LayoutItem Id="ChangeHistory" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
     </DetailView>
     <DetailView Id="CustomerInvoiceHistoryDetails_DetailView">
       <Layout Id="Layout">

@@ -268,7 +268,7 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("UnitCost", ref _UnitCost, value);
             }
         }
-
+        
         [ModelDefault("EditMask", "#,##.##")]
         [ModelDefault("DisplayFormat", "{0:C}")]
 
@@ -350,6 +350,8 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+        //[VisibleInListView(false)]
+        //public decimal LineUnitGP => (UnitPrice - UnitCost);
 
 
     }

@@ -36,9 +36,12 @@
             this.WebUser.AcceptButtonCaption = null;
             this.WebUser.CancelButtonCaption = null;
             this.WebUser.Caption = "Web User";
+            this.WebUser.Category = "Edit";
             this.WebUser.ConfirmationMessage = null;
             this.WebUser.Id = "WebUser";
             this.WebUser.ImageName = "WebUser";
+            this.WebUser.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
+            this.WebUser.TargetObjectsCriteria = "1=0";
             this.WebUser.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.Customer);
             this.WebUser.ToolTip = null;
             this.WebUser.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.WebUser_Execute);

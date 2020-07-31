@@ -18,7 +18,7 @@ namespace RX2_Office.Module.BusinessObjects
     [ImageName("States")]
     [NavigationItem("Options")]
     
-    [DefaultProperty("StateName")]
+    [DefaultProperty("StateCode")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None ) ]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (http://documentation.devexpress.com/#Xaf/CustomDocument2701).
@@ -47,7 +47,6 @@ namespace RX2_Office.Module.BusinessObjects
         [Key]
         [Size(2)]
         [VisibleInListView(true)]
-
         public string StateCode
         {
 

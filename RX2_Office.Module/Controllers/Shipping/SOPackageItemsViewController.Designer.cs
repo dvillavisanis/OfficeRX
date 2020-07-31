@@ -37,7 +37,7 @@
             this.ScanRecieveItems.CancelButtonCaption = null;
             this.ScanRecieveItems.Caption = "Scan Items";
             this.ScanRecieveItems.ConfirmationMessage = null;
-            this.ScanRecieveItems.Id = "5bcb32fd-fc35-4bd1-abe1-0a573ea845c1";
+            this.ScanRecieveItems.Id = "Sh-ScanRecieverItemsController";
             this.ScanRecieveItems.TargetObjectType = typeof(RX2_Office.Module.ReceiverPackage);
             this.ScanRecieveItems.ToolTip = null;
             this.ScanRecieveItems.CustomizePopupWindowParams += new DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventHandler(this.ScanRecieveItems_CustomizePopupWindowParams);

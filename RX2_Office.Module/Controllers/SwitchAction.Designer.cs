@@ -47,7 +47,7 @@
             this.SplitlayoutDirection.Caption = "Side Or Bottom";
             this.SplitlayoutDirection.Category = "View";
             this.SplitlayoutDirection.ConfirmationMessage = null;
-            this.SplitlayoutDirection.Id = "316efdb9-e3df-4ef5-8aaf-7dcc15379906";
+            this.SplitlayoutDirection.Id = "ORX-SplitLayoutDirectionController";
             this.SplitlayoutDirection.ImageName = "window_panel_bottom";
             this.SplitlayoutDirection.ToolTip = "Detail info bottom or right side";
             this.SplitlayoutDirection.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.SplitLayoutDirection_Execute);

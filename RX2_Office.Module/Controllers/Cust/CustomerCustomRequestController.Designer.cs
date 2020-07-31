@@ -41,6 +41,7 @@
             this.CustomRequest.ConfirmationMessage = "Would you like to Submit to Purchasing?";
             this.CustomRequest.Id = "SalesCustomerCustomRequest";
             this.CustomRequest.ImageName = "CustomerRequest";
+            this.CustomRequest.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
             this.CustomRequest.ToolTip = null;
             this.CustomRequest.CustomizePopupWindowParams += new DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventHandler(this.CustomRequest_CustomizePopupWindowParams);
             this.CustomRequest.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.CustomRequest_Execute);

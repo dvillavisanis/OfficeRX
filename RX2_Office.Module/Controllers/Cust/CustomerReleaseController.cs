@@ -73,10 +73,7 @@ namespace RX2_Office.Module.Controllers
                         os.CommitChanges();
                         ((ListView)View).CollectionSource.Reload();
                     }
-                    
-                    
-
-
+               
                 }
             }
 

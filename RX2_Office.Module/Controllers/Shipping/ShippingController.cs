@@ -103,7 +103,7 @@ namespace RX2_Office.Module.Controllers.Shipping
                 selectedSOi.PickingsheetPrinted = true;
                 selectedSOi.SOStatus = SalesOrderStatus.Picking;
                 selectedSOi.Save();
-                //selectedContact.Street1 
+               
             }
             myReport.PrintDialog();
             ObjectSpace.CommitChanges();
@@ -263,5 +263,12 @@ namespace RX2_Office.Module.Controllers.Shipping
         {
 
         }
+
+        private void ShippingLabel_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
+        {
+
+        }
+
+       
     }
 }

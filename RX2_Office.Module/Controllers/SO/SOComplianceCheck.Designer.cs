@@ -38,6 +38,7 @@
             this.CompChk.ConfirmationMessage = "Run this order through Compliance Check?";
             this.CompChk.Id = "SOComplianceCheck";
             this.CompChk.ImageName = "SO\\complianceCheck";
+            this.CompChk.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
             this.CompChk.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.SOHeader);
             this.CompChk.TargetViewId = "SOHeader_ListView_ComplianceCheck";
             this.CompChk.ToolTip = null;

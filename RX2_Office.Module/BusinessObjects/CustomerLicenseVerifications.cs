@@ -20,7 +20,7 @@ namespace RX2_Office.Module.BusinessObjects
 
     [ListViewFilter(" My This Week", "[VerificationDate] >= LocalDateTimeThisWeek() and [VerificationDate] <= LocalDateTimeNextWeek() and [Customer.SalesRep] = CurrentUserName()", " My This Week", "This Weeks Invoices. ", false)]
     [ListViewFilter(" My This Month", "[VerificationDate] >= LocalDateTimeThisMonth() and [VerificationDate]< LocalDateTimeNextMonth() and [Customer.SalesRep] = CurrentUserName()", " My This Month", "Thisd month Invoices. ", false)]
-    [ListViewFilter(" My Yeasterday's Invoices", "[VerificationDate] >=  LocalDateTimeYesterday() and [VerificationDate] < LocalDateTimeToday() and [Customer.SalesRep] = CurrentUserName()", " My Yesterday and Today", " My Only invoices from yesterday and Today.", true)]
+    [ListViewFilter(" My Yesterday's Invoices", "[VerificationDate] >=  LocalDateTimeYesterday() and [VerificationDate] < LocalDateTimeToday() and [Customer.SalesRep] = CurrentUserName()", " My Yesterday and Today", " My Only invoices from yesterday and Today.", true)]
     [ListViewFilter(" My Last Week", "[VerificationDate] >= LocalDateTimeLastWeek() and [VerificationDate] <= LocalDateTimeThisWeek() and [Customer.SalesRep] = CurrentUserName()", " My Last Week", "Last Weeks Invoices. ", false)]
     [ListViewFilter(" My Last Month", "[VerificationDate] >= LocalDateTimeLastMonth() and [VerificationDate] <= LocalDateTimeThisMonth()and [Customer.SalesRep] = CurrentUserName()", " My Last Month ", "My Last month Invoices. ", false)]
 
@@ -49,7 +49,7 @@ namespace RX2_Office.Module.BusinessObjects
         {
             base.OnSaved();
 
-            if (this.LicenseType == CustomerLicsenseType.Dea)
+            if (this.LicenseType == CustomerLicenseType.Dea)
             {
                 string propertyName = "Oid";
 
@@ -86,16 +86,14 @@ namespace RX2_Office.Module.BusinessObjects
         //    this.PersistentProperty = "Paid";
         //}
         // Fields...
-        private CustomerLicsenseType _LicenseType;
+        private CustomerLicenseType _LicenseType;
         private FileData _CustomerDocument;
         private DateTime _VerificationDate;
         private string _VerifiedBy;
         private DateTime _LicenseExpirationDate;
         private Customer _Customer;
         private string _LicenseNumber;
-
-
-
+               
         [Size(25)]
         [RuleRequiredField(DefaultContexts.Save)]
         public string LicenseNumber
@@ -109,6 +107,8 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("LicenseNumber", ref _LicenseNumber, value);
             }
         }
+
+
         [RuleRequiredField(DefaultContexts.Save)]
         [Association("Customer-CustomerLicenseVerifications")]
         public Customer Customer
@@ -126,7 +126,7 @@ namespace RX2_Office.Module.BusinessObjects
 
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public CustomerLicsenseType LicenseType
+        public CustomerLicenseType LicenseType
         {
             get
             {

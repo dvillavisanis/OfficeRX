@@ -22,6 +22,7 @@ namespace RX2_Office.Module.Controllers
         public CustomerWebUserController()
         {
             InitializeComponent();
+
             // Target required Views (via the TargetXXX properties) and create their Actions.
         }
         protected override void OnActivated()

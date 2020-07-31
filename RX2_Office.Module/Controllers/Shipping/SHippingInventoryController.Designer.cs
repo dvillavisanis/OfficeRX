@@ -38,7 +38,7 @@
             this.ShInventoryController.Caption = "Inventory";
             this.ShInventoryController.Category = "Edit";
             this.ShInventoryController.ConfirmationMessage = null;
-            this.ShInventoryController.Id = "9df74115-ab36-46f4-8e9c-ca34aff69d92";
+            this.ShInventoryController.Id = "SH-ShippingInventoryController";
             this.ShInventoryController.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.ItemInventory);
             this.ShInventoryController.ToolTip = null;
             this.ShInventoryController.CustomizePopupWindowParams += new DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventHandler(this.ShInventoryController_CustomizePopupWindowParams);

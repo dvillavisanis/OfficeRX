@@ -34,12 +34,15 @@
             // SalesOrderLines
             // 
             this.SalesOrderLines.AcceptButtonCaption = null;
+            this.SalesOrderLines.ActionMeaning = DevExpress.ExpressApp.Actions.ActionMeaning.Accept;
             this.SalesOrderLines.CancelButtonCaption = null;
-            this.SalesOrderLines.Caption = "Sale Order newl ine";
+            this.SalesOrderLines.Caption = "New Item";
             this.SalesOrderLines.Category = "Edit";
             this.SalesOrderLines.ConfirmationMessage = null;
             this.SalesOrderLines.Id = "SaleOrdernewline";
             this.SalesOrderLines.ImageName = "SO_NEW";
+            this.SalesOrderLines.TargetObjectsCriteria = "";
+            this.SalesOrderLines.TargetObjectsCriteriaMode = DevExpress.ExpressApp.Actions.TargetObjectsCriteriaMode.TrueForAll;
             this.SalesOrderLines.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.SODetails);
             this.SalesOrderLines.ToolTip = null;
             this.SalesOrderLines.CustomizePopupWindowParams += new DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventHandler(this.popupWindowShowAction1_CustomizePopupWindowParams);

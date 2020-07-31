@@ -563,10 +563,54 @@
         <PropertyEditor Id="OriginalInventory" View="ItemInventory_LookupListView_Workorder" />
       </Items>
     </DetailView>
+    <DetailView Id="SOHeader_DetailView_Packing">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <TabbedGroup Id="Item5">
+              <LayoutGroup Id="Item4">
+                <LayoutItem Id="SoPackingSerailNumbers" ViewItem="SoPackingSerailNumbers" />
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="SODetails_DetailView_Packing">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SODetails">
+              <LayoutGroup Id="SODetails_col1">
+                <LayoutItem Id="Item" ViewItem="Item" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="SODetails_DetailView_NewLine" DefaultFocusedItem="Itemnumber">
-      <Items Id="Items">
-        <PropertyEditor Id="Item" View="ItemInventory_ListView" />
-      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SODetails">
+              <LayoutGroup Id="SODetails_col1">
+                <LayoutGroup Id="Auto5ee51e01-e5b4-4952-ac0c-0870b45956da">
+                  <LayoutGroup Id="Autobcbd84f8-6a02-42fc-9d9b-526c28e54649">
+                    <LayoutGroup Id="Autobad167b5-7e99-4685-8f79-bfa93cb32ddf">
+                      <LayoutItem Id="Item.ItemNumber.QtyOnHand" ViewItem="Item.ItemNumber.QtyOnHand" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                  <LayoutGroup Id="Autobeff38cd-a87c-41b8-9e83-124dbf973db4">
+                    <LayoutItem Id="Item.ItemNumber.ItemDescription" ViewItem="Item.ItemNumber.ItemDescription" />
+                    <LayoutItem Id="Item" ViewItem="Item" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
     </DetailView>
     <DetailView Id="ItemRequest_DetailView_SalesRepRequest">
       <Items Id="Items">

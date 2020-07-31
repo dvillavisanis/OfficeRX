@@ -39,7 +39,7 @@
             this.ItemReceiver.Caption = "Receipt of Goods2";
             this.ItemReceiver.Category = "Edit";
             this.ItemReceiver.ConfirmationMessage = null;
-            this.ItemReceiver.Id = "ItemReceiver";
+            this.ItemReceiver.Id = "SH-ItemReceiver";
             this.ItemReceiver.ImageName = "Receiver";
             this.ItemReceiver.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.ItemReceiver);
             this.ItemReceiver.ToolTip = null;
@@ -53,7 +53,7 @@
             this.ReceiverPutaway.Caption = "Put Away";
             this.ReceiverPutaway.Category = "Edit";
             this.ReceiverPutaway.ConfirmationMessage = null;
-            this.ReceiverPutaway.Id = "4557d9c6-1880-4a40-9dd9-80fe0f4b42c3";
+            this.ReceiverPutaway.Id = "SH-ReceiverPutaway";
             this.ReceiverPutaway.ImageName = "putaway";
             this.ReceiverPutaway.PaintStyle = DevExpress.ExpressApp.Templates.ActionItemPaintStyle.CaptionAndImage;
             this.ReceiverPutaway.TargetObjectsCriteria = "ReceiverStatus = 10";

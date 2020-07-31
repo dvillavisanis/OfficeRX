@@ -43,7 +43,7 @@
             this.Note.Caption = "Note";
             this.Note.Category = "Edit";
             this.Note.ConfirmationMessage = null;
-            this.Note.Id = "CustomNotePU";
+            this.Note.Id = "S0-CustomNotePUController";
             this.Note.ImageName = "note-Customer";
             this.Note.PaintStyle = DevExpress.ExpressApp.Templates.ActionItemPaintStyle.CaptionAndImage;
             this.Note.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
@@ -60,7 +60,7 @@
             this.SalesOrderPopup.Caption = "Sales Order ";
             this.SalesOrderPopup.Category = "Edit";
             this.SalesOrderPopup.ConfirmationMessage = null;
-            this.SalesOrderPopup.Id = "SalesOrderPopup";
+            this.SalesOrderPopup.Id = "SO-SalesOrderPopupController";
             this.SalesOrderPopup.ImageName = "order-add";
             this.SalesOrderPopup.QuickAccess = true;
             this.SalesOrderPopup.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
@@ -87,10 +87,10 @@
             // 
             // ReleaseCustomer
             // 
-            this.ReleaseCustomer.Caption = "Release Customer";
+            this.ReleaseCustomer.Caption = "SO-ReleaseCustomerController";
             this.ReleaseCustomer.Category = "Edit";
             this.ReleaseCustomer.ConfirmationMessage = "Release all Selected Customers to Goldmine";
-            this.ReleaseCustomer.Id = "ReleaseCustomer";
+            this.ReleaseCustomer.Id = "SO-ReleaseCustomerController";
             this.ReleaseCustomer.ImageName = "burn";
             this.ReleaseCustomer.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireMultipleObjects;
             this.ReleaseCustomer.TargetObjectsCriteria = "[SalesRep.SalesRepCode] = UserCurrent";
@@ -107,8 +107,9 @@
             this.NewCustomerContact.Caption = "New Contact";
             this.NewCustomerContact.Category = "Edit";
             this.NewCustomerContact.ConfirmationMessage = null;
-            this.NewCustomerContact.Id = "7bbae8f0-e892-4ec7-8f25-b732e3be9fa5";
+            this.NewCustomerContact.Id = "S0-NewContactController";
             this.NewCustomerContact.ImageName = "BO_Contact";
+            this.NewCustomerContact.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
             this.NewCustomerContact.ToolTip = "Add new Contact";
             this.NewCustomerContact.CustomizePopupWindowParams += new DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventHandler(this.newContact_Parm);
             this.NewCustomerContact.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.NewContact_Execute);
@@ -120,8 +121,9 @@
             this.actionpopupCustomerMeeting.Caption = "Customer Meeting";
             this.actionpopupCustomerMeeting.Category = "Edit";
             this.actionpopupCustomerMeeting.ConfirmationMessage = null;
-            this.actionpopupCustomerMeeting.Id = "actionpopupCustomerMeeting";
+            this.actionpopupCustomerMeeting.Id = "SO-actionpopupCustomerMeeting";
             this.actionpopupCustomerMeeting.ImageName = "BO_Scheduler";
+            this.actionpopupCustomerMeeting.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
             this.actionpopupCustomerMeeting.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.Customer);
             this.actionpopupCustomerMeeting.ToolTip = null;
             this.actionpopupCustomerMeeting.CustomizePopupWindowParams += new DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventHandler(this.actionpopupCustomerMeeting_CustomizePopupWindowParams);

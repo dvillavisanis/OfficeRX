@@ -38,7 +38,7 @@
             this.newpo.Caption = "New PO";
             this.newpo.Category = "Edit";
             this.newpo.ConfirmationMessage = null;
-            this.newpo.Id = "9a1c9d55-b09e-4f8c-8ae8-d33d36fc2676";
+            this.newpo.Id = "PO-NewPOController";
             this.newpo.ImageName = "order-add";
             this.newpo.PaintStyle = DevExpress.ExpressApp.Templates.ActionItemPaintStyle.CaptionAndImage;
             this.newpo.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.Vendor);

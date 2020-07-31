@@ -507,18 +507,7 @@
         <LayoutGroup Id="Main">
           <TabbedGroup Id="Tabs">
             <LayoutGroup Id="SODetails" TextAlignMode="AlignWithChildren">
-              <LayoutItem Id="SODetails" TextAlignMode="AutoSize" />
-            </LayoutGroup>
-          </TabbedGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <DetailView Id="SOHeader_NewSO">
-      <Layout Id="Layout">
-        <LayoutGroup Id="Main">
-          <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="SODetails" TextAlignMode="AlignWithChildren">
-              <LayoutItem Id="SODetails" TextAlignMode="AutoSize" />
+              <LayoutItem Id="SODetails" TextAlignMode="AutoSize" ViewItem="SODetails" />
             </LayoutGroup>
           </TabbedGroup>
         </LayoutGroup>
@@ -573,6 +562,19 @@
       <Items Id="Items">
         <PropertyEditor Id="OriginalInventory" View="ItemInventory_LookupListView_Workorder" />
       </Items>
+    </DetailView>
+    <DetailView Id="SOHeader_DetailView_Packing">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <TabbedGroup Id="Item5">
+              <LayoutGroup Id="Item4">
+                <LayoutItem Id="SoPackingSerailNumbers" ViewItem="SoPackingSerailNumbers" />
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
     </DetailView>
     <DetailView Id="SODetails_DetailView_NewLine" DefaultFocusedItem="Itemnumber">
       <Items Id="Items">
@@ -645,4 +647,13 @@
       </Layout>
     </DetailView>
   </Views>
+  <ActionDesign Id="ActionDesign">
+    <Actions Id="Actions">
+      <Action Id="SalesOrderPopup" Shortcut="ctrl s">
+        <DisableReasons Id="DisableReasons">
+          <Reason Id="@0352f00c-b517-426e-a5fe-206a76c5cb39" Index="1" Caption="Invalid DEA" />
+        </DisableReasons>
+      </Action>
+    </Actions>
+  </ActionDesign>
 </Application>

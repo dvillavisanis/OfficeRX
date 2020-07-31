@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace RX2_Office.Module.BusinessObjects.BusinessLogic
 {
+    
+
     class BarcodeUtil
     {
         public static string AI_SSCC = "00";

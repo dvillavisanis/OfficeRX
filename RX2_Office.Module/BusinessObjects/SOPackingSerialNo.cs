@@ -15,11 +15,11 @@ using DevExpress.Persistent.Validation;
 namespace RX2_Office.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [NavigationItem("Shipping") ]
+    [NavigationItem("Shipping")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-    //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
-    //[Persistent("DatabaseTableName")]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
+   
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
     public class SOPackingSerialNo : XPObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
@@ -58,7 +58,7 @@ namespace RX2_Office.Module.BusinessObjects
         string itemNumber;
 
         SOHeader salesOrder;
-        SOPacking soPackingId;
+      
 
 
         //[Association("SOPacking-SoPackingSerialNumber")]

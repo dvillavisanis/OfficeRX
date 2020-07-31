@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator1 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
+            DevExpress.XtraPrinting.BarCode.Code39Generator code39Generator1 = new DevExpress.XtraPrinting.BarCode.Code39Generator();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
@@ -368,7 +368,8 @@
             this.xrBarCode1.Name = "xrBarCode1";
             this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
             this.xrBarCode1.SizeF = new System.Drawing.SizeF(186.5417F, 45.99997F);
-            this.xrBarCode1.Symbology = code128Generator1;
+            code39Generator1.WideNarrowRatio = 3F;
+            this.xrBarCode1.Symbology = code39Generator1;
             // 
             // collectionDataSource1
             // 
@@ -572,10 +573,10 @@
             // 
             this.xrLabel24.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Itemnumber.AccountingNumber]")});
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(3.291656F, 26.99997F);
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(3.291655F, 26.99998F);
             this.xrLabel24.Name = "xrLabel24";
             this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(131.4999F, 23F);
             this.xrLabel24.Text = "xrLabel24";
             // 
             // xrLabel28
@@ -627,7 +628,7 @@
             this.FieldCaption,
             this.PageInfo,
             this.DataField});
-            this.Version = "18.1";
+            this.Version = "20.1";
             ((System.ComponentModel.ISupportInitialize)(this.collectionDataSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

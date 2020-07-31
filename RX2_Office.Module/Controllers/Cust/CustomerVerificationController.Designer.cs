@@ -42,7 +42,7 @@
             CustomerLicVerification.Id = "CustomerLicVerificationID";
             CustomerLicVerification.ImageName = "LicenseVerification";
             CustomerLicVerification.PaintStyle = DevExpress.ExpressApp.Templates.ActionItemPaintStyle.Caption;
-            CustomerLicVerification.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireMultipleObjects;
+            CustomerLicVerification.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
             CustomerLicVerification.TargetObjectsCriteria = " IsCurrentUserInRole(\'SalesMgrRole\')";
             CustomerLicVerification.TargetObjectType = typeof(RX2_Office.Module.BusinessObjects.Customer);
             CustomerLicVerification.ToolTip = null;

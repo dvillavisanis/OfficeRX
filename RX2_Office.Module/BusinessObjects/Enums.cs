@@ -43,7 +43,7 @@ namespace RX2_Office.Module.BusinessObjects
    // public enum ContactType
    // { PrimaryContact, Sales, AccountPayable, Other }
 
-    public enum CustomerLicsenseType
+    public enum CustomerLicenseType
     { Dea, State, Other }
 
     public enum RepackStatusCodes

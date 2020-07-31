@@ -166,7 +166,7 @@ namespace RX2_Office.Module.Controllers
             string msg = string.Format("Sales order: {2} entered by {0} {1} ", SecuritySystem.CurrentUserName, System.Environment.NewLine,so.SalesOrderNumber);
             foreach (SODetails det in so.SODetails)
             {
-                msg = msg + string.Format(det.Item.ItemNumber.ToString() + " {0:C2} @ {1} {2} ", det.QtyOrdered, det.UnitPrice, System.Environment.NewLine);
+                msg = msg + string.Format(det.ItemNumber.ItemNumber.ToString() + " {0:C2} @ {1} {2} ", det.QtyOrdered, det.UnitPrice, System.Environment.NewLine);
             }
             so.CustomerNumber.AddNote(so.CustomerNumber, msg);
             so.Session.CommitTransaction();
@@ -398,6 +398,7 @@ namespace RX2_Office.Module.Controllers
                         custr.Customer = cust;
                         custr.ReleasedBy = SecuritySystem.CurrentUserName;
                         custr.ReleasedDate = DateTime.Now;
+                        custr.Customer.AddNote(custr.Customer, string.Format("Customer was released by {0}", SecuritySystem.CurrentUserName));
                         count++;
                     }
                     os.CommitChanges();
