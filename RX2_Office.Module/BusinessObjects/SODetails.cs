@@ -124,6 +124,9 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+        [RuleValueComparison("less than qtyonhand", DefaultContexts.Save, ValueComparisonType.LessThanOrEqual, "ItemNumber.ItemNumber.QtyOnHand", ParametersMode.Expression, CustomMessageTemplate = "A value Less than or Equal to Qty On Hand is required", SkipNullOrEmptyValues = false)]
+        [RuleValueComparison("Greater than 0", DefaultContexts.Save, ValueComparisonType.GreaterThan, "0", ParametersMode.Expression, CustomMessageTemplate = "A value Greater than 0 is required")]
+
         [ModelDefault("EditMask", "#,##.##")]
         [ModelDefault("DisplayFormat", "{0:0}")]
         public int QtyOrdered

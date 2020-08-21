@@ -44,7 +44,7 @@ namespace RX2_Office.Module.BusinessObjects
         // Fields...
 
 
-        
+
         Gender gender;
         private decimal _RepCurrentGPGoal;
         private bool _IsActive;
@@ -77,6 +77,7 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("SalesRepCode", ref _SalesRepCode, value);
             }
         }
+        
 
         [Size(100)]
         [VisibleInListView(false)]

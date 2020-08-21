@@ -62,8 +62,8 @@ namespace RX2_Office.Win
                     "To avoid this error, you should either start the application under Visual Studio in debug mode, or modify the " +
                     "source code of the 'DatabaseVersionMismatch' event handler to enable automatic database update, " +
                     "or manually create a database using the 'DBUpdater' tool.\r\n" +
-                    "Anyway, refer to the 'Update Application and Database Versions' help topic at http://help.devexpress.com/#Xaf/CustomDocument2795 " +
-                    "for more detailed information. If this doesn't help, please contact our Support Team at http://www.devexpress.com/Support/Center/");
+                    "Anyway, refer to the 'Update Application and Database Versions' help topic at http://www.SolidTsi.com " +
+                    "for more detailed information. If this doesn't help, please contact our Support Team at http://www.atlanticbiologicals.com");
             }
 #endif
         }

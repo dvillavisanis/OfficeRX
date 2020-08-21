@@ -64,9 +64,11 @@
     <Reference Include="DevExpress.DXCore.Controls.Data.v6.3">
       <HintPath>..\RX2_Office.Module.Win\bin\Debug\DevExpress.DXCore.Controls.Data.v6.3.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.ExpressApp.Dashboards.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.Images.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.Notifications.Win.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.Validation.Win.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.ViewVariantsModule.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.Web.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.Win.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -360,7 +362,6 @@
     <Compile Include="BusinessObjects\CustomerCart.cs" />
     <Compile Include="BusinessObjects\CustomerContactType.cs" />
     <Compile Include="BusinessObjects\CustomerEvent.cs" />
-    <Compile Include="BusinessObjects\DomainObject1.cs" />
     <Compile Include="BusinessObjects\IDGenerator.cs" />
     <Compile Include="BusinessObjects\BusinessLogic\SequenceGenerator.cs" />
     <Compile Include="BusinessObjects\BusinessLogic\CustomerBL.cs" />
@@ -439,6 +440,12 @@
     <Compile Include="Controllers\PO\NewPurchaseOrderWC.Designer.cs">
       <DependentUpon>NewPurchaseOrderWC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\PO\POItemResearch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\PO\POItemResearch.Designer.cs">
+      <DependentUpon>POItemResearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\PO\PurchasingController.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -468,6 +475,12 @@
     </Compile>
     <Compile Include="Controllers\Shipping\SOPackageItemsViewController.Designer.cs">
       <DependentUpon>SOPackageItemsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Shipping\UPSLabelPrint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Shipping\UPSLabelPrint.Designer.cs">
+      <DependentUpon>UPSLabelPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\SO\SalesInvoiceController.cs">
       <SubType>Component</SubType>
@@ -708,6 +721,9 @@
     <EmbeddedResource Include="Controllers\PO\NewPurchaseOrderWC.resx">
       <DependentUpon>NewPurchaseOrderWC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\PO\POItemResearch.resx">
+      <DependentUpon>POItemResearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\PO\PurchasingController.resx">
       <DependentUpon>PurchasingController.cs</DependentUpon>
     </EmbeddedResource>
@@ -725,6 +741,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\Shipping\SOPackageItemsViewController.resx">
       <DependentUpon>SOPackageItemsViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Shipping\UPSLabelPrint.resx">
+      <DependentUpon>UPSLabelPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\SO\SalesInvoiceController.resx">
       <DependentUpon>SalesInvoiceController.cs</DependentUpon>
@@ -906,6 +925,7 @@
     <EmbeddedResource Include="Images\itemscan.ico" />
     <EmbeddedResource Include="Images\lock.ico" />
     <EmbeddedResource Include="Images\lock_off.ico" />
+    <EmbeddedResource Include="Images\PO\Po-ItemRequestResearch.ico" />
     <Content Include="Images\product-icon.png" />
     <EmbeddedResource Include="Images\WO-ADD.ico" />
     <EmbeddedResource Include="Images\window_arrange_horizontal.ico" />
@@ -923,6 +943,7 @@
     <EmbeddedResource Include="Images\unboxing.ico" />
     <EmbeddedResource Include="Images\Propertycheck1.ico" />
     <EmbeddedResource Include="Images\Shipping\Shipping.ico" />
+    <EmbeddedResource Include="Images\Shipping\upslabel.ico" />
     <Content Include="Images\user group.ico" />
     <EmbeddedResource Include="Images\whseinv.ico" />
     <EmbeddedResource Include="Images\vendorGroup.ico" />
@@ -948,6 +969,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="UnusableNodes5.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes6.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>

@@ -268,6 +268,7 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("CustomerName", ref _CustomerName, value);
             }
         }
+        [RuleRequiredField(DefaultContexts.Save)]
         [Indexed]
         [Index(0)]
         public string CustomerNo
@@ -418,7 +419,7 @@ namespace RX2_Office.Module.BusinessObjects
         }
 
         [Appearance("ShipAddress2isempty", Criteria = "IsNullOrEmpty(ShipAddress2)", Enabled = false, Context = "DetailView")]
-
+        
         [VisibleInListView(false)]
         public string ShipAddress3
         {
@@ -444,7 +445,7 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-
+        [RuleRequiredField(DefaultContexts.Save)]
         [VisibleInListView(false)]
         [Association("State-CustomersShip")]
         public State ShipState
@@ -471,7 +472,7 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
         [Index(4)]
-
+        [RuleRequiredField(DefaultContexts.Save)]
         [Size(15)]
         public string Phone
         {
@@ -647,7 +648,10 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-
+        /// <summary>
+        /// State license for the Customer State of Florida requires state License on Invoice
+        /// </summary>
+        /// </summary>
 
         [VisibleInListView(false)]
         [Size(25)]
@@ -662,7 +666,9 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("StateLicense", ref _StateLicense, value);
             }
         }
-
+        /// <summary>
+        /// State license exipation date State of Florida requires state License on Invoice
+        /// </summary>
         [VisibleInListView(false)]
 
         public DateTime StateLicExpDate
@@ -977,7 +983,9 @@ namespace RX2_Office.Module.BusinessObjects
             set => SetPropertyValue(nameof(CreditHold), ref creditHold, value);
         }
 
-        [Size(255)]
+        public const string EmailRegularExpression = "^[A-Za-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*\\.([a-z]{2,4})$";
+                [RuleRegularExpression(DefaultContexts.Save, EmailRegularExpression, CustomMessageTemplate = "The Field must contain a vaild email address.")]
+                [Size(255)]
         [VisibleInListView(false)]
         public string InvoiceEmail
         {

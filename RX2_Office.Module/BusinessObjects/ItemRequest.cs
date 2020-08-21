@@ -85,7 +85,7 @@ namespace RX2_Office.Module.BusinessObjects
         private Items _ItemNumber;
         private string _Comment;
 
-
+        [RuleRequiredField]
         [Association("Items-Request")]
         public Items ItemNumber
         {
@@ -172,7 +172,12 @@ namespace RX2_Office.Module.BusinessObjects
             }
             set
             {
-                SetPropertyValue("RequestQty", ref _RequestQty, value);
+                //bool modified = SetPropertyValue("RequestQty", ref _RequestQty, value);
+                //if (!IsLoading && !IsSaving && ItemRequestSummary != null && modified)
+                //{
+                // //  ItemRequestSummary.UpdateItemRequestTotal(true);
+                    
+                //}
             }
         }
 
@@ -204,6 +209,8 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
+        [RuleRequiredField("SoldatOrMarketOrder ", DefaultContexts.Save,
+      SkipNullOrEmptyValues = false, TargetCriteria = "ItemRequestType >= 2")]
         [VisibleInListView(false)]
         [Size(35)]
         public string CustomerPO
@@ -405,7 +412,7 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("DrugRequestSwitchReson", ref _DrugRequestSwitchReson, value);
             }
         }
-
+        
         [Indexed]
         [VisibleInListView(false)]
         public long OldID
@@ -419,6 +426,8 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("OldID", ref _OldID, value);
             }
         }
+
+        
 
     }
 }

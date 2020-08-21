@@ -21,19 +21,30 @@ namespace RX2_Office.Module.BusinessObjects
     [NavigationItem("Sales")]
 
     [ImageName("Invoice")]
-    //[ListViewFilter("Past Year", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -365)", "Past Year Invoice", "Only invoices in the past year. ", false)]
+    [ListViewFilter("All Past Year", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -365)", "Past Year Invoice", "Only invoices in the past year. ", false)]
+    [ListViewFilter("Last 30 days", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -30)")]
+    [ListViewFilter("Last 60 days ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -60)")]
+    [ListViewFilter("Last 90 days ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -90)")]
+    [ListViewFilter("Past 2 years ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -730)")]
+    [ListViewFilter("Past 5 years ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -1825)")]
+    [ListViewFilter("Past 10 years ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -3650)")]
+
+
     //[ListViewFilter("Last Week", "[InvoiceDate] > LocalDateTimeLastWeek() and [InvoiceDate] < LocalDateTimeThisWeek()", "Last Week", "Last Weeks Invoices. ", false)]
     //[ListViewFilter("Last Month", "[InvoiceDate] > LocalDateTimeLastMonth() and [InvoiceDate] < LocalDateTimeThisMonth()", "Last Month", "Last month Invoices. ", false)]
     //[ListViewFilter("This Week", "[InvoiceDate] > LocalDateTimeThisWeek() and [InvoiceDate] <= LocalDateTimeToday()", "This Week", "This Weeks Invoices. ", false)]
     //[ListViewFilter("This Month", "[InvoiceDate] > LocalDateTimeThisMonth() and [InvoiceDate] < LocalDateTimeNextMonth()", "This Month", "Thisd month Invoices. ", false)]
-    [ListViewFilter(" My This Week", "[InvoiceDate] >= LocalDateTimeThisWeek() and [InvoiceDate] <= LocalDateTimeNextWeek() and [SalesRep] = CurrentUserName()", " My This Week", "This Weeks Invoices. ", false)]
-    [ListViewFilter(" My This Month", "[InvoiceDate] >= LocalDateTimeThisMonth() and [InvoiceDate] < LocalDateTimeNextMonth() and [SalesRep] = CurrentUserName()", " My This Month", "Thisd month Invoices. ", true)]
-    [ListViewFilter(" My Yeasterday's Invoices", "[InvoiceDate] >=  LocalDateTimeYesterday() and [InvoiceDate] < LocalDateTimeToday() and [SalesRep] = CurrentUserName()", " My Yesterday and Today", " My Only invoices from yesterday and Today.", true)]
-    [ListViewFilter(" My Last Week", "[InvoiceDate] >= LocalDateTimeLastWeek() and [InvoiceDate] <= LocalDateTimeThisWeek() and [SalesRep] = CurrentUserName()", " My Last Week", "Last Weeks Invoices. ", false)]
-    [ListViewFilter(" My Last Month", "[InvoiceDate] >= LocalDateTimeLastMonth() and [InvoiceDate] <= LocalDateTimeThisMonth()and [SalesRep] = CurrentUserName()", " My Last Month ", "My Last month Invoices. ", false)]
-    [ListViewFilter(" All Last Month", "[InvoiceDate] >= LocalDateTimeLastMonth() and [InvoiceDate] <= LocalDateTimeThisMonth()", " All Last Month ", "My Last month Invoices. ", false)]
-    [ListViewFilter(" All Last Week", "[InvoiceDate] >= LocalDateTimeLastWeek() and [InvoiceDate] <= LocalDateTimeThisWeek() ", " All Last Week", "Last Weeks Invoices. ", false)]
-    [ListViewFilter(" All ", "", "Index = 99")]
+    //[ListViewFilter(" My This Week", "[InvoiceDate] >= LocalDateTimeThisWeek() and [InvoiceDate] <= LocalDateTimeNextWeek() and [SalesRep] = CurrentUserName()", " My This Week", "This Weeks Invoices. ", false)]
+    //[ListViewFilter(" My This Month", "[InvoiceDate] >= LocalDateTimeThisMonth() and [InvoiceDate] < LocalDateTimeNextMonth() and [SalesRep] = CurrentUserName()", " My This Month", "Thisd month Invoices. ", true)]
+    //[ListViewFilter(" My Yeasterday's Invoices", "[InvoiceDate] >=  LocalDateTimeYesterday() and [InvoiceDate] < LocalDateTimeToday() and [SalesRep] = CurrentUserName()", " My Yesterday and Today", " My Only invoices from yesterday and Today.", true)]
+    //[ListViewFilter(" My Last Week", "[InvoiceDate] >= LocalDateTimeLastWeek() and [InvoiceDate] <= LocalDateTimeThisWeek() and [SalesRep] = CurrentUserName()", " My Last Week", "Last Weeks Invoices. ", false)]
+    //[ListViewFilter(" My Last Month", "[InvoiceDate] >= LocalDateTimeLastMonth() and [InvoiceDate] <= LocalDateTimeThisMonth()and [SalesRep] = CurrentUserName()", " My Last Month ", "My Last month Invoices. ", false)]
+    //[ListViewFilter(" All Last Month", "[InvoiceDate] >= LocalDateTimeLastMonth() and [InvoiceDate] <= LocalDateTimeThisMonth()", " All Last Month ", "My Last month Invoices. ", false)]
+    //[ListViewFilter(" All Last Week", "[InvoiceDate] >= LocalDateTimeLastWeek() and [InvoiceDate] >= LocalDateTimeThisWeek() ", " All Last Week", "Last Weeks Invoices. ", false)]
+    //[ListViewFilter(" All Last Week", "[InvoiceDate] >= LocalDateTimeLastWeek() and [InvoiceDate] >= LocalDateTimeThisWeek() ", " All Last Week", "Last Weeks Invoices. ", false)]
+
+
+    [ListViewFilter(" All ", " ", "")]
     [Indices("InvoiceNumber", "InvoiceDate", "CustomerID;InvoiceDate", "InvoiceDate;SalesRep")]
 
     [DefaultProperty("InvoiceNumber")]
@@ -70,6 +81,7 @@ namespace RX2_Office.Module.BusinessObjects
 
 
         DateTime sapEntered;
+        private FileData file;
         private string _TrackingNumber;
         private CustomerInvoiceTerms _InvoiceTermCode;
         private bool _IsPrinted;
@@ -659,7 +671,17 @@ namespace RX2_Office.Module.BusinessObjects
                 SetPropertyValue("TrackingNumber", ref _TrackingNumber, value);
             }
         }
-        // sales person
+        [DevExpress.Xpo.Aggregated, ExpandObjectMembers(ExpandObjectMembers.Never)]
+        public FileData InvoicePdfFile
+        {
+            get { return file; }
+            set
+            {
+                SetPropertyValue(nameof(InvoicePdfFile), ref file, value);
+            }
+        }
+
+        //person
         [Association("CustomerInvoiceHistoryDetails")]
         public XPCollection<CustomerInvoiceHistoryDetails> InvoicenumberDetails
         {
@@ -691,6 +713,16 @@ namespace RX2_Office.Module.BusinessObjects
 
         }
 
+        [Delayed]
+        //[ImageEditor(DetailViewImageEditorMode = ImageEditorMode.PictureEdit)]
+        [ValueConverter(typeof(DevExpress.Xpo.Metadata.ImageValueConverter))]
+        public System.Drawing.Image InvoicePDF
+        {
+
+            get { return GetDelayedPropertyValue<System.Drawing.Image>("InvoicePDF"); }
+            set { SetDelayedPropertyValue("InvoicePDF", value); }
+
+        }
 
 
 

@@ -57,14 +57,35 @@ namespace RX2_Office.Module.BusinessObjects
             get => itemNumber;
             set => SetPropertyValue(nameof(ItemNumber), ref itemNumber, value);
         }
+        private int? openRequestQty = null;
+        //public int? OpenRequestQty
+        //{
+        //    get
+        //    {
+        //        if (!IsLoading && !IsSaving && openRequestQty == null)
+        //            //UpdateOpenRequestQty(false);
+        //        return openRequestQty;
+        //    }
+        //}
 
 
-        
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public eEDLItemStatus ItemStatus
         {
             get => itemStatus;
             set => SetPropertyValue(nameof(ItemStatus), ref itemStatus, value);
+        }
+
+        public void UpdateItemRequestTotal(bool forceChangeEvents)
+        {
+
+            //decimal? oldOrdersTotal = fOrdersTotal;
+            //decimal tempTotal = 0m;
+            //foreach (Order detail in Orders)
+            //    tempTotal += detail.Total;
+            //fOrdersTotal = tempTotal;
+            //if (forceChangeEvents)
+            //    OnChanged(nameof(OrdersTotal), oldOrdersTotal, fOrdersTotal);
         }
 
 

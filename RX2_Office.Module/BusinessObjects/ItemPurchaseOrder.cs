@@ -24,6 +24,8 @@ namespace RX2_Office.Module.BusinessObjects
     [ListViewFilter("Open PO Older than 5 days", "[PoStatus] = 1 && [PODate] <= ADDDAYS(LocalDateTimeToday(), -5)", "Open POs Older than 5 days", "Po That are marked open and older than 5 days", false)]
     [ListViewFilter("Close PO", "[PoStatus] = 3", "Closed POs", "Po That are marked Closed", false)]
     [ListViewFilter("Yesterdays PO", "[PoStatus] = 2 && [PODate] >= ADDDAYS(LocalDateTimeToday(), -1) AND [PODate] < LocalDateTimeToday()", "Yesterday Open POs", "Po are open and create yesterday", false)]
+    [ListViewFilter("Last 10 days PO", "[PoStatus] = 2 && [PODate] >= ADDDAYS(LocalDateTimeToday(), -10) AND [PODate] < LocalDateTimeToday()", "PO Created in the last 10 days", "PO Created in the last 10 days", false)]
+
     [ListViewFilter("Today PO", "[PoStatus] = 1 &&[PODate] = LocalDateTimeToday()", "Today's Open POs", "Po are open and create today", false)]
     [ListViewFilter(" All ", "")]
 

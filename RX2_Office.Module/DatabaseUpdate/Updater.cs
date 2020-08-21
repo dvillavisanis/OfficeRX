@@ -23,7 +23,7 @@ namespace RX2_Office.Module.DatabaseUpdate
         {
             base.UpdateDatabaseAfterUpdateSchema();
 
-            #region Users
+         
             #region Security default  System Users
 
 
@@ -70,6 +70,7 @@ namespace RX2_Office.Module.DatabaseUpdate
             ObjectSpace.CommitChanges();
             #region DefaultAdmin
             // If a role with the Administrators name doesn't exist in the database, create this role
+            #region DVill
             Employee userAdmin2 = ObjectSpace.FindObject<Employee>(new BinaryOperator("UserName", "DVillavisanis"));
             if (userAdmin2 == null)
             {
@@ -367,26 +368,25 @@ namespace RX2_Office.Module.DatabaseUpdate
                 SalesRole.SetTypePermission(typeof(Customer), "Navigate;Write;Read", SecurityPermissionState.Allow);
                 SalesRole.SetTypePermission(typeof(CustomerNote), "Create;Navigate;Write;Read", SecurityPermissionState.Allow);
                 SalesRole.SetTypePermission(typeof(CustomerContact), "Create;Navigate;Write;Read", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(CustomerIDN), "Read;Write;Navigate;", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(CustomerInvoiceHistory), "Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(CustomerIDN), "Read;", SecurityPermissionState.Allow);                SalesRole.SetTypePermission(typeof(CustomerInvoiceHistory), "Read", SecurityPermissionState.Allow);
                 SalesRole.SetTypePermission(typeof(CustomerInvoiceHistoryDetails), "Read", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(CustomerClassification), "Read;Navigate", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(CustomerLicenseVerifications), "Read;Navigate", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(CustomerGPO), "Read;Navigate", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(CustomerParentSystem), "Read;Navigate", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(ItemPricingGroup), "Read;Navigate", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(SalesRep), "Read;Navigate", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(SOHeader), "Create;Navigate;Write;Read", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(SODetails), "Create;Navigate;Write;Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(CustomerClassification), "Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(CustomerLicenseVerifications), "Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(CustomerGPO), "Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(CustomerParentSystem), "Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(ItemPricingGroup), "Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(SalesRep), "Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(SOHeader), "Create;Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(SODetails), "Create;Read", SecurityPermissionState.Allow);
                 SalesRole.SetTypePermission(typeof(Items), "Read;Navigate", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(ItemTransaction), "Read;Navigate", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(ItemRequest), "Read;Create;Navigate", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(ItemTransaction), "Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(ItemRequest), "Read;Create;", SecurityPermissionState.Allow);
                 SalesRole.SetTypePermission(typeof(CustomerItemPricing), "Read;Write;Create;Navigate", SecurityPermissionState.Allow);
                 SalesRole.SetTypePermission(typeof(CustomerWebUsers), "Read;Write;Create;Navigate", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(CustomerCustomUDRequest), "Read;Write;Create", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(CustomerCustomUDRequest), "Read", SecurityPermissionState.Allow);
                 SalesRole.SetTypePermission(typeof(DistributionCenter), "Read", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(DistributionCenterWhse), "Read;Write", SecurityPermissionState.Allow);
-                SalesRole.SetTypePermission(typeof(ShippingType), "Read;Write", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(DistributionCenterWhse), "Read", SecurityPermissionState.Allow);
+                SalesRole.SetTypePermission(typeof(ShippingType), "Read;", SecurityPermissionState.Allow);
 
                 SalesRole.AddMemberPermission(typeof(Customer), "Write", "CreditLimit", null, SecurityPermissionState.Deny);
                 SalesRole.AddMemberPermission(typeof(Customer), "Read", "CreditLimit", null, SecurityPermissionState.Allow);
@@ -464,8 +464,8 @@ namespace RX2_Office.Module.DatabaseUpdate
                 SalesMgrRole.SetTypePermission(typeof(CustomerNote), "Read;Write;Create;Navigate", SecurityPermissionState.Allow);
                 SalesMgrRole.SetTypePermission(typeof(CustomerContact), "Read;Write;Create;Navigate", SecurityPermissionState.Allow);
                 SalesMgrRole.SetTypePermission(typeof(CustomerIDN), "Read;Write;Create;Navigate;", SecurityPermissionState.Allow);
-                SalesMgrRole.SetTypePermission(typeof(CustomerInvoiceHistory), "Read;Write;Create;Navigate", SecurityPermissionState.Allow);
-                SalesMgrRole.SetTypePermission(typeof(CustomerInvoiceHistoryDetails), "Read;Write;Create;Navigate", SecurityPermissionState.Allow);
+                SalesMgrRole.SetTypePermission(typeof(CustomerInvoiceHistory), "Read;Navigate", SecurityPermissionState.Allow);
+                SalesMgrRole.SetTypePermission(typeof(CustomerInvoiceHistoryDetails), "Read;Navigate", SecurityPermissionState.Allow);
                 SalesMgrRole.SetTypePermission(typeof(CustomerClassification), "Read;Write;Create;Navigate", SecurityPermissionState.Allow);
                 SalesMgrRole.SetTypePermission(typeof(CustomerLicenseVerifications), "Read;Write;Create;Navigate", SecurityPermissionState.Allow);
                 SalesMgrRole.SetTypePermission(typeof(CustomerGPO), "Read;Write;Create;Navigate", SecurityPermissionState.Allow);
@@ -509,6 +509,7 @@ namespace RX2_Office.Module.DatabaseUpdate
 
 
             #region ContactMgr
+            // used for locking and unlocking Contacts
             EmployeeRole CustomerContactRole = ObjectSpace.FindObject<EmployeeRole>(new BinaryOperator("Name", "ContactMgr"));
             if (CustomerContactRole == null)
             {
@@ -522,17 +523,17 @@ namespace RX2_Office.Module.DatabaseUpdate
 
 
             #region Item
-            EmployeeRole ItemMaintenanceRole = ObjectSpace.FindObject<EmployeeRole>(new BinaryOperator("Name", "Item Maintence"));
+            EmployeeRole ItemMaintenanceRole = ObjectSpace.FindObject<EmployeeRole>(new BinaryOperator("Name", "Item Maintenence"));
             if (ItemMaintenanceRole == null)
             {
                 ItemMaintenanceRole = ObjectSpace.CreateObject<EmployeeRole>();
-                ItemMaintenanceRole.Name = "Item Maintence";
+                ItemMaintenanceRole.Name = "Item Maintenence";
 
 
                 ItemMaintenanceRole.SetTypePermission(typeof(Items), "Create;Write;Read;Navigate", SecurityPermissionState.Allow);
                 ItemMaintenanceRole.SetTypePermission(typeof(ItemProductLine), "Create;Write;Read;Navigate", SecurityPermissionState.Allow);
                 ItemMaintenanceRole.SetTypePermission(typeof(ItemTransaction), "Read;Navigate", SecurityPermissionState.Allow);
-                ItemMaintenanceRole.SetTypePermission(typeof(ItemInventory), "Read;Navigate", SecurityPermissionState.Allow);
+                ItemMaintenanceRole.SetTypePermission(typeof(ItemInventory), "Read;Write;Create;Navigate", SecurityPermissionState.Allow);
                 userInvMgr.EmployeeRoles.Add(ItemMaintenanceRole);
                 userAdmin.EmployeeRoles.Add(ItemMaintenanceRole);
                 userAdmin2.EmployeeRoles.Add(ItemMaintenanceRole);
@@ -567,6 +568,7 @@ namespace RX2_Office.Module.DatabaseUpdate
             {
                 ItemPtbMaint = ObjectSpace.CreateObject<EmployeeRole>();
                 ItemPtbMaint.Name = "Item PTB Maintenance";
+               
                 ItemPtbMaint.SetTypePermission(typeof(ItemPTB), "Read;Create;Write;Navigate", SecurityPermissionState.Allow);
                 ObjectSpace.CommitChanges();
                 userAdmin.EmployeeRoles.Add(ItemPtbMaint);
@@ -595,9 +597,9 @@ namespace RX2_Office.Module.DatabaseUpdate
                 InventoryRORole.Name = "Inventory Read Only";
 
                 InventoryRORole.SetTypePermission(typeof(Items), "Read;Navigate", SecurityPermissionState.Allow);
-                InventoryRORole.SetTypePermission(typeof(ItemProductLine), "Read;Navigate", SecurityPermissionState.Allow);
-                InventoryRORole.SetTypePermission(typeof(ItemTransaction), "Read;Navigate", SecurityPermissionState.Allow);
-                InventoryMgrRole.SetTypePermission(typeof(ItemInventory), "Read;Navigate", SecurityPermissionState.Allow);
+                InventoryRORole.SetTypePermission(typeof(ItemProductLine), "Read", SecurityPermissionState.Allow);
+                InventoryRORole.SetTypePermission(typeof(ItemTransaction), "Read", SecurityPermissionState.Allow);
+                InventoryMgrRole.SetTypePermission(typeof(ItemInventory), "Read", SecurityPermissionState.Allow);
                 userInvRo.EmployeeRoles.Add(InventoryRORole);
                 userSalesMgr.EmployeeRoles.Add(InventoryRORole);
                 userSalesRO.EmployeeRoles.Add(InventoryRORole);
@@ -1062,8 +1064,6 @@ namespace RX2_Office.Module.DatabaseUpdate
             //}
 
             #endregion
-
-
             #region License Type
             LicenseType LT;
             LT = ObjectSpace.FindObject<LicenseType>(new BinaryOperator("LicenseTypeCode", "STAT"));
@@ -1144,8 +1144,6 @@ namespace RX2_Office.Module.DatabaseUpdate
                 ObjectSpace.CommitChanges();
             }
             #endregion
-
-
 
             #region# Defualt Shipper Shipper SE;
             //SE = ObjectSpace.FindObject<Shipper>(new BinaryOperator("Employee.UserName", "DVILLAVISANIS"));

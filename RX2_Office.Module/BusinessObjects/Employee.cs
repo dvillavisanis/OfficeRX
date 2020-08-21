@@ -19,8 +19,8 @@ using DevExpress.Persistent.Base.Security;
 namespace RX2_Office.Module.BusinessObjects
 {
     [DefaultClassOptions]
-
-    //[ImageName("BO_Contact")]
+    [NavigationItem("Security")]
+    [ImageName("BO_Security")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]

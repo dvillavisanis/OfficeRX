@@ -6,7 +6,7 @@ using System.Linq;
 using System.Collections.Generic;
 
 namespace RX2_Office.Module.BusinessObjects
-{
+{[NavigationItem("Security")]
     [ImageName("BO_Role")]
     public class EmployeeRole :  PermissionPolicyRoleBase, IPermissionPolicyRoleWithUsers {
     public EmployeeRole(Session session)

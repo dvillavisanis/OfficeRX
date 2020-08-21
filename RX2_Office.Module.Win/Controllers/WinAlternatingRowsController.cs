@@ -76,7 +76,7 @@ namespace RX2_Office.Module.Win.Controllers
                 gridView.Appearance.SelectedRow.BackColor = c;
             }
         }
-        protected override void OnDeactivated()
+        protected override void OnDeactivated() 
         {
             ConfigureSkinController configureSkinController = Application.MainWindow.GetController<ConfigureSkinController>();
             if (configureSkinController != null)
