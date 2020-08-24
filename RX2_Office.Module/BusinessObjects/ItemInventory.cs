@@ -261,7 +261,14 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-
+        [Association("ItemInventory-ItemInventoryTransfers")]
+        public XPCollection<ItemInventoryTransfer> ItemInventoryTransfers
+        {
+            get
+            {
+                return GetCollection<ItemInventoryTransfer>(nameof(ItemInventoryTransfers));
+            }
+        }
 
         [Association("ItemInventory-SOItemDistribution")]
         public XPCollection<SOItemDistibution> SOItemDistribution

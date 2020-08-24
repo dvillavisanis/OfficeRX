@@ -266,6 +266,50 @@
     <SchemaModule Name="SystemWindowsFormsModule" Version="18.1.5.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <DetailView Id="@2aadfcbf-3d37-42a6-86a0-96c69a5f3d87" ClassName="RX2_Office.Module.BusinessObjects.ItemInventoryTransfer" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="CreatedDate" PropertyName="CreatedDate" IsNewNode="True" />
+        <PropertyEditor Id="FromWhse" PropertyName="FromWhse" IsNewNode="True" />
+        <PropertyEditor Id="InventoryItem" PropertyName="InventoryItem" IsNewNode="True" />
+        <PropertyEditor Id="Oid" PropertyName="Oid" IsNewNode="True" />
+        <PropertyEditor Id="QtyTransfer" PropertyName="QtyTransfer" IsNewNode="True" />
+        <PropertyEditor Id="ReceivedBy" PropertyName="ReceivedBy" IsNewNode="True" />
+        <PropertyEditor Id="ReceivedDate" PropertyName="ReceivedDate" IsNewNode="True" />
+        <PropertyEditor Id="ShipDate" PropertyName="ShipDate" IsNewNode="True" />
+        <PropertyEditor Id="ShippedBy" PropertyName="ShippedBy" IsNewNode="True" />
+        <PropertyEditor Id="ShippingCost" PropertyName="ShippingCost" IsNewNode="True" />
+        <PropertyEditor Id="ShipWeight" PropertyName="ShipWeight" IsNewNode="True" />
+        <PropertyEditor Id="ToWhse" PropertyName="ToWhse" IsNewNode="True" />
+        <PropertyEditor Id="TrackingNumber" PropertyName="TrackingNumber" IsNewNode="True" />
+        <PropertyEditor Id="TransferComment" PropertyName="TransferComment" IsNewNode="True" />
+        <PropertyEditor Id="TransferCreatedBy" PropertyName="TransferCreatedBy" IsNewNode="True" />
+        <PropertyEditor Id="TransferStatus" PropertyName="TransferStatus" IsNewNode="True" />
+        <PropertyEditor Id="UnitCost" PropertyName="UnitCost" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+            <LayoutGroup Id="ItemInventoryTransfer" Index="0" Direction="Horizontal" ShowCaption="True" Caption="Item Inventory Transfer" RelativeSize="16.840882694541232" IsNewNode="True">
+              <LayoutGroup Id="ItemInventoryTransfer_col1" Index="0" ShowCaption="False" RelativeSize="66.666666666666671" IsNewNode="True">
+                <LayoutItem Id="FromWhse" ViewItem="FromWhse" ShowCaption="" Index="0" RelativeSize="28.571428571428573" IsNewNode="True" />
+                <LayoutItem Id="ToWhse" ViewItem="ToWhse" ShowCaption="" Index="1" RelativeSize="21.428571428571427" IsNewNode="True" />
+                <LayoutItem Id="InventoryItem" ViewItem="InventoryItem" ShowCaption="" Index="2" RelativeSize="21.428571428571427" IsNewNode="True" />
+                <LayoutGroup Id="Autof6707528-e73a-4bcf-8450-da72140885b3" ShowCaption="False" Caption="" Direction="Horizontal" Index="3" RelativeSize="28.571428571428573" IsNewNode="True">
+                  <LayoutItem Id="QtyTransfer" ViewItem="QtyTransfer" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="Item1" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="ItemInventoryTransfer_col2" Index="1" ShowCaption="False" RelativeSize="33.333333333333336" Caption="ItemInventoryTransfer_col2" Direction="Vertical" IsNewNode="True">
+                <LayoutItem Id="TransferStatus" ViewItem="TransferStatus" Index="0" RelativeSize="28.571428571428573" IsNewNode="True" />
+                <LayoutItem Id="TransferCreatedBy" ViewItem="TransferCreatedBy" Index="1" RelativeSize="21.428571428571427" IsNewNode="True" />
+                <LayoutItem Id="CreatedDate" ViewItem="CreatedDate" Index="2" RelativeSize="50" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutItem Id="TransferComment" ViewItem="TransferComment" Index="1" RelativeSize="83.159117305458764" SizeConstraintsType="Default" MinSize="176, 716" MaxSize="0, 716" IsNewNode="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="ApplicationOptions_DetailView" FreezeLayout="False">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
@@ -1604,6 +1648,62 @@
               <LayoutItem Id="Item" RelativeSize="100" />
             </LayoutGroup>
           </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="ItemInventoryTransfer_DetailView" Caption="New Item Transfer" AllowNew="False" AllowEdit="False" AllowDelete="False">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="New Transfer" ImageName="IM/ItemTransfer" />
+      </Layout>
+    </DetailView>
+    <ListView Id="ItemInventoryTransfer_ListView">
+      <Filters>
+        <Filter Id="All Open Transfer" Index="0" />
+        <Filter Id="Awaiting Shipping" Index="1" />
+        <Filter Id="Awaiting Receiving" Index="3" />
+        <Filter Id="Received Transfers" Index="4" />
+        <Filter Id="All" Index="9" />
+      </Filters>
+    </ListView>
+    <DetailView Id="ItemInventoryTransferNew_DetailView" ClassName="RX2_Office.Module.BusinessObjects.ItemInventoryTransfer" Caption="New Item Transfer" AllowNew="False" AllowEdit="True" AllowDelete="False" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="CreatedDate" PropertyName="CreatedDate" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="FromWhse" PropertyName="FromWhse" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="InventoryItem" PropertyName="InventoryItem" IsNewNode="True" />
+        <PropertyEditor Id="Oid" PropertyName="Oid" IsNewNode="True" />
+        <PropertyEditor Id="QtyTransfer" PropertyName="QtyTransfer" IsNewNode="True" />
+        <PropertyEditor Id="ReceivedBy" PropertyName="ReceivedBy" IsNewNode="True" />
+        <PropertyEditor Id="ReceivedDate" PropertyName="ReceivedDate" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="ShipDate" PropertyName="ShipDate" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="ShippedBy" PropertyName="ShippedBy" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="ShippingCost" PropertyName="ShippingCost" IsNewNode="True" />
+        <PropertyEditor Id="ShipWeight" PropertyName="ShipWeight" IsNewNode="True" />
+        <PropertyEditor Id="ToWhse" PropertyName="ToWhse" IsNewNode="True" />
+        <PropertyEditor Id="TrackingNumber" PropertyName="TrackingNumber" IsNewNode="True" />
+        <PropertyEditor Id="TransferComment" PropertyName="TransferComment" IsNewNode="True" />
+        <PropertyEditor Id="TransferCreatedBy" PropertyName="TransferCreatedBy" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="TransferStatus" PropertyName="TransferStatus" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="UnitCost" PropertyName="UnitCost" AllowEdit="False" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" Caption="New Transfer" ImageName="IM/ItemTransfer" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+            <LayoutGroup Id="ItemInventoryTransfer" Index="0" Direction="Horizontal" ShowCaption="True" Caption="Item Inventory Transfer" RelativeSize="16.840882694541232" IsNewNode="True">
+              <LayoutGroup Id="ItemInventoryTransfer_col1" Index="0" ShowCaption="False" RelativeSize="50" IsNewNode="True">
+                <LayoutItem Id="FromWhse" ViewItem="FromWhse" ShowCaption="" Index="0" RelativeSize="28.571428571428573" IsNewNode="True" />
+                <LayoutItem Id="ToWhse" ViewItem="ToWhse" ShowCaption="" Index="1" RelativeSize="21.428571428571427" IsNewNode="True" />
+                <LayoutItem Id="InventoryItem" ViewItem="InventoryItem" ShowCaption="" Index="2" RelativeSize="21.428571428571427" IsNewNode="True" />
+                <LayoutItem Id="QtyTransfer" ViewItem="QtyTransfer" ShowCaption="" Index="3" RelativeSize="28.571428571428573" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="ItemInventoryTransfer_col2" Index="1" ShowCaption="False" RelativeSize="50" IsNewNode="True">
+                <LayoutItem Id="TransferStatus" ViewItem="TransferStatus" Index="0" RelativeSize="28.571428571428573" IsNewNode="True" />
+                <LayoutItem Id="TransferCreatedBy" ViewItem="TransferCreatedBy" ShowCaption="" Index="1" RelativeSize="21.428571428571427" IsNewNode="True" />
+                <LayoutItem Id="CreatedDate" ViewItem="CreatedDate" ShowCaption="" Index="2" RelativeSize="21.428571428571427" IsNewNode="True" />
+                <LayoutItem Id="ShipDate" ViewItem="ShipDate" ShowCaption="" Index="3" RelativeSize="28.571428571428573" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutItem Id="TransferComment" ViewItem="TransferComment" Index="1" RelativeSize="83.159117305458764" SizeConstraintsType="Custom" MinSize="176, 32" IsNewNode="True" />
+          </LayoutGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>

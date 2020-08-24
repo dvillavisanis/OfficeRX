@@ -22,12 +22,12 @@ namespace RX2_Office.Module.BusinessObjects
 
     [ImageName("Invoice")]
     [ListViewFilter("All Past Year", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -365)", "Past Year Invoice", "Only invoices in the past year. ", false)]
-    [ListViewFilter("Last 30 days", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -30)")]
-    [ListViewFilter("Last 60 days ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -60)")]
-    [ListViewFilter("Last 90 days ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -90)")]
-    [ListViewFilter("Past 2 years ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -730)")]
-    [ListViewFilter("Past 5 years ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -1825)")]
     [ListViewFilter("Past 10 years ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -3650)")]
+    [ListViewFilter("Past 5 years ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -1825)")]
+    [ListViewFilter("Past 2 years ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -730)")]
+    [ListViewFilter("Last 90 days ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -90)")]
+    [ListViewFilter("Last 60 days ", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -60)")]
+    [ListViewFilter("Last 30 days", "[InvoiceDate] >  ADDDAYS(LocalDateTimeToday(), -30)")]
 
 
     //[ListViewFilter("Last Week", "[InvoiceDate] > LocalDateTimeLastWeek() and [InvoiceDate] < LocalDateTimeThisWeek()", "Last Week", "Last Weeks Invoices. ", false)]

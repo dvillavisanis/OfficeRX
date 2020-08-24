@@ -370,6 +370,7 @@
     <Compile Include="BusinessObjects\ItemDistributionCntrInventory.cs" />
     <Compile Include="BusinessObjects\ItemDistributionCtrInventory.cs" />
     <Compile Include="BusinessObjects\ItemInventoryBatch.cs" />
+    <Compile Include="BusinessObjects\ItemInventoryTransfer.cs" />
     <Compile Include="BusinessObjects\ItemProductLineComm.cs" />
     <Compile Include="BusinessObjects\ItemReceiverSerialNo.cs" />
     <Compile Include="BusinessObjects\ItemInventoryBatchSerialNo.cs" />
@@ -919,6 +920,8 @@
     <EmbeddedResource Include="Images\MarkingGroupItems.ico" />
     <EmbeddedResource Include="Images\dea 222 form.ico" />
     <EmbeddedResource Include="Images\fdbpCheck.ico" />
+    <EmbeddedResource Include="Images\IM\Inventorytransfer.ico" />
+    <EmbeddedResource Include="Images\IM\InventoryAdjustment.ico" />
     <Content Include="Images\ItemHistory.ico" />
     <EmbeddedResource Include="Images\PrintBarcode.ico" />
     <EmbeddedResource Include="Images\labelupdate2.ico" />
@@ -973,6 +976,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="UnusableNodes6.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes7.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>

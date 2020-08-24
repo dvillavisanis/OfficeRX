@@ -318,7 +318,7 @@ namespace RX2_Office.Module.DatabaseUpdate
 
                 LookupRole.SetTypePermission(typeof(CustomerClassification), "Read", SecurityPermissionState.Allow);
 
-                LookupRole.SetTypePermission(typeof(CustomerCDR), "Read;Navigate", SecurityPermissionState.Allow);
+                LookupRole.SetTypePermission(typeof(CustomerCDR), "Read", SecurityPermissionState.Allow);
                 LookupRole.SetTypePermission(typeof(CustomerGPO), "Read", SecurityPermissionState.Allow);
                 LookupRole.SetTypePermission(typeof(CustomerIDN), "Read", SecurityPermissionState.Allow);
                 LookupRole.SetTypePermission(typeof(CustomerParentSystem), "Read", SecurityPermissionState.Allow);

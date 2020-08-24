@@ -13,6 +13,7 @@ using DevExpress.ExpressApp.Templates;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
+using RX2_Office.Module.BusinessObjects;
 
 namespace RX2_Office.Module.Controllers
 {
@@ -38,6 +39,34 @@ namespace RX2_Office.Module.Controllers
         {
             // Unsubscribe from previously subscribed events and release other references and resources.
             base.OnDeactivated();
+        }
+
+        private void imInventoryTransfer_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
+        {
+
+            ItemInventoryTransfer so = (ItemInventoryTransfer)e.PopupWindowViewCurrentObject;
+
+
+
+
+        }
+
+        private void imInventoryTransfer_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
+        {
+            TargetViewId = "ItemInventoryTransferNew_DetailView";
+            IObjectSpace objectSpace = Application.CreateObjectSpace();
+            ItemInventoryTransfer IITrans = objectSpace.CreateObject<ItemInventoryTransfer>();
+
+            IITrans.InventoryItem = objectSpace.GetObject<ItemInventory>((ItemInventory)View.CurrentObject);
+            IITrans.TransferStatus = ItemInventoryTransfer.eTransferStatus.New;
+            IITrans.CreatedDate = DateTime.Now;
+            IITrans.TransferCreatedBy = Application.Security.UserName;
+            IITrans.OriginalCost = IITrans.InventoryItem.UnitCost;
+            IITrans.FromWhse = IITrans.InventoryItem.Warehouse;
+
+            e.View = Application.CreateDetailView(objectSpace, TargetViewId, true, IITrans);
+            e.View.Caption = e.View.Caption + " - " + IITrans.InventoryItem.ItemNumber;
+
         }
     }
 }

@@ -34,11 +34,12 @@ namespace RX2_Office.Module.BusinessObjects
             base.AfterConstruction();
             // Place your initialization code here (http://documentation.devexpress.com/#Xaf/CustomDocument2834).
         }
-     
+
         // Fields
-       
-     //   private ItemPurchaseOrder _ItemPurchaseOrder;
-     
+
+        //   private ItemPurchaseOrder _ItemPurchaseOrder;
+
+        object propertyName;
         private DistributionCenter _DistributionCenter;
         private bool _Partial;
         private bool _Retail;
@@ -124,7 +125,7 @@ namespace RX2_Office.Module.BusinessObjects
                 return GetCollection<ItemInventory>("Inventory");
             }
         }
-       
+
         [Association("DistributionCenterWhse-ItemTransaction")]
         public XPCollection<ItemTransaction> ItemTransaction
         {
@@ -187,7 +188,7 @@ namespace RX2_Office.Module.BusinessObjects
             }
         }
 
-        
+
         [Association("DistributionCenterWhse-DistributionCenterWhseBins")]
         public XPCollection<DistributionCenterWhseBins> Bins
         {
@@ -228,7 +229,7 @@ namespace RX2_Office.Module.BusinessObjects
 
         [Association("DistributionCenterWhse-DistributionCenters")]
         public XPCollection<DistributionCenter> defaultPowhse
-           
+
         {
             get
             {
@@ -250,6 +251,25 @@ namespace RX2_Office.Module.BusinessObjects
             get
             {
                 return GetCollection<ApplicationOptions>(nameof(ApplicationOptions));
+            }
+        }
+
+        [Association("DistributionCenterWhse-TransferFrom")]
+        public XPCollection<ItemInventoryTransfer> TransferFrom
+        {
+            get
+            {
+                return GetCollection<ItemInventoryTransfer>(nameof(TransferFrom));
+            }
+        }
+
+
+        [Association("DistributionCenterWhse-TransferTo")]
+        public XPCollection<ItemInventoryTransfer> TransferTo
+        {
+            get
+            {
+                return GetCollection<ItemInventoryTransfer>(nameof(TransferTo));
             }
         }
     }
